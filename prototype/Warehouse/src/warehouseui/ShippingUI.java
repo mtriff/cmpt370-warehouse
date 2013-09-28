@@ -31,7 +31,7 @@ public class ShippingUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jButton1.setText("Future Plan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

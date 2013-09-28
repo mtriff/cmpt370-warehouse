@@ -64,7 +64,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Conform");
+        jButton1.setText("Confirm");
 
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

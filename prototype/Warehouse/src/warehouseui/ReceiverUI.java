@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import javax.swing.WindowConstants;
+
 /**
  *
  * @author Xianming
@@ -43,7 +45,7 @@ public class ReceiverUI extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jLabel1.setText("Name");
 

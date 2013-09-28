@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import javax.swing.WindowConstants;
+
 
 /**
  *
