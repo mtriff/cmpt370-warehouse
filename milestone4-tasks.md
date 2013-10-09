@@ -1,10 +1,10 @@
 Matt 
 ----
-1) 2 Summary Use Cases - Due Friday Oct. 11th
+1) ~~2 Summary Use Cases - Due Friday Oct. 11th~~
 
-- Locate Stock
+- ~~Locate Stock~~
 
-- Modify Inventory
+- ~~Modify Inventory~~
 
 2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
 
@@ -20,11 +20,11 @@ Matt
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
-- Database & Project Setup (Ant)
+X) ~~Database & Project Setup (Ant)~~
 
-- Set up database - Due Friday Oct. 11th
+- ~~Set up database - Due Friday Oct. 11th~~
 
-- Set up Ant - Due Friday Oct. 11th
+- ~~Set up Ant - Due Friday Oct. 11th~~
 
 10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
 
