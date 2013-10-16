@@ -3,7 +3,6 @@ Matt
 1) ~~2 Summary Use Cases - Due Friday Oct. 11th~~
 
 - ~~Locate Stock~~
-
 - ~~Modify Inventory~~
 
 2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
@@ -16,14 +15,13 @@ Matt
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
-- Routing Stocking Tasks
+- operations from Routing Stocking Tasks System Sequence Diagram
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
 X) ~~Database & Project Setup (Ant)~~
 
 - ~~Set up database - Due Friday Oct. 11th~~
-
 - ~~Set up Ant - Due Friday Oct. 11th~~
 
 10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
@@ -34,9 +32,7 @@ Han
 1) ~~2 Summary Use Cases - Due Friday Oct. 11th~~
 
 - ~~Order Stock~~
-
 - ~~Login~~
-
 - ~~Manage Employees~~
 
 2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
@@ -50,7 +46,7 @@ Han
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
-- Routing Stocking Tasks
+- operations from Manage Employees System Sequence Diagram
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
@@ -72,7 +68,7 @@ Spencer
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
-- Locate Stock
+- operations from Locate Stock System Sequence Diagram
 
 9) Implementation of success case for 1 fully dressed use case - Due Friday Oct. 
 18th 
@@ -100,12 +96,12 @@ Xingze
 
 8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- ~~Send Shipments~~
+- ~~Assign Shipments~~
+- ~~Check Shipment Requirements~~
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
 - Shipping System
-
 - Receiving System
 
 10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
@@ -126,7 +122,7 @@ Sam
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
-- Login
+- operations from Login System Sequence Diagram
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
