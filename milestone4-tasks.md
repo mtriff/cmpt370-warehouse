@@ -6,9 +6,9 @@ Matt
 
 - ~~Modify Inventory~~
 
-2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
+2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
 
-- Routing Stocking Tasks
+- ~~Routing Stocking Tasks~~
 
 7) 1 System Sequence Diagram - Due Friday Oct. 11th
 
@@ -31,22 +31,22 @@ X) ~~Database & Project Setup (Ant)~~
 Han
 ----
 
-1) 2 Summary Use Cases - Due Friday Oct. 11th
+1) ~~2 Summary Use Cases - Due Friday Oct. 11th~~
 
-- Order Stock
+- ~~Order Stock~~
 
-- Login
+- ~~Login~~
 
-- Manage Employees
+- ~~Manage Employees~~
 
-2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
+2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
 
 
-- Manage Employees
+- ~~Manage Employees~~
 
-7) 1 System Sequence Diagram - Due Friday Oct. 11th
+7) ~~1 System Sequence Diagram - Due Friday Oct. 11th~~
 
-- Manage Employees
+- ~~Manage Employees~~
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
@@ -88,19 +88,19 @@ Spencer
 
 Xingze
 ------
-2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
+2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
 
-- Send Shipments
+- ~~Send Shipments~~
 
-4) Use Case Diagram  - Due Tuesday Oct. 15th
+4) ~~Use Case Diagram  - Due Tuesday Oct. 15th~~
 
-7) 1 System Sequence Diagram - Due Friday Oct. 11th
+7) ~~1 System Sequence Diagram - Due Friday Oct. 11th~~
 
-- Send Shipments
+- ~~Send Shipments~~
 
-8) 2 Operation Contracts - Due Tuesday Oct. 15th
+8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- Send Shipments
+- ~~Send Shipments~~
 
 9.3) Skeleton Implementation of project - Due Friday Oct. 18th
 
@@ -114,9 +114,9 @@ Xingze
 Sam
 -----
 
-2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
+2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
 
-- Login
+- ~~Login~~
 
 5) Domain Model - Due Tuesday Oct. 15th
 
