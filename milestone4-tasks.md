@@ -9,22 +9,22 @@ Matt
 
 - ~~Routing Stocking Tasks~~
 
-7) 1 System Sequence Diagram - Due Friday Oct. 11th
+7) ~~1 System Sequence Diagram - Due Friday Oct. 11th~~
 
-- Routing Stocking Tasks
+- ~~Routing Stocking Tasks~~
 
-8) 2 Operation Contracts - Due Tuesday Oct. 15th
+8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- operations from Routing Stocking Tasks System Sequence Diagram
+- ~~operations from Routing Stocking Tasks System Sequence Diagram~~
 
-9.3) Skeleton Implementation of project - Due Friday Oct. 18th
+9.3) ~~Skeleton Implementation of project - Due Wednesday Oct. 23rd~~
 
 X) ~~Database & Project Setup (Ant)~~
 
 - ~~Set up database - Due Friday Oct. 11th~~
 - ~~Set up Ant - Due Friday Oct. 11th~~
 
-10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
+10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
 
 Han
 ----
@@ -44,23 +44,23 @@ Han
 
 - ~~Manage Employees~~
 
-8) 2 Operation Contracts - Due Tuesday Oct. 15th
+8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- operations from Manage Employees System Sequence Diagram
+- ~~operations from Manage Employees System Sequence Diagram~~
 
-9.3) Skeleton Implementation of project - Due Friday Oct. 18th
+9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
 
 - Management and Reporting System
 
-10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
+10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
 
 
 Spencer
 -------
 
-2) 1 Fully Dressed Use Case - Due Friday Oct. 11th
+2) ~~1 Fully Dressed Use Case - Due Friday Oct. 11th~~
 
-- Locate Stock
+- ~~Locate Stock~~
 
 7) 1 System Sequence Diagram - Due Friday Oct. 11th
 
@@ -70,16 +70,15 @@ Spencer
 
 - operations from Locate Stock System Sequence Diagram
 
-9) Implementation of success case for 1 fully dressed use case - Due Friday Oct. 
-18th 
+9) Implementation of success case for 1 fully dressed use case - Due Wednesday Oct. 23rd
 
 - Creating & Printing Stock Gathering tasks
 
-9.3) Skeleton Implementation of project - Due Friday Oct. 18th
+9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
 
 - Stock Handler System
 
-10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
+10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
 
 
 Xingze
@@ -99,12 +98,16 @@ Xingze
 - ~~Assign Shipments~~
 - ~~Check Shipment Requirements~~
 
-9.3) Skeleton Implementation of project - Due Friday Oct. 18th
+9) Implementation of success case for 1 fully dressed use case - Due Wednesday Oct. 23rd
+
+- 
+
+9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
 
 - Shipping System
 - Receiving System
 
-10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
+10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
 
 
 Sam
@@ -116,16 +119,16 @@ Sam
 
 5) Domain Model - Due Tuesday Oct. 15th
 
-7) 1 System Sequence Diagram - Due Friday Oct. 11th
+7) ~~1 System Sequence Diagram - Due Friday Oct. 11th~~
 
-- Login
+- ~~Login~~
 
 8) 2 Operation Contracts - Due Tuesday Oct. 15th
 
 - operations from Login System Sequence Diagram
 
-9.3) Skeleton Implementation of project - Due Friday Oct. 18th
+9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
 
 - GUI (Including interactive map)
 
-10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 18th
+10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
