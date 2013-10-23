@@ -13,6 +13,19 @@ import java.sql.Array;
 public interface ShipperDBInterface {    
     
     /**
+     * Get a list of all the shipments and their full information
+     * @return An array of the shipments
+     */
+    public Array getShipmentList();
+    
+    /**
+     * Get a list of all the shipments that have not been sent with their full 
+     * information
+     * @return An array of the shipments
+     */
+    public Array getPendingShipmentList();
+    
+    /**
      * Get all the details for a shipment (excludes products)
      * @param shipmentId ID of the shipment to get the details for
      * @return An Array of all the details of the shipment (excluding products)
