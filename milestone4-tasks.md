@@ -62,19 +62,19 @@ Spencer
 
 - ~~Locate Stock~~
 
-7) 1 System Sequence Diagram - Due Friday Oct. 11th
+7) ~~1 System Sequence Diagram - Due Friday Oct. 11th~~
 
-- Locate Stock
+- ~~Locate Stock~~
 
-8) 2 Operation Contracts - Due Tuesday Oct. 15th
+8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- operations from Locate Stock System Sequence Diagram
+- ~~operations from Locate Stock System Sequence Diagram~~
 
-9) Implementation of success case for 1 fully dressed use case - Due Wednesday Oct. 23rd
+9) Implementation of success case for 1 fully dressed use case - Due Friday Oct. 25th
 
 - Creating & Printing Stock Gathering tasks
 
-9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
+9.3) Skeleton Implementation of project - Due Friday Oct. 25th
 
 - Stock Handler System
 
@@ -98,13 +98,13 @@ Xingze
 - ~~Assign Shipments~~
 - ~~Check Shipment Requirements~~
 
-9) Implementation of success case for 1 fully dressed use case - Due Wednesday Oct. 23rd
+9) Implementation of success case for 1 fully dressed use case - Due Friday Oct. 25th
 
-- 
+- Make Shipment
 
-9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
+9.3) ~~Skeleton Implementation of project - Due Wednesday Oct. 23rd~~
 
-- Shipping System
+- ~~Shipping System~~
 - Receiving System
 
 10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
@@ -123,12 +123,12 @@ Sam
 
 - ~~Login~~
 
-8) 2 Operation Contracts - Due Tuesday Oct. 15th
+8) ~~2 Operation Contracts - Due Tuesday Oct. 15th~~
 
-- operations from Login System Sequence Diagram
+- ~~operations from Login System Sequence Diagram~~
 
-9.3) Skeleton Implementation of project - Due Wednesday Oct. 23rd
+9.3) ~~Skeleton Implementation of project - Due Wednesday Oct. 23rd~~
 
-- GUI (Including interactive map)
+- ~~GUI (Including interactive map)~~
 
 10) Project Plan - Update How Long Tasks Have Taken - Due Friday Oct. 25th
