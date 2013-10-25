@@ -92,10 +92,14 @@ public class ShippingUI extends javax.swing.JFrame {
 
     private void openShippingPopup(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-        ShippingConfirmPopup shippingPopup = new ShippingConfirmPopup();
         int choosenItem = jTable1.getSelectedRow();
-        setShipmentInfo(choosenItem);
-        shippingPopup.setVisible(true);
+        
+        //if do not choose an shipment, ship button is not available
+        if(choosenItem != -1){
+            ShippingConfirmPopup shippingPopup = new ShippingConfirmPopup(newShipment);
+            setShipmentInfo(choosenItem);
+            shippingPopup.setVisible(true);
+        }
     }                                  
 /**
  * @author Xingze Guo
