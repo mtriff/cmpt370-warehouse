@@ -65,11 +65,16 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         });
 
         jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmShipping(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancel(evt);
             }
         });
 
@@ -125,9 +130,21 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    /**
+     * Close shipping confirm pop-up window
+     * @param evt 
+     */
+    private void cancel(java.awt.event.ActionEvent evt) {                        
         // TODO add your handling code here:
-    }                                        
+    }                       
+
+    /**
+     * Save shipping product information into database
+     * @param evt 
+     */
+    private void confirmShipping(java.awt.event.ActionEvent evt) {                                 
+        // TODO add your handling code here:
+    }                                
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;

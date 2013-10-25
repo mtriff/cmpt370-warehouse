@@ -4,8 +4,6 @@
  */
 package warehouseui;
 
-import javax.swing.WindowConstants;
-
 /**
  *
  * @author Xianming
@@ -45,8 +43,6 @@ public class ReceiverUI extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-
         jLabel1.setText("Name");
 
         jLabel2.setText("Item Number");
@@ -64,11 +60,16 @@ public class ReceiverUI extends javax.swing.JFrame {
         jButton1.setText("Confirm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmReceive(evt);
             }
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -146,9 +147,21 @@ public class ReceiverUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    /**
+     * Save received product information into database
+     * @param evt 
+     */
+    private void confirmReceive(java.awt.event.ActionEvent evt) {                                
         // TODO add your handling code here:
-    }                                        
+    }                               
+
+    /**
+     * Close receiver UI window
+     * @param evt 
+     */
+    private void Cancel(java.awt.event.ActionEvent evt) {                        
+        // TODO add your handling code here:
+    }                       
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;

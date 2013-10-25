@@ -4,8 +4,6 @@
  */
 package warehouseui;
 
-import javax.swing.WindowConstants;
-
 
 /**
  *
@@ -47,11 +45,16 @@ public class BillPopup extends javax.swing.JFrame {
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submitBill(evt);
             }
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel(evt);
+            }
+        });
 
         jLabel1.setText("Start");
 
@@ -130,9 +133,21 @@ public class BillPopup extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    /**
+     * Submit bill information and update the database
+     * @param evt 
+     */
+    private void submitBill(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                        
+    }                           
+
+    /**
+     * Close the bill pop-up information
+     * @param evt 
+     */
+    private void cancel(java.awt.event.ActionEvent evt) {                        
+        // TODO add your handling code here:
+    }                       
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;

@@ -39,8 +39,18 @@ public class ProductPopup extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveProductInfo(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel(evt);
+            }
+        });
 
         jLabel1.setText("Product");
 
@@ -140,6 +150,22 @@ public class ProductPopup extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
+
+    /**
+     * Save product information into database and close the pop-up window
+     * @param evt 
+     */
+    private void saveProductInfo(java.awt.event.ActionEvent evt) {                                 
+        // TODO add your handling code here:
+    }                                
+
+    /**
+     * Close product pop-up window
+     * @param evt 
+     */
+    private void cancel(java.awt.event.ActionEvent evt) {                        
+        // TODO add your handling code here:
+    }                       
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
