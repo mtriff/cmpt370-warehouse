@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import shipper.makeShipment;
+
 /**
  *
  * @author Xianming
@@ -13,7 +15,9 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
     /**
      * Creates new form ShippingConfirmPopup
      */
-    public ShippingConfirmPopup() {
+    public ShippingConfirmPopup(makeShipment newShipment) {
+        this.newShipment = newShipment;
+        System.out.println("Test");
         initComponents();
     }
 
@@ -155,5 +159,6 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private makeShipment newShipment;
     // End of variables declaration                   
 }
