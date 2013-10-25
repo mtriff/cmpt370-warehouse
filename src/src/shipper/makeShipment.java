@@ -14,14 +14,24 @@ public class makeShipment {
 	private int deliveryTime;
 	private String stockPicker;
 
+    public makeShipment(){
+        newTask = new shipmentTask();
+    }
 
 
 /**
 * @return shipment number of all shipment requirements in an array
 * 
 */	
-	public Array shipRequire(){
-		return null;
+	public Object shipRequire(){
+		//todo  get info from database
+
+		Object shipmentInfo[][];
+            shipmentInfo = new Object[][]{
+                {1,"iPad Air",30,"Saskatoon",2013},
+                {2,"Nexus7",25,"Beijing",2013}
+            };
+		return shipmentInfo;
 	}
 	
 /**
@@ -29,9 +39,22 @@ public class makeShipment {
 * @param tiem : delivery time from user input
 */
 
-	public void inputShipInfor(int number, int time){
+	public void inputDeliveryInfo(int number, int time){
 		wayBill = number;
 		deliveryTime = time;
+	}
+
+	public void inputItemInfor(int number, String name, 
+			int quantity, String destination, int date){
+            newTask.setItemNumber(number);
+            newTask.setitemName(name);
+            newTask.setitemQuantity(quantity);
+            newTask.setitemDestination(destination);
+            newTask.setitemDate(date);
+            
+            //Test code
+            System.out.println(number + name + quantity + destination +date);
+		
 	}
 
 /**
