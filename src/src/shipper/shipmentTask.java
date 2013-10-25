@@ -4,25 +4,18 @@ public class shipmentTask {
 	
 	private int waiBill;
 	private int deliveryTime;
-	private String itemNumber;
-	private int itemAmount;
+	private int itemNumber;
+	private int itemQuantity;
 	private String stockPicker;
+	private String itemDestination;
+	private int itemDate;
+	private String itemName;
 	
 	/**
 	 *
 	 * @author Xingze
 	 */
-	
-	public shipmentTask(int waiBill, int deliveryTime, String itemNumber,
-			int itemAmount, String stockPicker) {
-		super();
-		this.waiBill = waiBill;
-		this.deliveryTime = deliveryTime;
-		this.itemNumber = itemNumber;
-		this.itemAmount = itemAmount;
-		this.stockPicker = stockPicker;
 
-	}
 
 	public int getWaiBill() {
 		return waiBill;
@@ -36,18 +29,35 @@ public class shipmentTask {
 	public void setDeliveryTime(int deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
-	public String getItemNumber() {
+	public int getItemNumber() {
 		return itemNumber;
 	}
-	public void setItemNumber(String itemNumber) {
+	public void setItemNumber(int itemNumber) {
 		this.itemNumber = itemNumber;
 	}
-	public int getItemAmount() {
-		return itemAmount;
+	public int getitemQuantity() {
+		return itemQuantity;
 	}
-	public void setItemAmount(int itemAmount) {
-		this.itemAmount = itemAmount;
+	public void setitemQuantity(int itemQuantity) {
+		this.itemQuantity = itemQuantity;
 	}
-	
-	
+        public String getitemDestination(){
+            return itemDestination;
+        }
+        public void setitemDestination(String itemDestination){
+            this.itemDestination = itemDestination;
+        }
+        public String getitemName(){
+            return itemDestination;
+        }
+        public void setitemName(String itemName){
+            this.itemName = itemName;
+        }
+	public int getitemDate(){
+            return itemDate;
+        }
+        public void setitemDate(int itemDate){
+            this.itemDate = itemDate;
+        }
+
 }
