@@ -4,7 +4,6 @@
  */
 package database.gui;
 
-import java.sql.Array;
 
 /**
  *
@@ -28,7 +27,7 @@ public class GuiDB implements GuiDBInterface {
     }
 
     @Override
-    public Array getBinLocations() {
+    public Object[] getBinLocations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

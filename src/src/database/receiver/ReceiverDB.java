@@ -4,7 +4,6 @@
  */
 package database.receiver;
 
-import java.sql.Array;
 
 /**
  *
@@ -13,7 +12,7 @@ import java.sql.Array;
 public class ReceiverDB implements ReceiverDBInterface {
 
     @Override
-    public Array getOrderProducts(int orderId) {
+    public Object[] getOrderProducts(int orderId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -28,7 +27,7 @@ public class ReceiverDB implements ReceiverDBInterface {
     }
 
     @Override
-    public boolean addItemsToOrder(int orderId, Array itemsList) {
+    public boolean addItemsToOrder(int orderId, Object[] itemsList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -43,7 +42,7 @@ public class ReceiverDB implements ReceiverDBInterface {
     }
 
     @Override
-    public Array getOrderDetails(int orderId) {
+    public Object[] getOrderDetails(int orderId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -58,7 +57,7 @@ public class ReceiverDB implements ReceiverDBInterface {
     }
 
     @Override
-    public Array getProductCategories() {
+    public Object[] getProductCategories() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

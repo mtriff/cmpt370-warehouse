@@ -4,8 +4,6 @@
  */
 package database.stockhandler;
 
-import java.sql.Array;
-
 /**
  * Implementation of all Stock Handler database tasks
  * @author Matt
@@ -13,27 +11,27 @@ import java.sql.Array;
 public class StockhandlerDB implements StockhandlerDBInterface 
 {
     @Override
-    public Array getProductDetails(int prodId) {
+    public Object[] getProductDetails(int prodId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getProductLocation(int prodId) {
+    public Object[] getProductLocation(int prodId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getBinProducts(int binId) {
+    public Object[] getBinProducts(int binId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array findBestPath(Array itemsArray) {
+    public Object[] findBestPath(Object[] itemsObject[]) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array assignBins(Array itemsArray) {
+    public Object[] assignBins(Object[] itemsObject[]) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
