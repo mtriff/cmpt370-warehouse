@@ -4,8 +4,6 @@
  */
 package database.reporting;
 
-import java.sql.Array;
-
 /**
  *
  * @author Matt
@@ -13,37 +11,37 @@ import java.sql.Array;
 public class ReportingDB implements ReportingDBInterface {
 
     @Override
-    public Array getProductList() {
+    public Object[] getProductList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getProductOrderList() {
+    public Object[] getProductOrderList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getProductOrdersWithin(String date1, String date2) {
+    public Object[] getProductOrdersWithin(String date1, String date2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getShipmentList() {
+    public Object[] getShipmentList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getShipmentWithin(String date1, String date2) {
+    public Object[] getShipmentWithin(String date1, String date2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getBinStockLevels() {
+    public Object[] getBinStockLevels() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Array getProductTurnoverSpeed() {
+    public Object[] getProductTurnoverSpeed() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

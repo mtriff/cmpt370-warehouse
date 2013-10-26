@@ -4,8 +4,6 @@
  */
 package database.gui;
 
-import java.sql.Array;
-
 
 /**
  *
@@ -38,7 +36,7 @@ public interface GuiDBInterface {
     
     /**
      * Get the locations of all of the bins in the warehouse
-     * @return Array of the (row, column) coordinates of each bin in the warehouse 
+     * @return Object[] of the (row, column) coordinates of each bin in the warehouse 
      */
-    public Array getBinLocations();
+    public Object[] getBinLocations();
 }

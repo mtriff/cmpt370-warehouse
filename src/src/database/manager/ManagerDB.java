@@ -4,8 +4,6 @@
  */
 package database.manager;
 
-import java.sql.Array;
-
 /**
  *
  * @author Matt
@@ -13,7 +11,7 @@ import java.sql.Array;
 public class ManagerDB implements ManagerDBInterface {
 
     @Override
-    public Array getEmployees() {
+    public Object[] getEmployees() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

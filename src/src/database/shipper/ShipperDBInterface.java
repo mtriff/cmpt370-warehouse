@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package database.shipper;
-
-import java.sql.Array;
-
 /**
  * An interface, contains all methods to be used by Shipping features
  * @author Matt
@@ -16,28 +13,28 @@ public interface ShipperDBInterface {
      * Get a list of all the shipments and their full information
      * @return An array of the shipments
      */
-    public Array getShipmentList();
+    public Object[] getShipmentList();
     
     /**
      * Get a list of all the shipments that have not been sent with their full 
      * information
      * @return An array of the shipments
      */
-    public Array getPendingShipmentList();
+    public Object[] getPendingShipmentList();
     
     /**
      * Get all the details for a shipment (excludes products)
      * @param shipmentId ID of the shipment to get the details for
-     * @return An Array of all the details of the shipment (excluding products)
+     * @return An Object[] of all the details of the shipment (excluding products)
      */
-     public Array getShipmentDetails(int shipmentId);
+     public Object[] getShipmentDetails(int shipmentId);
     
      /**
       * Get all of the items requested for a shipment
       * @param shipmentId ID of the shipment to get the details for
-      * @return An Array of all the products from the shipment
+      * @return An Object[] of all the products from the shipment
       */
-    public Array getShipmentProducts(int shipmentId);
+    public Object[] getShipmentProducts(int shipmentId);
 
     /**
      * Get the current status of the shipment
@@ -65,7 +62,7 @@ public interface ShipperDBInterface {
      * @param itemList The list of items to be added to the shipment
      * @return true on success, false on failure
      */
-    public boolean addItemsToShipment(Array itemList);
+    public boolean addItemsToShipment(Object[] itemList);
     
     /**
      * Set the status for a shipment
@@ -122,4 +119,10 @@ public interface ShipperDBInterface {
      * @return true on success, false on failure
      */
     public boolean decreaseStock(int productID, int quantity);
+    
+    /**
+     * Returns a listing of all stock pickers
+     * @return an array that includes employee number and name
+     */
+    public Object[] getStockHandlers();
 }
