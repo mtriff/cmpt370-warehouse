@@ -1,3 +1,4 @@
 /prototype/Warehouse_1.1/dist/
 /src/build/
 /src/dist/
+*.class

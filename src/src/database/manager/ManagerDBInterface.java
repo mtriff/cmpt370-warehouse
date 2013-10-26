@@ -4,8 +4,6 @@
  */
 package database.manager;
 
-import java.sql.Array;
-
 /**
  *
  * @author Matt
@@ -16,7 +14,7 @@ public interface ManagerDBInterface {
      * Gets the list of all employees
      * @return An array containing all employees in the system, or null on failure
      */
-    public Array getEmployees();
+    public Object[] getEmployees();
     
     /**
      * Get the average speed of the employee in performing their tasks

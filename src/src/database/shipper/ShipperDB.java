@@ -4,22 +4,52 @@
  */
 package database.shipper;
 
-import java.sql.Array;
-
 /**
  *
  * @author Matt
  */
 public class ShipperDB implements ShipperDBInterface {
 
+    /*
+     * Returning dummy data for now.
+     */
     @Override
-    public Array getShipmentDetails(int shipmentId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object[] getShipmentList() {
+        Object[] returnArr=new String[1];
+    
+        returnArr[0]=1;
+        return returnArr;
     }
 
     @Override
-    public Array getShipmentProducts(int shipmentId) {
+    public Object[] getPendingShipmentList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /*
+     * Returning dummy data for now.
+     */
+    @Override
+    public Object[] getShipmentDetails(int shipmentId) {
+        Object[][] returnArr=new Object[][]{
+            {null, "pending", "TRACK124125DS21", 329.9, "U of S, Saskatoon, SK, Canada"}
+        };
+
+        return returnArr;
+    }
+    
+    /*
+     * Returning dummy data for now.
+     */
+    @Override
+    public Object[] getShipmentProducts(int shipmentId) {
+        Object[][] returnArr=new Object[][]{
+                {1,"Nexus 7",30},
+                {2,"Lenovo X230",25},
+                {3,"iPad Mini",15}
+            };   
+        
+        return returnArr;
     }
 
     @Override
@@ -38,7 +68,7 @@ public class ShipperDB implements ShipperDBInterface {
     }
 
     @Override
-    public boolean addItemsToShipment(Array itemList) {
+    public boolean addItemsToShipment(Object[] itemList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -76,15 +106,16 @@ public class ShipperDB implements ShipperDBInterface {
     public boolean decreaseStock(int productID, int quantity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public Array getShipmentList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Array getPendingShipmentList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    /*
+     * Returning dummy data for now.
+     */
+    @Override
+    public Object[] getStockHandlers() {
+        Object[] returnArr=new Object[][]{
+            {1, "Johnny"}
+        };
+        
+        return returnArr;
+    }
 }

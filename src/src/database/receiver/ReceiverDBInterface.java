@@ -4,7 +4,6 @@
  */
 package database.receiver;
 
-import java.sql.Array;
 
 /**
  *
@@ -12,7 +11,7 @@ import java.sql.Array;
  */
 public interface ReceiverDBInterface {
     //Get all the products for the given order
-    public Array getOrderProducts(int orderId);
+    public Object[] getOrderProducts(int orderId);
     
     /**
      * Sets the status as "Received" for the given order, records the current date 
@@ -35,7 +34,7 @@ public interface ReceiverDBInterface {
      * @param itemsList List of items to be added to the list
      * @return True on success, false on failure
      */
-    public boolean addItemsToOrder(int orderId, Array itemsList);
+    public boolean addItemsToOrder(int orderId, Object[] itemsList);
     
     /** Sets the tracking number for a given shipment
      * @param orderId The order to be modified
@@ -56,9 +55,9 @@ public interface ReceiverDBInterface {
     /**
      * Get all details for an order (excluding the products in the order)
      * @param orderId The order to get the details for
-     * @return Array containing all order details, or null on failure
+     * @return Object[] containing all order details, or null on failure
      */
-    public Array getOrderDetails(int orderId);
+    public Object[] getOrderDetails(int orderId);
  
     /**
      * Get the current status for an order
@@ -79,9 +78,9 @@ public interface ReceiverDBInterface {
     
     /**
      * Get the listing of all possible categories for a product
-     * @return An Array containing all categories, or null on failure
+     * @return An Object[] containing all categories, or null on failure
      */
-    public Array getProductCategories();
+    public Object[] getProductCategories();
     
     /**
      * Add a new category to the list of potential categories
