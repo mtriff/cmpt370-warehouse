@@ -57,11 +57,26 @@ public class makeShipment {
 		
 	}
 
+	public Object pickerRequire(){
+		Object picker[][];
+		picker = new Object[][]{
+			{"Obama"},{"Bush"},{"Biden"}
+		};
+		return picker;
+	}
+
 /**
 * @param picker: the choosen picker form GUI
 */
-	public void choosePicker(String picker){
-		stockPicker = picker;
+	public void setPicker(String picker, String wayBill){            
+            int bill = Integer.parseInt(wayBill);
+     //       int time = Integer.parseInt(deliveryTime);
+            newTask.setStockPicker(picker);
+            newTask.setwayBill(bill);
+      //      newTask.setitemDate(time);
+            
+            System.out.println(newTask.toString());
+                  
 	}
 
 /**
