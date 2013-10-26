@@ -2,8 +2,8 @@ package shipper;
 
 public class shipmentTask {
 	
-	private int waiBill;
-	private int deliveryTime;
+	private int wayBill;
+//	private int deliveryTime;
 	private int itemNumber;
 	private int itemQuantity;
 	private String stockPicker;
@@ -14,21 +14,28 @@ public class shipmentTask {
 	/**
 	 *
 	 * @author Xingze
+         * @param stockPicker
 	 */
+        public void setStockPicker(String stockPicker){
+            this.stockPicker = stockPicker;
+        }
+        
+        public String getStockPicker(){
+            return stockPicker;
+        }
 
-
-	public int getWaiBill() {
-		return waiBill;
+	public int getwayBill() {
+		return wayBill;
 	}
-	public void setWaiBill(int waiBill) {
-		this.waiBill = waiBill;
+	public void setwayBill(int wayBill) {
+		this.wayBill = wayBill;
 	}
-	public int getDeliveryTime() {
-		return deliveryTime;
-	}
-	public void setDeliveryTime(int deliveryTime) {
-		this.deliveryTime = deliveryTime;
-	}
+//	public int getDeliveryTime() {
+//		return deliveryTime;
+//	}
+//	public void setDeliveryTime(int deliveryTime) {
+//		this.deliveryTime = deliveryTime;
+//	}
 	public int getItemNumber() {
 		return itemNumber;
 	}
@@ -59,5 +66,28 @@ public class shipmentTask {
         public void setitemDate(int itemDate){
             this.itemDate = itemDate;
         }
+        
+        @Override
+        public String toString(){
+            return "Number =" + itemNumber + "\r\n" 
+                   +"Name =" + itemName + "\r\n"
+                   +"Quantity =" + itemQuantity +"\r\n"
+                   +"Destination =" + itemDestination + "\r\n"
+                   +"Data =" + itemDate + "\r\n"
+                   +"Stock Picker =" + stockPicker +"\r\n"
+                   +"Bill Number =" + wayBill +"\r\n" ;
+        }
+
+    void setWayBill(int bill) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
+//	private int wayBill;
+//	private int deliveryTime;
+//	private int itemNumber;
+//	private int itemQuantity;
+//	private String stockPicker;
+//	private String itemDestination;
+//	private int itemDate;
+//	private String itemName;
