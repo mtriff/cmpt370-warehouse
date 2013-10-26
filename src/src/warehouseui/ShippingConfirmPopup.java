@@ -39,17 +39,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Stock Picker"}));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Bill Number");
@@ -128,6 +118,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
+
     }                                           
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -148,7 +139,25 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
      */
     private void confirmShipping(java.awt.event.ActionEvent evt) {                                 
         // TODO add your handling code here:
-    }                                
+        String wayBill = jTextField1.getText();
+      //  String deliverTime = jTextField2.getText();
+     //   if(wayBill.compareTo("")==0)
+
+        
+        int choosenItem = jTable1.getSelectedRow();
+        if((choosenItem != -1)&&(wayBill.compareTo("")!=0)){
+            makeNewShipment(wayBill,choosenItem);
+        }
+    }     
+    /**
+     * @author Xingze
+     * @param wayBill
+     * @param choosen 
+     */
+    private void makeNewShipment(String wayBill, int choosen){
+          
+        newShipment.setPicker((String) jTable1.getValueAt(choosen, 0), wayBill);
+    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
