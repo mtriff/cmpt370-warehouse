@@ -32,7 +32,6 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-<<<<<<< HEAD
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -47,10 +46,6 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
                 "Stock Picker"
             }
         ));
-=======
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Number","Stock Picker"}));
->>>>>>> 1e501051e93e19deb31b0af19536ca718a4d3b74
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Bill Number");
@@ -137,29 +132,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
 
     private void confirmShipping(java.awt.event.ActionEvent evt) {                                 
         // TODO add your handling code here:
-<<<<<<< HEAD
     }                                
-=======
-        String wayBill = jTextField1.getText();
-      //  String deliverTime = jTextField2.getText();
-     //   if(wayBill.compareTo("")==0)
-
-        
-        int choosenItem = jTable1.getSelectedRow();
-        if((choosenItem != -1)&&(wayBill.compareTo("")!=0)){
-            makeNewShipment(wayBill,choosenItem);
-        }
-    }     
-    /**
-     * @author Xingze
-     * @param wayBill
-     * @param choosen 
-     */
-    private void makeNewShipment(String wayBill, int choosen){
-          
-        newShipment.setPicker((String) jTable1.getValueAt(choosen, 1), wayBill);
-    }
->>>>>>> 1e501051e93e19deb31b0af19536ca718a4d3b74
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
