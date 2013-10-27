@@ -39,7 +39,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Stock Picker"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Number","Stock Picker"}));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Bill Number");
@@ -156,7 +156,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
      */
     private void makeNewShipment(String wayBill, int choosen){
           
-        newShipment.setPicker((String) jTable1.getValueAt(choosen, 0), wayBill);
+        newShipment.setPicker((String) jTable1.getValueAt(choosen, 1), wayBill);
     }
 
     // Variables declaration - do not modify                     

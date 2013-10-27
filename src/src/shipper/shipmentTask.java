@@ -8,7 +8,7 @@ public class shipmentTask {
 	private int itemQuantity;
 	private String stockPicker;
 	private String itemDestination;
-	private int itemDate;
+	private String itemDate;
 	private String itemName;
 	
 	/**
@@ -60,10 +60,10 @@ public class shipmentTask {
         public void setitemName(String itemName){
             this.itemName = itemName;
         }
-	public int getitemDate(){
+	public String getitemDate(){
             return itemDate;
         }
-        public void setitemDate(int itemDate){
+        public void setitemDate(String itemDate){
             this.itemDate = itemDate;
         }
         

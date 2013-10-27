@@ -1,5 +1,6 @@
 package shipper;
 
+import database.shipper.ShipperDB;
 import java.sql.Array;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Array;
 */
 
 public class makeShipment {
-
+        private ShipperDB database;
 	private shipmentTask newTask;
 	private int wayBill;
 	private int deliveryTime;
@@ -16,6 +17,7 @@ public class makeShipment {
 
     public makeShipment(){
         newTask = new shipmentTask();
+        database =new ShipperDB();
     }
 
 
@@ -25,13 +27,9 @@ public class makeShipment {
 */	
 	public Object shipRequire(){
 		//todo  get info from database
-
-		Object shipmentInfo[][];
-            shipmentInfo = new Object[][]{
-                {1,"iPad Air",30,"Saskatoon",2013},
-                {2,"Nexus7",25,"Beijing",2013}
-            };
-		return shipmentInfo;
+            Object shipmentInfo[][];         
+           shipmentInfo = (Object[][]) database.getShipmentProducts(1);
+	    return shipmentInfo;
 	}
 	
 /**
@@ -45,7 +43,7 @@ public class makeShipment {
 	}
 
 	public void inputItemInfor(int number, String name, 
-			int quantity, String destination, int date){
+			int quantity, String destination, String date){
             newTask.setItemNumber(number);
             newTask.setitemName(name);
             newTask.setitemQuantity(quantity);
@@ -59,9 +57,7 @@ public class makeShipment {
 
 	public Object pickerRequire(){
 		Object picker[][];
-		picker = new Object[][]{
-			{"Obama"},{"Bush"},{"Biden"}
-		};
+                picker = (Object[][]) database.getStockHandlers();
 		return picker;
 	}
 
