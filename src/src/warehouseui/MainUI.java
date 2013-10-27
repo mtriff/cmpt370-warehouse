@@ -38,6 +38,7 @@ public class MainUI extends javax.swing.JFrame {
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton4;
+    private JButton jButton5;
     private JMenu jMenu1;
     private JMenu editMenu;
     private JMenuBar jMenuBar1;
@@ -67,6 +68,7 @@ public class MainUI extends javax.swing.JFrame {
         jButton2 = new JButton();
         jButton3 = new JButton();
         jButton4 = new JButton();
+        jButton5 = new JButton();
         jPanel1 = new JPanel();
         jPanel2 = new WarehouseMap();
         jMenuBar1 = new JMenuBar();
@@ -101,6 +103,13 @@ public class MainUI extends javax.swing.JFrame {
         jButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 openManagerUI(evt);
+            }
+        });
+        
+        jButton5.setText("Stock Bill");
+        jButton5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                openBillPopup(evt);
             }
         });
 
@@ -159,8 +168,9 @@ public class MainUI extends javax.swing.JFrame {
                     .add(GroupLayout.TRAILING, jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(GroupLayout.TRAILING, jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(GroupLayout.TRAILING, jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(GroupLayout.TRAILING, jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .add(GroupLayout.TRAILING, jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+               .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.LEADING)
@@ -176,7 +186,9 @@ public class MainUI extends javax.swing.JFrame {
                         .add(jButton3)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButton4)
-                        .add(0, 202, Short.MAX_VALUE)))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton5)
+                        .add(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -221,6 +233,11 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         ManagerUI managerWindow = new ManagerUI();
         managerWindow.setVisible(true);
+    }
+    
+    private void openBillPopup(ActionEvent evt) {
+        BillPopup billPopup = new BillPopup();
+        billPopup.setVisible(true);
     }
     
     /**
