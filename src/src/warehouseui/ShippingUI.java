@@ -103,8 +103,21 @@ public class ShippingUI extends javax.swing.JFrame {
         ShippingConfirmPopup shippingPopup = new ShippingConfirmPopup();
         shippingPopup.setVisible(true);
     }                                  
+<<<<<<< HEAD
 
 
+=======
+/**
+ * @author Xingze Guo
+ * @param choosen from UI
+ */
+    private void setShipmentInfo(int choosen){
+        newShipment.inputItemInfor((Integer)jTable1.getValueAt(choosen, 0), (String)jTable1.getValueAt(choosen, 1), (Integer)jTable1.getValueAt(choosen, 2),
+                                    (String)jTable1.getValueAt(choosen, 3),(String)jTable1.getValueAt(choosen, 4));
+    }
+    
+    
+>>>>>>> 1e501051e93e19deb31b0af19536ca718a4d3b74
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
