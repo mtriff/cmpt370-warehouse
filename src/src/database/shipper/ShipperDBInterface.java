@@ -125,4 +125,11 @@ public interface ShipperDBInterface {
      * @return an array that includes employee number and name
      */
     public Object[] getStockHandlers();
+    
+    
+    /**
+     * Return a listing of all shipping companies
+     * @return an array that includes name of shipping companies 
+     */ 
+    public Object[] getShippingCompanies(); //Added by Xingze 
 }

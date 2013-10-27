@@ -4,18 +4,23 @@
  */
 package warehouseui;
 
+import shipper.makeShipment;
+
 /**
  *
  * @author Xianming
  */
 public class ShippingConfirmPopup extends javax.swing.JFrame {
+   
 
     /**
      * Creates new form ShippingConfirmPopup
+     * @param newShipment
      */
-    public ShippingConfirmPopup() {
-        initComponents();
-    }
+    public ShippingConfirmPopup(makeShipment newShipment) {
+	   this.newShipment = newShipment;
+            initComponents();
+	 }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,18 +39,11 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+       
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Stock Picker"
-            }
-        ));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Number","Stock Picker"}));
+        
+        
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Bill Number");
@@ -70,17 +68,8 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.companyRequire(),new String [] {"Number","Shipping Company"}));
+        
         jScrollPane2.setViewportView(jTable2);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -131,8 +120,25 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
     }                       
 
     private void confirmShipping(java.awt.event.ActionEvent evt) {                                 
-        // TODO add your handling code here:
-    }                                
+        String wayBill = jTextField1.getText();
+        int choosenItem1 = jTable1.getSelectedRow();
+        int choosenItem2 = jTable2.getSelectedRow();
+        if((choosenItem1 != -1)&&(wayBill.compareTo("")!=0)&&(choosenItem2 != -1)){
+            makeNewShipment(wayBill,choosenItem1,choosenItem2);
+        }
+    }      
+    
+     /**
+     * @author Xingze
+     * @param wayBill
+     * @param choosen 
+     */
+    private void makeNewShipment(String wayBill, int choosen1, int choosen2){
+         
+        newShipment.setPicker((String) jTable1.getValueAt(choosen1, 1));
+        newShipment.setCompany((String) jTable2.getValueAt(choosen2, 1),wayBill);
+    }
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
@@ -143,5 +149,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private makeShipment newShipment;
+    private String pickertTitle[];
     // End of variables declaration                   
 }
