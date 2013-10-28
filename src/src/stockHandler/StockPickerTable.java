@@ -6,7 +6,9 @@
 
 package stockHandler;
 import database.*;
+import database.shipper.ShipperDB;
 import database.stockhandler.StockhandlerDB;
+import database.shipper.ShipperDBInterface;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.print.PrinterException;
@@ -24,30 +26,26 @@ import sun.security.util.Length;
  */
 public class StockPickerTable extends JComponent {
     StockhandlerDB database=new StockhandlerDB();
-    
+    ShipperDB database2=new ShipperDB();
     
     private MessageFormat header;
-    private JTable jTable2;
     
    
-    //select * from PalletTable where completed = NULL
-    //create a new table for every instance of a non-completed pallet
-
-       
+     
     
      /**
      * @param palletTable
-     * @return
+     * @return number of items loaded
      */
     public int loadTable(javax.swing.JTable palletTable )
     {
-        for (int i = 0; i <= 5 /*database.getLength*/; i++)
+        for (int i = 0; i <= database2.getShipmentList().length; i++)
         {
             addItem(i, palletTable);
         }
             
         
-        return 5 /*database.getLength*/;
+        return database2.getShipmentList().length;
     }
     
     /**
@@ -59,19 +57,14 @@ public class StockPickerTable extends JComponent {
     public Object[] addItem(int itemNum, javax.swing.JTable palletTable)
     {
         DefaultTableModel model = (DefaultTableModel) palletTable.getModel();
+        Object[] temp = database2.getShipmentList();
         model.addRow(database.getProductDetails(itemNum));
         return database.getProductDetails(itemNum);
     }
     
-   
-    /*
-            Prints off the table
-    */
-
     /**
-     *
-     * @param palletTable
-     * @return the 
+     *  Prints the table that is input
+     * @param palletTable the table that is to be printed
      */
     
     public void printTable(javax.swing.JTable palletTable ) 
