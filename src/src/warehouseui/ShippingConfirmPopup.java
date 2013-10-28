@@ -42,12 +42,12 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
        
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Number","Stock Picker"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.pickerRequire(),new String [] {"Number","Stock Handler"}));
         
         
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("Bill Number");
+        jLabel1.setText("Tracking Number");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
