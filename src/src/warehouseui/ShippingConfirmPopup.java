@@ -4,6 +4,7 @@
  */
 package warehouseui;
 
+import java.awt.event.WindowEvent;
 import shipper.makeShipment;
 
 /**
@@ -116,7 +117,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
     }                                           
 
     private void cancel(java.awt.event.ActionEvent evt) {                        
-        // TODO add your handling code here:
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }                       
 
     private void confirmShipping(java.awt.event.ActionEvent evt) {                                 
@@ -125,6 +126,7 @@ public class ShippingConfirmPopup extends javax.swing.JFrame {
         int choosenItem2 = jTable2.getSelectedRow();
         if((choosenItem1 != -1)&&(wayBill.compareTo("")!=0)&&(choosenItem2 != -1)){
             makeNewShipment(wayBill,choosenItem1,choosenItem2);
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }      
     
