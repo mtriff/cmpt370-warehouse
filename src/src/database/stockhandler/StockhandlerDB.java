@@ -34,5 +34,11 @@ public class StockhandlerDB implements StockhandlerDBInterface
     public Object[] assignBins(Object[] itemsObject[]) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public static class getProductDetails {
+
+        public getProductDetails() {
+        }
+    }
     
 }

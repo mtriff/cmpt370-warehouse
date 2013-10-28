@@ -38,7 +38,7 @@ public class StockUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Item", "Description", "Amount", "Remain", "Completed", "Actual", "Notes"
+                "Item", "Description", "Amount", "Remain", "Actual", "Completed", "Pallet", "Notes"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
