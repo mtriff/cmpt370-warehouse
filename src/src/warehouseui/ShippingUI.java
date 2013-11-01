@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import shipper.makeShipment;
+
 /**
  *
  * @author Xianming
@@ -14,6 +16,7 @@ public class ShippingUI extends javax.swing.JFrame {
      * Creates new form ShippingUI
      */
     public ShippingUI() {
+        newShipment = new makeShipment();
         initComponents();
     }
 
@@ -25,13 +28,11 @@ public class ShippingUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        shipmentTitle = new String[]{"Number", "Name", "Quantity", "Destination", "Date"};
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jButton1.setText("Future Plan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -46,18 +47,9 @@ public class ShippingUI extends javax.swing.JFrame {
                 openShippingPopup(evt);
             }
         });
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.shipRequire(),shipmentTitle));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane1.setViewportView(jTable1);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -86,23 +78,46 @@ public class ShippingUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    /**
+     * Open future plan pop-up window
+     * @param evt 
+     */
     private void openFuturePlanPopup(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
         FuturePlanPopup futurePopup = new FuturePlanPopup();
         futurePopup.setVisible(true);
     }                                    
 
+    /**
+     * Open shipping pop-up window
+     * @param evt 
+     */
     private void openShippingPopup(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-        ShippingConfirmPopup shippingPopup = new ShippingConfirmPopup();
-        shippingPopup.setVisible(true);
-    }                                  
+        //if do not choose an shipment, ship button is not available
+        int choosenItem = jTable1.getSelectedRow();
+       if(choosenItem != -1){
+            ShippingConfirmPopup shippingPopup = new ShippingConfirmPopup(newShipment);
+            setShipmentInfo(choosenItem);
+            shippingPopup.setVisible(true);
 
-
+       }         
+    }
+   /**
+ * @author Xingze Guo
+ * @param choosen from UI
+ */
+    private void setShipmentInfo(int choosen){
+        newShipment.inputItemInfor((Integer)jTable1.getValueAt(choosen,0),(String)jTable1.getValueAt(choosen,1), (Integer)jTable1.getValueAt(choosen,2),
+                                    (String)jTable1.getValueAt(choosen,3),(String)jTable1.getValueAt(choosen,4));
+    }
+    
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private makeShipment newShipment;
+    private String shipmentTitle[];
     // End of variables declaration                   
 }
