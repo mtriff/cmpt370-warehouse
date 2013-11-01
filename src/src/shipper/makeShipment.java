@@ -60,21 +60,29 @@ public class makeShipment {
                 picker = (Object[][]) database.getStockHandlers();
 		return picker;
 	}
-
+        
+        public Object companyRequire(){
+             	
+                Object picker[][];
+                picker = (Object[][]) database.getShippingCompanies();
+		return picker;   
+        }
 /**
-* @param picker: the choosen picker form GUI
+*     @param picker: the choosen picker form GUI
+     * @param wayBill
 */
-	public void setPicker(String picker, String wayBill){            
-            int bill = Integer.parseInt(wayBill);
-     //       int time = Integer.parseInt(deliveryTime);
-            newTask.setStockPicker(picker);
-            newTask.setwayBill(bill);
-      //      newTask.setitemDate(time);
-            
-            System.out.println(newTask.toString());
-                  
-	}
+	public void setPicker(String picker){            
 
+            newTask.setStockPicker(picker);          
+                 
+	}
+        
+        public void setCompany(String company, String wayBill){
+            int bill = Integer.parseInt(wayBill);
+            newTask.setShippingCompany(company);
+            newTask.setwayBill(bill);
+            System.out.println(newTask.toString());     
+        }
 /**
 *	Assign task to a stock picker by create the shipment task
 */

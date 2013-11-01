@@ -120,4 +120,12 @@ public class ShipperDB implements ShipperDBInterface {
         
         return returnArr;
     }
+
+    @Override
+    public Object[] getShippingCompanies() {
+       Object[] returnArr=new Object[][]{
+            {1, "UPS"},{2,"DHL"},{3,"EMS"}
+        };
+       return returnArr;
+    }
 }

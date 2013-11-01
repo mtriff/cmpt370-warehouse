@@ -10,6 +10,7 @@ public class shipmentTask {
 	private String itemDestination;
 	private String itemDate;
 	private String itemName;
+        private String shippingCompany;
 	
 	/**
 	 *
@@ -67,6 +68,13 @@ public class shipmentTask {
             this.itemDate = itemDate;
         }
         
+        public String getShippingCompany(){
+            return shippingCompany;
+        }
+        public void setShippingCompany(String shippingCompany){
+            this.shippingCompany = shippingCompany;
+        }
+        
         @Override
         public String toString(){
             return "Number =" + itemNumber + "\r\n" 
@@ -75,7 +83,8 @@ public class shipmentTask {
                    +"Destination =" + itemDestination + "\r\n"
                    +"Data =" + itemDate + "\r\n"
                    +"Stock Picker =" + stockPicker +"\r\n"
-                   +"Bill Number =" + wayBill +"\r\n" ;
+                   +"Bill Number =" + wayBill +"\r\n" 
+                   +"Company =" + shippingCompany + "\r\n";
         }
 
     void setWayBill(int bill) {
