@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import receiver.receiveOrder;
+
 /**
  *
  * @author Xianming
@@ -14,6 +16,7 @@ public class ReceiverUI extends javax.swing.JFrame {
      * Creates new form ReceiverUI
      */
     public ReceiverUI() {
+        newOrder = new receiveOrder();
         initComponents();
     }
 
@@ -35,17 +38,17 @@ public class ReceiverUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        orderNumberTextField = new javax.swing.JTextField();
+        nameTextField = new javax.swing.JTextField();
+        quantityTextField = new javax.swing.JTextField();
+        priceTextField = new javax.swing.JTextField();
+        sizeTextField = new javax.swing.JTextField();
+        descriptionTextField = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
 
-        jLabel1.setText("Name");
+        jLabel1.setText("Order Number");
 
-        jLabel2.setText("Item Number");
+        jLabel2.setText("Name");
 
         jLabel3.setText("Quantity");
 
@@ -71,7 +74,7 @@ public class ReceiverUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(newOrder.getCategoryList()));
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +90,7 @@ public class ReceiverUI extends javax.swing.JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jButton2)
-                            .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel2)
@@ -98,11 +101,11 @@ public class ReceiverUI extends javax.swing.JFrame {
                             .add(jLabel7))
                         .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jTextField7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .add(jTextField6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .add(jTextField5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .add(jTextField3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .add(jTextField2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .add(descriptionTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .add(sizeTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .add(priceTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .add(quantityTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .add(nameTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .add(jComboBox1, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
@@ -112,15 +115,15 @@ public class ReceiverUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
-                    .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
-                    .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(quantityTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
@@ -128,15 +131,15 @@ public class ReceiverUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel5)
-                    .add(jTextField5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel6)
-                    .add(jTextField6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(sizeTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
-                    .add(jTextField7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 28, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton1)
@@ -153,6 +156,49 @@ public class ReceiverUI extends javax.swing.JFrame {
      */
     private void confirmReceive(java.awt.event.ActionEvent evt) {                                
         // TODO add your handling code here:
+        if( nameTextField.getText().compareTo("")!=0
+           &&quantityTextField.getText().compareTo("")!=0
+           &&priceTextField.getText().compareTo("")!=0
+           &&sizeTextField.getText().compareTo("")!=0
+           &&descriptionTextField.getText().compareTo("")!=0){
+               
+            newOrder.setItemName(nameTextField.getText());
+            newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
+            newOrder.setPrice(Float.valueOf(priceTextField.getText()));
+            newOrder.setSize(Float.valueOf(sizeTextField.getText()));
+            newOrder.setDescription(descriptionTextField.getText());
+            newOrder.setItemCategory((String) jComboBox1.getSelectedItem());
+            newOrder.createOrder();
+            
+      // Check if order number is empty.
+      // If user input order number, add the product into exist order
+      // If order number is not empty, create a new order 
+            
+            
+            int newOrderNumber = -1;
+            if(orderNumberTextField.getText().compareTo("")!=0){
+                newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
+                newOrder.addItemsToOrder();
+            }
+            else
+                newOrderNumber = newOrder.addProduct();
+
+            
+            nameTextField.setText("");
+            quantityTextField.setText("");
+            priceTextField.setText("");
+            sizeTextField.setText("");
+            descriptionTextField.setText("");
+            
+            if(newOrderNumber!= -1)
+                orderNumberTextField.setText(String.valueOf(newOrderNumber));
+//            if(newOrderNumber!== -1)
+//                orderNumberTextField.setText("");
+//            else
+//                orderNumberTextField.setText(String.valueOf(newOrderNumber));
+            
+    }
+
     }                               
 
     /**
@@ -174,11 +220,12 @@ public class ReceiverUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField orderNumberTextField;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTextField quantityTextField;
+    private javax.swing.JTextField priceTextField;
+    private javax.swing.JTextField sizeTextField;
+    private javax.swing.JTextField descriptionTextField;
+    private receiveOrder newOrder;
     // End of variables declaration                   
 }
