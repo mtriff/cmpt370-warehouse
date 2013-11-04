@@ -28,7 +28,8 @@ public class ReceiverDB implements ReceiverDBInterface {
 
     @Override
     public boolean addItemsToOrder(int orderId, Object[] itemsList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -50,15 +51,23 @@ public class ReceiverDB implements ReceiverDBInterface {
     public String getOrderStatus(int orderId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public int addProduct(String name, int category, float price, float weight) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    @Override  //Change category by Xingze
+    public int addProduct(String name, String category, float price, float weight) {
+       return 42;
     }
 
+    //Added by Xingze for test
     @Override
     public Object[] getProductCategories() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object[] returnArr=new String[5];
+        returnArr[0]="Food";
+        returnArr[1]="Electronics"; 
+        returnArr[2]="Software"; 
+        returnArr[3]="Toys & Baby"; 
+        returnArr[4]="Watches & Luggage"; 
+        return returnArr;
     }
 
     @Override
