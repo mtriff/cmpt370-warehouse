@@ -9,64 +9,73 @@ package manager;
  * @author hanrongli
  */
 public class product {
-    private String productName;
-    private float productPrice;
-    private int quantities;
-    private int productNum;
-    private String description;
+    private String itemName;
+    private int itemQuantities;
+    private String itemCategory;
+    private float price;
+    private float size;
+    private String itemDescription;
     
     
     /*
-    * constructor for product
-    */
-    public product(String pName, float pPrice, int pQuantities, int pNum, String pDescription){
-        this.productName=pName;
-        this.productPrice=pPrice;
-        this.quantities=pQuantities;
-        this.productNum=pNum;
-        this.description=pDescription;
+     * constructor for product
+     */
+    public product(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
+        this.itemName=pName;
+        this.itemQuantities=pQuantities;
+        this.itemCategory=pCategory;
+        this.price=pPrice;
+        this.size=pSize;
+        this.itemDescription=pDescription;
     }
-
+    
     
     public String getProductName(){
-        return productName;
-    }
-    
-    public float getProductPrice(){
-        return productPrice;
-    }
-    
-    public int getProductQuantities(){
-        return quantities;
-    }
-    
-    public int getProductNum(){
-        return productNum;
-    }
-    
-    public String getDescription(){
-        return description;
+        return itemName;
     }
     
     public void setProductName(String newProductName){
-        this.productName=newProductName;
-    }
-
-    
-    public void setProductPrice(float newProductPrice){
-        this.productPrice=newProductPrice;
+        this.itemName=newProductName;
     }
     
-    public void setProductQuan(int newQuantities){
-        this.quantities=newQuantities;
+    public int getProductQuantities(){
+        return itemQuantities;
     }
     
-    public void setProductNum(int newProductNum){
-        this.productNum=newProductNum;
+    public void setProductQuantities(int newQuantities){
+        this.itemQuantities=newQuantities;
     }
     
-    public void setDescription(String newDescription){
-        this.description=newDescription;
+    public String getProductCategory(){
+        return itemCategory;
     }
-            
+    
+    public void setProductCategory(String newCategory){
+        this.itemCategory = newCategory;
+    }
+    
+    
+    public String getDescription(){
+        return itemDescription;
+    }
+    
+    public void setProductDescription(String newDescription){
+        this.itemDescription=newDescription;
+    }
+    
+    public float getProductProductPrice() {
+        return price;
+    }
+    
+    public void setProductPrice(float price) {
+        this.price = price;
+    }
+    
+    public float getProductSize() {
+        return size;
+    }
+    
+    public void setProductSize(float size) {
+        this.size = size;
+    }            
 }
