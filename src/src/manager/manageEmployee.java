@@ -3,17 +3,36 @@
  * and open the template in the editor.
  */
 package manager;
-import java.sql.Array;
+import database.manager.ManageEmployeeDB;
 
 /**
  *
  * @author hanrongli
  */
 public class manageEmployee {
+    private ManageEmployeeDB database;
     private employee Employee;
     
+    
+    
+    public Object[] getEmployeeList(){
+        Object[] tempArray;
+        tempArray = database.getEmployeeList();
+        return tempArray;
+    }
+    
+    public boolean addEmployee(String name, int id, String title, String currentWork, String nextWork, int numberDone){
+        database.addEmployee(name,id, title, currnentWork, nextWork, numberDone);
+        return true;
+    }
+    
+    
+    public float getEmployeeSpeed(int employeeID){
+        return database.getEmployeeSpeed(employeeID);
+    }
+    
     /*
-     * per an employee type e
+     * pre an employee type e
      * check the employee current working task
      * post if the employee is busy return current working task
      *       otherwise return "currently free"
@@ -39,12 +58,20 @@ public class manageEmployee {
         return "next work task: "+ e.getNextWork();
     }
     
+    
+    public String checkNumDone(int num){
+        if(e.NumOfWorkDone()<=0){
+            return 0;
+        }
+        return e.getNextWork();
+    }
+    
     /*
      * param manager type in newPosition
      * change the employee position
      */
-    public void changePosition(String newPosition){
-        Employee.setPosition(newPosition);
+    public void changeTitle(String newTitle){
+        Employee.setTitle(newTitle);
     }
     
     /*
@@ -64,23 +91,24 @@ public class manageEmployee {
         Employee.setNextWork(newNextWork);
     }
     
+    
     /*
      * pre an employee name as key to search in the system
      * search the employee as the manager type in the UI
      *pre return the search result
-     */
-    public String searchEmployee(String name){
-        return null;
-    }
-    
-    
-    
-    /*
+     
+     public String searchEmployee(String name){
+     return null;
+     }
+     
+     
+     
+     /*
      *pre all the employee in the database
      * show a arranged list sorted by type of position(Stock Handler, Receiver, Shipper)
-     */
-    public void sortByPosition(){
-        
-    }
-    
+     
+     public void sortByPosition(){
+     
+     }
+     
 }
