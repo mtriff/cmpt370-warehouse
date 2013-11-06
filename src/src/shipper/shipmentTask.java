@@ -3,7 +3,6 @@ package shipper;
 public class shipmentTask {
 	
 	private int wayBill;
-//	private int deliveryTime;
 	private int itemNumber;
 	private int itemQuantity;
 	private String stockPicker;
