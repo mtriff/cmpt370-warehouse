@@ -52,11 +52,7 @@ public class StockUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-<<<<<<< HEAD
                 "Label", "Start Time", "End Time"
-=======
-                "Item", "Description", "Amount", "Remain", "Actual", "Completed", "Pallet", "Notes"
->>>>>>> 06fa7d4c9425fe2ab9e92dcd5042cb0bc7da55c2
             }
         ));
         jScrollPane1.setViewportView(jTable1);
