@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import manager.modifyInventory;
+
 /**
  *
  * @author Xianming
@@ -14,6 +16,7 @@ public class OrderStockUI extends javax.swing.JFrame {
      * Creates new form OrderStockUI
      */
     public OrderStockUI() {
+        newModify = new modifyInventory();
         initComponents();
     }
 
@@ -153,5 +156,6 @@ public class OrderStockUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private modifyInventory newModify;
     // End of variables declaration                   
 }
