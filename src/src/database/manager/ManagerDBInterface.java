@@ -52,4 +52,91 @@ public interface ManagerDBInterface {
      * @return The updated average after the addition of the new data point
      */
     public float addSpeedDatapoint(int employeeId, float time);
+    
+    
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public String getItemName(int itemNumber);
+    
+    /**
+     * 
+     * @param name
+     * @param itemNumber 
+     */
+    public void setItemName(String name, int itemNumber);
+    
+    /**
+     * 
+     * @param itemName
+     * @return 
+     */
+    public int getItemNumber(String itemName);
+    
+    /**
+     * 
+     * @param itemNumber
+     * @param itemName 
+     */
+    public void setItemNumber(int itemNumber, String itemName);
+
+    /**
+     * 
+     * @param description
+     * @param itemNumber 
+     */
+    public void setItemDescription (String description,int itemNumber);
+    
+    /**
+     * 
+     * @param category
+     * @param itemNumber
+     * @return 
+     */
+    public void setCategory(int category,int itemNumber);
+
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public int getItemPrice(int itemNumber);
+    
+    /**
+     * 
+     * @param price
+     * @param itemNumber 
+     */
+    public void setItemPrice(int price, int itemNumber);
+
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public int getItemQuantity(int itemNumber);
+    
+    /**
+     * 
+     * @param quantity
+     * @param itemNumber
+     * @return 
+     */
+    public void setItemQuantity(int quantity,int itemNumber);
+    
+    /**
+     * 
+     * @param location
+     * @param itemNumber 
+     */
+    public void setLocation(int location, int itemNumber);
+    
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public int getLocation(int itemNumber);
 }
