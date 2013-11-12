@@ -88,7 +88,12 @@ public interface ManagerDBInterface {
      * @param itemNumber 
      */
     public void setItemDescription (String description,int itemNumber);
-    
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public String getItemDescription(int itemNumber);
     /**
      * 
      * @param category
@@ -139,4 +144,12 @@ public interface ManagerDBInterface {
      * @return 
      */
     public int getLocation(int itemNumber);
+    
+    
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public int getCategory(int itemNumber);
 }

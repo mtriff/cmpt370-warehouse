@@ -121,5 +121,23 @@ public class ManagerDB implements ManagerDBInterface {
        else 
            return 0202;
     }
+
+    @Override
+    public int getCategory(int itemNumber) {
+        // for test modify inventory    
+        if(itemNumber == 1)
+           return 100;
+       else 
+           return 200;
+    }
+
+    @Override
+    public String getItemDescription(int itemNumber) {
+       // for test modify inventory    
+        if(itemNumber == 1)
+           return "100";
+       else 
+           return "200";
+    }
     
 }
