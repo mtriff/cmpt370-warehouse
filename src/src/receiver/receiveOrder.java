@@ -10,7 +10,7 @@ public class receiveOrder {
     private String itemName;
     private int orderID;
     private int itemQuantity;
-    private String itemCategory;
+    private int itemCategory;
     private float price;
     private float size;
     private String itemDescription;
@@ -96,7 +96,7 @@ public class receiveOrder {
  * set itemCategory to orderItem
  * @param itemCategory
  */
-	public void setItemCategory(String itemCategory) {
+	public void setItemCategory(int itemCategory) {
             this.itemCategory = itemCategory;
 	}
 /**
