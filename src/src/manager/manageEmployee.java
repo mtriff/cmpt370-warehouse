@@ -3,15 +3,65 @@
  * and open the template in the editor.
  */
 package manager;
-import database.manager.ManageEmployeeDB;
+import database.manager.ManagerDB;
 
 /**
  *
  * @author hanrongli
  */
 public class manageEmployee {
-    private ManageEmployeeDB database;
-    private employee Employee;
+    private Manager database;
+    
+    
+    
+    public String getEmployeeName(){
+        return database.
+    }
+    
+    public void setEmployeeName(String newName){
+        this.employeeName=newName;
+    }
+    
+    public int getID(){
+        return employeeID;
+    }
+    
+    public void setID(int id){
+        this.employeeID=id;
+    }
+    
+    public String getTitle(){
+        return title;
+    }
+    
+    public void setTitle(String newPosition){
+        this.title=newPosition;
+    }
+    
+    public String getCurrentWork(){
+        return currentWork;
+    }
+    
+    public void setCurrentWork(String newCurrentWork){
+        this.currentWork=newCurrentWork;
+    }
+    
+    public String getNextWork(){
+        return nextWork;
+    }
+    
+    public void setNextWork(String newNextWork){
+        this.nextWork=newNextWork;
+    }
+    
+    public int getNumOfWorkDone(){
+        return numOfWorkDone;
+    }
+    
+    public void setNumOfWorkDone(int newNumer){
+        this.numOfWorkDone=newNumer;
+    }
+    
     
     
     
