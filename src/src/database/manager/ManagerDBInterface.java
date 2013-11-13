@@ -14,7 +14,7 @@ public interface ManagerDBInterface {
      * Gets the list of all employees
      * @return An array containing all employees in the system, or null on failure
      */
-    public Object[] getEmployees();
+    public Object[] getEmployeesList();
     
     
     /**
@@ -219,5 +219,7 @@ public interface ManagerDBInterface {
      * @return The ID number of the newly added item
      */
     public int addProduct(String name, int category, float price, float weight);
+    
+    public Object[] getProductList();
     
 }

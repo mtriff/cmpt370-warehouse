@@ -12,8 +12,13 @@ public class ManagerDB implements ManagerDBInterface {
     
     //@edit by Rongli Han
     @Override
-    public Object[] getEmployees() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object[] getEmployeesList() {
+        Object[] returnArr=new String[3];
+        
+        returnArr[0]=1;
+        returnArr[1]=2;
+        returnArr[2]=3;
+        return returnArr;
     }
     
     
@@ -219,5 +224,15 @@ public class ManagerDB implements ManagerDBInterface {
     @Override
     public int addProduct(String name, int category, float price, float weight) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public Object[] getProductList() {
+        Object[] returnArr=new String[3];
+        
+        returnArr[0]=1;
+        returnArr[1]=2; 
+        returnArr[2]=3; 
+        return returnArr;
     }
 }
