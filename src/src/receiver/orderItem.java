@@ -9,7 +9,7 @@ public class orderItem {
     private String itemName;
 
     private int itemQuantity;
-    private String itemCategory;
+    private int itemCategory;
     private float price;
     private float size;
     private String itemDescription;
@@ -24,7 +24,7 @@ public class orderItem {
  * @param size
  * @param itemDescription 
  */
-    public orderItem(String itemName, int itemQuantity, String itemCategory, float price, float size, String itemDescription) {
+    public orderItem(String itemName, int itemQuantity, int itemCategory, float price, float size, String itemDescription) {
         this.itemName = itemName;
 //        this.orderID = orderID;
         this.itemQuantity = itemQuantity;
@@ -70,11 +70,11 @@ public void setItemName(String itemName) {
 	this.itemName = itemName;
 }
 
-public String getItemCategory() {
+public int getItemCategory() {
 	return itemCategory;
 }
 
-public void setItemCategory(String itemCategory) {
+public void setItemCategory(int itemCategory) {
 	this.itemCategory = itemCategory;
 }
 
