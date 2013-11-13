@@ -53,14 +53,17 @@ public interface ManagerDBInterface {
      * @return True on success, False on failure
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public boolean setTitle(int employeeId, String title);
+=======
+    public void setTitle(String title,int employeeId);
+>>>>>>> database
     
     /**
-     * 
-     * @param employeeId
-     * @param name
-     * @return 
+     * Creates a new (empty) order with the current date
+     * @return The ID of the newly created order
      */
+<<<<<<< HEAD
     public boolean setEmployeeName(int employeeId, String name);
 =======
     public void setTitle(String title,int employeeId);
@@ -70,6 +73,8 @@ public interface ManagerDBInterface {
      * Creates a new (empty) order with the current date
      * @return The ID of the newly created order
      */
+=======
+>>>>>>> database
     
     /**
      * Creates a new (empty) order with the current date
@@ -79,6 +84,7 @@ public interface ManagerDBInterface {
     public String getCurrentWork(int employeeId);
     
     public void setCurrentWork(String currentWork, int employeeId);
+<<<<<<< HEAD
     
     public String getNextWork(int employeeId);
     
@@ -90,6 +96,19 @@ public interface ManagerDBInterface {
     
     
     
+=======
+    
+    public String getNextWork(int employeeId);
+    
+    public void setNextWork(String nextWork, int employeeId);
+    
+    public int getNumofWorkDone(int employeeId);
+    
+    public void setNumofWorkDone(int num ,int employeeId);
+    
+    
+    
+>>>>>>> database
     //public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
     
     
@@ -123,10 +142,14 @@ public interface ManagerDBInterface {
      */
     public void setProductNumber(int itemNumber, String itemName);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> manager
+=======
+    
+>>>>>>> database
     /**
      *
      * @param description
@@ -136,6 +159,7 @@ public interface ManagerDBInterface {
     
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * 
      * @param itemId
      * @param size 
@@ -144,6 +168,11 @@ public interface ManagerDBInterface {
      * @param itemId
      * @param size
 >>>>>>> manager
+=======
+     *
+     * @param itemId
+     * @param size
+>>>>>>> database
      */
     public void setProductSize(int itemId, float size);
     
@@ -161,10 +190,14 @@ public interface ManagerDBInterface {
      */
     public void setProductCategory(int itemId, int categoryId);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> manager
+=======
+    
+>>>>>>> database
     /**
      *
      * @param itemNumber
@@ -179,10 +212,14 @@ public interface ManagerDBInterface {
      */
     public void setProductPrice(int itemId, float price);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> manager
+=======
+    
+>>>>>>> database
     /**
      *
      * @param itemNumber
@@ -222,20 +259,25 @@ public interface ManagerDBInterface {
     
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * 
+=======
+     *
+>>>>>>> database
      * @param itemNumber
-     * @return 
+     * @return
      */
     public float getProductSize(int itemNumber);
     
-   /**
-    * 
-    * @param itemNumber
-    * @return 
-    */
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
     public float getProductWeight(int itemNumber);
     
     /**
+<<<<<<< HEAD
      * 
 =======
      *
@@ -254,6 +296,9 @@ public interface ManagerDBInterface {
     /**
      *
 >>>>>>> manager
+=======
+     *
+>>>>>>> database
      * @return List of products
      */
     public Object[] getProducts();
@@ -265,10 +310,17 @@ public interface ManagerDBInterface {
      * @param price The price the product sells for
      * @param weight The weight of the item, in kilograms
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return The ID number of the newly added item 
+=======
+     * @return The ID number of the newly added item
+>>>>>>> database
      */
-    public int addProduct(String name, int category, float price, float weight);    
+    public int addProduct(String name, int category, float price, float weight);
     
+    public Object[] getProductList();
+    
+<<<<<<< HEAD
 }
 =======
      * @return The ID number of the newly added item
@@ -279,3 +331,6 @@ public interface ManagerDBInterface {
     
 }
 >>>>>>> manager
+=======
+}
+>>>>>>> database
