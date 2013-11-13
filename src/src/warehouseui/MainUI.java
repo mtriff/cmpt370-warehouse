@@ -4,12 +4,48 @@
  */
 package warehouseui;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+import org.jdesktop.layout.GroupLayout;
+
 /**
  *
  * @author Xianming
  */
 public class MainUI extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify                     
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JButton jButton5;
+    private JMenu jMenu1;
+    private JMenu editMenu;
+    private JMenuBar jMenuBar1;
+    private JPanel jPanel1;
+    private WarehouseMap jPanel2;
+    private JMenuItem menuItem_add;
+
+    // End of variables declaration     
     /**
      * Creates new form MainUI
      */
@@ -26,146 +62,178 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jButton1 = new JButton();
+        jButton2 = new JButton();
+        jButton3 = new JButton();
+        jButton4 = new JButton();
+        jButton5 = new JButton();
+        jPanel1 = new JPanel();
+        jPanel2 = new WarehouseMap();
+        jMenuBar1 = new JMenuBar();
+        jMenu1 = new JMenu();
+        editMenu = new JMenu();
+        menuItem_add = new JMenuItem("Add");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Stock");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 openStockUI(evt);
             }
         });
 
         jButton2.setText("Shipping");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 openShippingUI(evt);
             }
         });
 
         jButton3.setText("Receiver");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 openReceiverUI(evt);
             }
         });
 
         jButton4.setText("Manager");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 openManagerUI(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Stock Bill");
+        jButton5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                openBillPopup(evt);
+            }
+        });
 
-        jLabel1.setText("Warehouse Map");
+        jPanel2.setBackground(new Color(186, 186, 186));
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
+        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
+                jPanel2Layout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel2Layout.createSequentialGroup()
                 .add(190, 190, 190)
-                .add(jLabel1)
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
+                .addContainerGap(193, Short.MAX_VALUE)));
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
+                jPanel2Layout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel2Layout.createSequentialGroup()
                 .add(155, 155, 155)
-                .add(jLabel1)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuItem_add.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            }
+        });
+        editMenu.setText("Edit");
+        editMenu.add(menuItem_add);
+
+        jMenuBar1.add(editMenu);
 
         setJMenuBar(jMenuBar1);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+                layout.createParallelGroup(GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+                .add(GroupLayout.TRAILING, jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(GroupLayout.TRAILING, jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(GroupLayout.TRAILING, jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(GroupLayout.TRAILING, jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+                layout.createParallelGroup(GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(layout.createSequentialGroup()
-                        .add(jButton1)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton2)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton3)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton4)
-                        .add(0, 202, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+                .add(layout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(layout.createSequentialGroup()
+                .add(jButton1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton3)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton4)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton5)
+                .add(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()));
 
         pack();
     }// </editor-fold>                        
 
-    private void openStockUI(java.awt.event.ActionEvent evt) {                             
-            // TODO add your handling code here:
-           StockUI stockWindow = new StockUI();
-           stockWindow.setVisible(true);
-    }                            
+    /**
+     * Open stock UI window
+     *
+     * @param evt
+     */
+    private void openStockUI(ActionEvent evt) {
+        // TODO add your handling code here:
+        StockUI stockWindow = new StockUI();
+        stockWindow.setVisible(true);
+    }
 
-    private void openShippingUI(java.awt.event.ActionEvent evt) {                                
+    /**
+     * Open shipping UI window
+     *
+     * @param evt
+     */
+    private void openShippingUI(ActionEvent evt) {
         // TODO add your handling code here:
         ShippingUI shippingWindow = new ShippingUI();
         shippingWindow.setVisible(true);
-    }                               
+    }
 
-    private void openReceiverUI(java.awt.event.ActionEvent evt) {                                
+    /**
+     * Open receiver UI window
+     *
+     * @param evt
+     */
+    private void openReceiverUI(ActionEvent evt) {
         // TODO add your handling code here:
         ReceiverUI receiverWindow = new ReceiverUI();
         receiverWindow.setVisible(true);
-    }                               
+    }
 
-    private void openManagerUI(java.awt.event.ActionEvent evt) {                               
+    /**
+     * Open manager UI window
+     *
+     * @param evt
+     */
+    private void openManagerUI(ActionEvent evt) {
         // TODO add your handling code here:
         ManagerUI managerWindow = new ManagerUI();
         managerWindow.setVisible(true);
-    }                              
+    }
+
+    private void openBillPopup(ActionEvent evt) {
+        BillPopup billPopup = new BillPopup();
+        billPopup.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
@@ -177,40 +245,226 @@ public class MainUI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainUI().setVisible(true);
             }
         });
     }
-    // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    // End of variables declaration                   
+
+    class Rect {
+    }
+
+    private class Bin {
+        // ----- Instance Variables -----
+
+        boolean isExist;
+        int binX;
+        int binY;
+
+        // ----- Class Methods -----
+        Bin() {
+            isExist = false;
+            //this.binX = x;
+            //this.binY = y;
+        }
+    }
+
+    private class WarehouseMap extends JPanel {
+
+        // ----- Instance Variables -----
+        //ArrayList<Bin> bins;
+        Bin[][] bins;
+        Dimension dim = new Dimension(930, 630);
+        final int NUM_BIN_X = 30;
+        final int NUM_BIN_Y = 20;
+        int mouseX;
+        int mouseY;
+        int draggedX;
+        int draggedY;
+        int preDraggedX;
+        int preDraggedY;
+        boolean isDragged = false;
+        Rectangle rectX = new Rectangle();
+        Rectangle rectY = new Rectangle();
+        boolean onDragged = false;
+        boolean isConflict = false;
+
+        // ----- Class Methods -----
+        public WarehouseMap() {
+            //bins = new ArrayList<>(NUM_BIN_X * NUM_BIN_Y);
+            bins = new Bin[NUM_BIN_Y][NUM_BIN_X];
+            for (int i = 0; i < NUM_BIN_Y; i++) {
+                for (int j = 0; j < NUM_BIN_X; j++) {
+                    bins[i][j] = new Bin();
+                }
+            }
+            addMouseMotionListener(new MyMouseAdapter());
+            addMouseListener(new MyMouseAdapter());
+
+        }
+
+        @Override
+        public Dimension getPreferredSize() {
+            return dim;
+        }
+
+        @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            g.setColor(Color.white);
+
+            drawLine(g);
+            drawCoordinate(g);
+            drawRect(g);
+            if (isDragged) {
+                rectX.setBounds(31, draggedY * 30 + 1, 900, 29);
+                rectY.setBounds(draggedX * 30 + 1, 31, 29, 600);
+                Graphics2D g2d = (Graphics2D) g;
+                if (!isConflict) {
+                    g2d.setColor(new Color(0, 255, 126));
+                } else {
+                    g2d.setColor(new Color(255, 98, 94));
+                }
+                g2d.fill(rectX);
+                g2d.fill(rectY);
+            }
+        }
+
+        private void drawLine(Graphics g) {
+            // draw horizontal line
+            for (int i = 0; i <= 630; i += 30) {
+                g.drawLine(0, i, 930, i);
+            }
+
+            // draw vertical line
+            for (int i = 0; i <= 930; i += 30) {
+                g.drawLine(i, 0, i, 630);
+            }
+        }
+
+        private void drawCoordinate(Graphics g) {
+            // draw horizontal coordinate
+            int number = 0;
+            for (int i = 10; i < 930; i += 30) {
+                g.drawString(String.valueOf(number), i, 20);
+                number++;
+            }
+            // draw vertical line
+            number = 1;
+            for (int i = 50; i < 630; i += 30) {
+                g.drawString(String.valueOf(number), 10, i);
+                number++;
+            }
+        }
+
+        private void drawRect(Graphics g) {
+            g.setColor(new Color(0, 150, 255));
+            for (int i = 0; i < NUM_BIN_Y; i++) {
+                for (int j = 0; j < NUM_BIN_X; j++) {
+                    if (bins[i][j].isExist == true) {
+                        g.fillRect((j + 1) * 30 + 1, (i + 1) * 30 + 1, 29, 29);
+                    }
+                }
+            }
+        }
+
+        private void drawOnClickBin(int X, int Y) {
+            if (bins[Y - 1][X - 1].isExist == false) {
+                bins[Y - 1][X - 1].isExist = true;
+            }
+            repaint();
+        }
+
+        private class MyMouseAdapter extends MouseAdapter {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+
+                int X = mouseX / 30;
+                int Y = mouseY / 30;
+
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
+                        && (bins[Y - 1][X - 1].isExist)
+                        && e.getClickCount() == 2) {
+                    ProductPopup productPopup = new ProductPopup();
+                    productPopup.setVisible(true);
+                    return;
+                }
+
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
+                        && e.getClickCount() == 2) {
+                    drawOnClickBin(X, Y);
+                }
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+
+                mouseX = e.getX();
+                mouseY = e.getY();
+
+                draggedX = mouseX / 30;
+                draggedY = mouseY / 30;
+
+                if ((draggedX > 0 && draggedY > 0)
+                        && (draggedX <= 30 && draggedY <= 20)) {
+                    if (bins[draggedY - 1][draggedX - 1].isExist && !onDragged) {
+                        preDraggedX = draggedX;
+                        preDraggedY = draggedY;
+                        bins[draggedY - 1][draggedX - 1].isExist = false;
+                        onDragged = true;
+                        isDragged = true;
+                    }
+                    if (bins[draggedY - 1][draggedX - 1].isExist) {
+                        isConflict = true;
+                    } else {
+                        isConflict = false;
+                    }
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+
+                int X = mouseX / 30;
+                int Y = mouseY / 30;
+
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20) && isDragged) {
+                    if (!bins[Y - 1][X - 1].isExist) {
+                        drawOnClickBin(X, Y);
+                    } else {
+                        drawOnClickBin(preDraggedX, preDraggedY);
+                    }
+                    isDragged = false;
+                    onDragged = false;
+                    repaint();
+                }
+            }
+        }
+    }
 }
