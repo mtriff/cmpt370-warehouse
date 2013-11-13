@@ -14,7 +14,26 @@ public interface ManagerDBInterface {
      * Gets the list of all employees
      * @return An array containing all employees in the system, or null on failure
      */
-    public Object[] getEmployees();
+    public Object[] getEmployeesList();
+    
+    
+    /**
+     * Add an employee to the company
+     * @param name The name of the employee
+     * @param id
+     * @param title
+     * @param currentWork
+     * @param nextWork
+     * @param number
+     * @return The ID assigned to the new employee
+     */
+    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number);
+    
+    
+    public String getEmployeeName(int employeeId);
+    
+    
+    public void setEmployeeName(String name,int employeeId);
     
     /**
      * Get the average speed of the employee in performing their tasks
@@ -22,169 +41,171 @@ public interface ManagerDBInterface {
      * @return The speed of the employee, or null on failure
      */
     public float getEmployeeSpeed(int employeeId);
-          
-    /**
-     * Add an employee to the company
-     * @param name The name of the employee
-     * @return The ID assigned to the new employee
-     */
-    public int addEmployee(String name);
-            
+    
+    public void setEmployeeSpeed(float speed,int employeeId);
+    
+    public String getTitle(int employeeId);
     
     /**
      * Change the title of an employee
+     * @param title
      * @param employeeId The ID of the employee whose title we will update
      * @return True on success, False on failure
      */
-    public boolean setTitle(int employeeId, String title);
+    public void setTitle(String title,int employeeId);
     
     /**
-     * 
+     * Creates a new (empty) order with the current date
+     * @return The ID of the newly created order
+     */
+    
+    /**
+     * Creates a new (empty) order with the current date
      * @param employeeId
-     * @param name
-     * @return 
+     * @return The ID of the newly created order
      */
-    public boolean setEmployeeName(int employeeId, String name);
+    public String getCurrentWork(int employeeId);
     
-   /**
-    * Creates a new (empty) order with the current date
-    * @return The ID of the newly created order
-    */
-    public int createOrder();
+    public void setCurrentWork(String currentWork, int employeeId);
+    
+    public String getNextWork(int employeeId);
+    
+    public void setNextWork(String nextWork, int employeeId);
+    
+    public int getNumofWorkDone(int employeeId);
+    
+    public void setNumofWorkDone(int num ,int employeeId);
+    
+    
+    
+    //public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
+    
+    
+    //Product
     
     /**
-     * Adds a data point using the time provided, to the average time the employee
-     * takes for their tasks
-     * @param employeeId ID of the employee to add the data point to 
-     * @param time Time in seconds
-     * @return The updated average after the addition of the new data point
-     */
-    public float addSpeedDatapoint(int employeeId, float time);
-    
-    
-    /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public String getProductName(int itemNumber);
     
     /**
-     * 
+     *
      * @param name
-     * @param itemNumber 
+     * @param itemNumber
      */
     public void setProductName(String name, int itemNumber);
     
     /**
-     * 
+     *
      * @param itemName
-     * @return 
+     * @return
      */
     public int getProductNumber(String itemName);
     
     /**
-     * 
+     *
      * @param itemNumber
-     * @param itemName 
+     * @param itemName
      */
     public void setProductNumber(int itemNumber, String itemName);
-
+    
     /**
-     * 
+     *
      * @param description
-     * @param itemNumber 
+     * @param itemNumber
      */
     public void setProductDescription (int itemNumber, String description);
     
     /**
-     * 
+     *
      * @param itemId
-     * @param size 
+     * @param size
      */
     public void setProductSize(int itemId, float size);
     
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public String getProductDescription(int itemNumber);
     /**
-     * 
+     *
      * @param category
      * @param itemNumber
-     * @return 
+     * @return
      */
     public void setProductCategory(int itemId, int categoryId);
-
+    
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public int getProductPrice(int itemNumber);
     
     /**
-     * 
+     *
      * @param price
-     * @param itemNumber 
+     * @param itemNumber
      */
     public void setProductPrice(int itemId, float price);
-
+    
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public int getProductQuantity(int itemId);
     
     /**
-     * 
+     *
      * @param quantity
      * @param itemNumber
-     * @return 
+     * @return
      */
     public void setProductQuantity(int itemId, int quantity);
     
     /**
-     * 
+     *
      * @param location
-     * @param itemNumber 
+     * @param itemNumber
      */
     public void setLocation(int location, int itemNumber);
     
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public int getLocation(int itemNumber);
     
     
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public int getCategory(int itemNumber);
     
     /**
-     * 
+     *
      * @param itemNumber
-     * @return 
+     * @return
      */
     public float getProductSize(int itemNumber);
     
-   /**
-    * 
-    * @param itemNumber
-    * @return 
-    */
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
     public float getProductWeight(int itemNumber);
     
     /**
-     * 
+     *
      * @return List of products
      */
     public Object[] getProducts();
@@ -195,8 +216,10 @@ public interface ManagerDBInterface {
      * @param category ID of the category this product belongs to
      * @param price The price the product sells for
      * @param weight The weight of the item, in kilograms
-     * @return The ID number of the newly added item 
+     * @return The ID number of the newly added item
      */
-    public int addProduct(String name, int category, float price, float weight);    
+    public int addProduct(String name, int category, float price, float weight);
+    
+    public Object[] getProductList();
     
 }
