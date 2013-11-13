@@ -10,10 +10,28 @@ package database.manager;
  */
 public class ManagerDB implements ManagerDBInterface {
 
+    //@edit by Rongli Han
     @Override
     public Object[] getEmployees() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    @Override
+    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public String getEmployeeName(int employeeId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void setEmployeeName(Sting name,int employeeId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
     @Override
     public float getEmployeeSpeed(int employeeId) {
@@ -21,24 +39,59 @@ public class ManagerDB implements ManagerDBInterface {
     }
 
     @Override
-    public int addEmployee(String name) {
+    public void setEmployeeSpeed(float speed,int employeeId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public String getTitle(int employeeId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean setTitle(int employeeId) {
+    public void setTitle(String title,int employeeId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    @Override
+    public String getCurrentWork(){
+        
+    }
+    
+     @Override
+    public void setCurrentWork(){
+        
+    }
+    
+     @Override
+    public String getNextWork{
+        
+    }
+    
+     @Override
+    public void setNextWork{
+        
+    }
+    
+     @Override
+    public int getNumofWorkDone(){
+        
+    }
+    
+     @Override
+    public void setNumofWorkDone(){
+        
     }
 
+
+    //edit by Rongli Han
     @Override
-    public int createOrder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public float addSpeedDatapoint(int employeeId, float time) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     // added by Xingze
     @Override
@@ -123,12 +176,12 @@ public class ManagerDB implements ManagerDBInterface {
     }
 
     @Override
-    public int getCategory(int itemNumber) {
+    public String getCategory(int itemNumber) {
         // for test modify inventory    
         if(itemNumber == 1)
-           return 100;
+           return "100";
        else 
-           return 200;
+           return "200";
     }
 
     @Override
