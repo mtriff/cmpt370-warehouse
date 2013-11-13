@@ -36,7 +36,15 @@ public interface ManagerDBInterface {
      * @param employeeId The ID of the employee whose title we will update
      * @return True on success, False on failure
      */
-    public boolean setTitle(int employeeId);
+    public boolean setTitle(int employeeId, String title);
+    
+    /**
+     * 
+     * @param employeeId
+     * @param name
+     * @return 
+     */
+    public boolean setEmployeeName(int employeeId, String name);
     
    /**
     * Creates a new (empty) order with the current date
@@ -59,69 +67,77 @@ public interface ManagerDBInterface {
      * @param itemNumber
      * @return 
      */
-    public String getItemName(int itemNumber);
+    public String getProductName(int itemNumber);
     
     /**
      * 
      * @param name
      * @param itemNumber 
      */
-    public void setItemName(String name, int itemNumber);
+    public void setProductName(String name, int itemNumber);
     
     /**
      * 
      * @param itemName
      * @return 
      */
-    public int getItemNumber(String itemName);
+    public int getProductNumber(String itemName);
     
     /**
      * 
      * @param itemNumber
      * @param itemName 
      */
-    public void setItemNumber(int itemNumber, String itemName);
+    public void setProductNumber(int itemNumber, String itemName);
 
     /**
      * 
      * @param description
      * @param itemNumber 
      */
-    public void setItemDescription (String description,int itemNumber);
+    public void setProductDescription (int itemNumber, String description);
+    
+    /**
+     * 
+     * @param itemId
+     * @param size 
+     */
+    public void setProductSize(int itemId, float size);
+    
     /**
      * 
      * @param itemNumber
      * @return 
      */
-    public String getItemDescription(int itemNumber);
+    public String getProductDescription(int itemNumber);
     /**
      * 
      * @param category
      * @param itemNumber
      * @return 
      */
-    public void setCategory(int category,int itemNumber);
+    public void setProductCategory(int itemId, int categoryId);
 
     /**
      * 
      * @param itemNumber
      * @return 
      */
-    public int getItemPrice(int itemNumber);
+    public int getProductPrice(int itemNumber);
     
     /**
      * 
      * @param price
      * @param itemNumber 
      */
-    public void setItemPrice(int price, int itemNumber);
+    public void setProductPrice(int itemId, float price);
 
     /**
      * 
      * @param itemNumber
      * @return 
      */
-    public int getItemQuantity(int itemNumber);
+    public int getProductQuantity(int itemId);
     
     /**
      * 
@@ -129,7 +145,7 @@ public interface ManagerDBInterface {
      * @param itemNumber
      * @return 
      */
-    public void setItemQuantity(int quantity,int itemNumber);
+    public void setProductQuantity(int itemId, int quantity);
     
     /**
      * 
@@ -152,4 +168,35 @@ public interface ManagerDBInterface {
      * @return 
      */
     public int getCategory(int itemNumber);
+    
+    /**
+     * 
+     * @param itemNumber
+     * @return 
+     */
+    public float getProductSize(int itemNumber);
+    
+   /**
+    * 
+    * @param itemNumber
+    * @return 
+    */
+    public float getProductWeight(int itemNumber);
+    
+    /**
+     * 
+     * @return List of products
+     */
+    public Object[] getProducts();
+    
+    /**
+     * Adds a new item to the warehouse system
+     * @param name The name of the product
+     * @param category ID of the category this product belongs to
+     * @param price The price the product sells for
+     * @param weight The weight of the item, in kilograms
+     * @return The ID number of the newly added item 
+     */
+    public int addProduct(String name, int category, float price, float weight);    
+    
 }
