@@ -192,7 +192,7 @@ public class ReceiverUI extends javax.swing.JFrame {
             newOrder.setPrice(Float.valueOf(priceTextField.getText()));
             newOrder.setSize(Float.valueOf(sizeTextField.getText()));
             newOrder.setDescription(descriptionTextField.getText());
-            newOrder.setItemCategory((String) jComboBox1.getSelectedItem());
+            newOrder.setItemCategory((int) jComboBox1.getSelectedItem());
             newOrder.createOrder();
             
       // Check if order number is empty.
