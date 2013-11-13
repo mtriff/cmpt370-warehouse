@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package manager;
-import database.manager.ManageProductDB;
+import database.manager.ManagerDB;
 
 
 /**
@@ -12,13 +12,144 @@ import database.manager.ManageProductDB;
  */
 public class manageProduct {
     
-    private ManageProductDB database;
-    private product Product;
+    private ManagerDB database;
     
-    /*
-     *param name: a String, price: a float, quantities: an integer, itemNum: an integer, description: a String
-     *add a new product into the management system
+    
+    public manageProduct(){
+        database =new ManagerDB();
+    }
+    
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
      */
+    
+    public String getItemName(int itemNumber){
+        return database.getProductName(itemNumber);
+    }
+    
+    /**
+     *
+     * @param name
+     * @param itemNumber
+     */
+    public void setItemName(String name, int itemNumber){
+        database.setProductName(name, itemNumber);
+    }
+    
+    /**
+     *
+     * @param itemName
+     * @return
+     */
+    public int getItemNumber(String itemName){
+        return database.getProductNumber(itemName);
+    }
+    
+    /**
+     *
+     * @param itemNumber
+     * @param itemName
+     */
+    public void setItemNumber(int itemNumber, String itemName){
+        database.setProductNumber(itemNumber, itemName);
+    }
+    
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
+    public int getItemPrice(int itemNumber){
+        return database.getProductPrice(itemNumber);
+    }
+    
+    /**
+     *
+     * @param price
+     * @param itemNumber
+     */
+    public void setItemPrice(int price, int itemNumber){
+        database.setProductPrice(price, itemNumber);
+    }
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
+    public int getItemQuantity(int itemNumber){
+        return database.getProductQuantity(itemNumber);
+    }
+    
+    /**
+     *
+     * @param quantity
+     * @param itemNumber
+     */
+    public void setItemQuantity(int quantity,int itemNumber){
+        database.setProductQuantity(quantity, itemNumber);
+    }
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
+    public int getLocation(int itemNumber){
+        return database.getLocation(itemNumber);
+    }
+    
+    /**
+     *
+     * @param location
+     * @param itemNumber
+     */
+    public void setLocation(int location, int itemNumber){
+        database.setLocation(location, itemNumber);
+    }
+    
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
+    public Object getItemCategory(int itemNumber) {
+        return database.getCategory(itemNumber);
+    }
+    
+    /**
+     *
+     * @param category
+     * @param itemNumber
+     */
+    public void setItemCategory(int category,int itemNumber){
+        database.setProductCategory(category, itemNumber);
+    }
+    
+    
+    /**
+     *
+     * @param itemNumber
+     * @return
+     */
+    public String getItemDescription(int itemNumber){
+        return database.getProductDescription(itemNumber);
+    }
+    
+    /**
+     *
+     * @param description
+     * @param itemNumber
+     */
+    public void setItemDescription (int itemNumber,String description){
+        database.setProductDescription(itemNumber,description);
+    }
+    
     
     public Object[] getProductList(){
         Object[] tempArray;
@@ -26,43 +157,16 @@ public class manageProduct {
         return tempArray;
     }
     
+    
+    /*
+     *param name: a String, price: a float, quantities: an integer, itemNum: an integer, description: a String
+     *add a new product into the management system
+     */
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description){
-        Product=new product(name,quantities,category,price, size, description);
+        database.addProduct(name,quantities,category,price, size, description);
         return true;
     }
     
-    
-    /*
-     * param manager type in newPrice
-     * change the product price
-     */
-    public void changePirce(float newPrice){
-        Product.setProductPrice(newPrice);
-    }
-    
-    /*
-     * param: manager type in newQuantities
-     * change the product quantities
-     */
-    public void changeQuantities(int newQuantities){
-        Product.setProductQuantities(newQuantities);
-    }
-    
-    /*
-     * param: manager type in newQuantities
-     * change the product quantities
-     */
-    public void changeCategory(String newProductCategory){
-        Product.setProductCategory(newProductCategory);
-    }
-    
-    /*
-     * param: manager type in newDescription
-     * change the product description
-     */
-    public void changeProductDescription(String newDescriptioin){
-        Product.setProductDescription(newDescriptioin);
-    }
     
     
     /*
@@ -90,5 +194,8 @@ public class manageProduct {
      public void sortByItemNum(){
      
      }*/
+    
+    
+    
     
 }
