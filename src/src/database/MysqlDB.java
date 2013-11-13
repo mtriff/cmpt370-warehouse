@@ -21,8 +21,8 @@ public class MysqlDB {
     private static MysqlDB database;
     
     //Variables for database connection
-    private Connection connection=null;
-    private final String DATABASEURL="jdbc:mysql://edjo.usask.ca/cmpt370_group02";
+    private static Connection connection=null;
+    private static final String DATABASEURL="jdbc:mysql://edjo.usask.ca/cmpt370_group02";
     
     /**
      * Constructor, creates a database connector
@@ -41,7 +41,7 @@ public class MysqlDB {
         }
     }
     
-    private int connect() throws SQLException
+    private static int connect() throws SQLException
     {
         //Connect to the database
         try
@@ -66,7 +66,7 @@ public class MysqlDB {
      * Accessor to the database
      * @return database connection
      */
-    static MysqlDB get()
+    public static MysqlDB get()
     {
         if(database==null)
         {
@@ -81,10 +81,15 @@ public class MysqlDB {
      * @param query A SQL query to be run on the MySQL database
      * @return The ResultSet generated from the query
      */
-    protected ResultSet runQuery(String query) throws SQLException
+    public static ResultSet runQuery(String query) throws SQLException
     {
         Statement statement;
         ResultSet results;
+        if(connection==null)
+        {
+            connect();
+        }
+        
         if(connection!=null)
         {
             statement=connection.createStatement();
@@ -92,14 +97,14 @@ public class MysqlDB {
             return results;
         }
         
+        
         return null;
     }
     
     public static void main(String [] args)
     {
         try {
-            MysqlDB db=new MysqlDB();
-            ResultSet ret=db.runQuery("SHOW TABLES");
+            ResultSet ret=MysqlDB.runQuery("SELECT name FROM prodCategory;");
             if(ret==null)
             {
                 System.out.println("DB returned nothing.");

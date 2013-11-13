@@ -4,6 +4,14 @@
  */
 package database.receiver;
 
+import database.MysqlDB;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -53,21 +61,55 @@ public class ReceiverDB implements ReceiverDBInterface {
     }
     
     
-    @Override  //Change category by Xingze
-    public int addProduct(String name, String category, float price, float weight) {
-       return 42;
+    @Override  
+    public int addProduct(String name, int category, float price, float weight) {
+        System.out.println("Using addProduct");
+        String query="INSERT INTO product(name, category, price, weight) VALUES ('"
+                +name+"',"+category+","+price+","+weight+");"
+                +"SELECT last_insert_id() AS last_id FROM product;";
+        
+        try {
+          ResultSet results=MysqlDB.runQuery(query);
+
+          if(results!=null)
+          {
+              System.out.println("Returning ID: "+results.getInt("last_id"));
+              return results.getInt("last_id");
+          }
+        } catch (SQLException ex) {
+          Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;
     }
 
     //Added by Xingze for test
     @Override
     public Object[] getProductCategories() {
-        Object[] returnArr=new String[5];
-        returnArr[0]="Food";
-        returnArr[1]="Electronics"; 
-        returnArr[2]="Software"; 
-        returnArr[3]="Toys & Baby"; 
-        returnArr[4]="Watches & Luggage"; 
-        return returnArr;
+        try {
+            ResultSet results=MysqlDB.runQuery("SELECT name FROM prodCategory;");
+ 
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[] returnArray=new String[numResults];
+                if(results.first())
+                {
+                    int rowCount=0;
+                    while(results.next())
+                    {
+                        returnArray[rowCount]=results.getObject("name");
+                        rowCount++;
+                    }
+                    
+                    return returnArray;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
 
     @Override
