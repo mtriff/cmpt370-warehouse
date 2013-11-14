@@ -18,8 +18,8 @@ Han
 ---
 Use Case | Sprint Due Date
 ---|---
-Manage Employees | Nov. 5th 
-Statistics Reporting | Nov. 8th
+~~Manage Employees~~ | ~~Nov. 5th~~ 
+~~Statistics Reporting~~ | ~~Nov. 8th~~
 Stock Reporting | Nov. 12th
 
 Spencer
@@ -27,28 +27,27 @@ Spencer
 Use Case | Sprint Due Date
 ---|---
 Routing Stocking Tasks | Nov. 12th
-Tool Tips | Nov. 14th (tentative)
 
 Xingze
 ------
 Use Case | Sprint Due Date
 ---|---
-Receive Purchase Order | Nov. 5th
-Send Shipments | Nov. 8th
-Modify Inventory | Nov. 8th
+~~Receive Purchase Order~~ | ~~Nov. 5th~~
+~~Send Shipments~~ | ~~Nov. 8th~~
+~~Modify Inventory~~ | ~~Nov. 8th~~
 Order Stock | Nov. 12th
 
 Sam
 ---
 Use Case | Sprint Due Date
 ---|---
-Update Map | Nov. 5th
+~~Update Map~~ | ~~Nov. 5th~~
 Locate Stock | Nov. 8th
-Clean up GUI | Nov. 12th
+Clean up GUI | Move to next milestone
 
 Matt
 ----
 Use Case | Sprint Due Date
 ---|---
-Neo4j Setup | Nov. 5th
+~~Neo4j Setup~~ | ~~Nov. 5th~~
 Login | Nov. 8th
