@@ -39,4 +39,13 @@ public interface GuiDBInterface {
      * @return Object[] of the (row, column) coordinates of each bin in the warehouse 
      */
     public Object[] getBinLocations();
+    
+    /**
+     * Performs login check
+     * @param userId The id of the user being authenticated
+     * @param password The password of the user being authenticated
+     * @param type The type of user being authenticated (1 is Manager, 2 is Receiver
+     * @return 
+     */
+    public boolean login(int userId, String password, int type);
 }
