@@ -159,9 +159,9 @@ public class ManagerDB implements ManagerDBInterface {
     public int getLocation(int itemNumber) {
         // for test modify inventory
         if(itemNumber == 1)
-            return 0101;
+            return 1010;
         else
-            return 0202;
+            return 2020;
     }
     
     @Override
