@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -22,6 +21,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import org.jdesktop.layout.GroupLayout;
@@ -41,7 +42,7 @@ public class MainUI extends javax.swing.JFrame {
     private JMenu editMenu;
     private JMenuBar jMenuBar1;
     private JPanel jPanel1;
-    private WarehouseMap jPanel2;
+    private MainUI.WarehouseMap jPanel2;
     private JMenuItem menuItem_add;
 
     // End of variables declaration     
@@ -66,11 +67,11 @@ public class MainUI extends javax.swing.JFrame {
         jButton3 = new JButton();
         jButton4 = new JButton();
         jPanel1 = new JPanel();
-        jPanel2 = new WarehouseMap();
+        jPanel2 = new MainUI.WarehouseMap();
         jMenuBar1 = new JMenuBar();
         jMenu1 = new JMenu();
         editMenu = new JMenu();
-        menuItem_add = new JMenuItem("Add");
+        menuItem_add = new JMenuItem("Locate");
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,9 +132,10 @@ public class MainUI extends javax.swing.JFrame {
 
         menuItem_add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                new LocateBinPopup().setVisible(true);
             }
         });
-        editMenu.setText("Edit");
+        editMenu.setText("Search");
         editMenu.add(menuItem_add);
 
         jMenuBar1.add(editMenu);
@@ -254,59 +256,51 @@ public class MainUI extends javax.swing.JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginUI().setVisible(true);
+
             }
         });
-    }
-
-    class Rect {
     }
 
     private class Bin {
         // ----- Instance Variables -----
 
         boolean isExist;
-        int binX;
-        int binY;
 
         // ----- Class Methods -----
         Bin() {
             isExist = false;
-            //this.binX = x;
-            //this.binY = y;
         }
     }
 
     private class WarehouseMap extends JPanel {
 
         // ----- Instance Variables -----
-        //ArrayList<Bin> bins;
-        Bin[][] bins;
-        Dimension dim = new Dimension(930, 630);
+        MainUI.Bin[][] bins;
+        Dimension dim = new Dimension(930, 630); // size of the map
         final int NUM_BIN_X = 30;
         final int NUM_BIN_Y = 20;
-        int mouseX;
-        int mouseY;
-        int draggedX;
-        int draggedY;
-        int preDraggedX;
-        int preDraggedY;
-        boolean isDragged = false;
-        Rectangle rectX = new Rectangle();
-        Rectangle rectY = new Rectangle();
-        boolean onDragged = false;
-        boolean isConflict = false;
+        int mouseX; // current location of mouse in x-axis
+        int mouseY; // current location of mouse in y-axis
+        int draggedX; // location of dragged bin in x-axis
+        int draggedY; // location of dragged bin in y-axis
+        int preDraggedX; // the original location of dragged bin in x-axis
+        int preDraggedY; // the original locaiton of dragged bin in y-axis
+        boolean isDragged = false; // whether a bin is dragged
+        Rectangle rectX = new Rectangle(); // coordinate rectangle for x-axis
+        Rectangle rectY = new Rectangle(); // coordinate rectangle for y-axis
+        boolean onDragged = false; // whether mouse is dragging a bin
+        boolean isConflict = false; // whether there is conflict when moving a bin
 
         // ----- Class Methods -----
         public WarehouseMap() {
-            //bins = new ArrayList<>(NUM_BIN_X * NUM_BIN_Y);
-            bins = new Bin[NUM_BIN_Y][NUM_BIN_X];
+            bins = new MainUI.Bin[NUM_BIN_Y][NUM_BIN_X];
             for (int i = 0; i < NUM_BIN_Y; i++) {
                 for (int j = 0; j < NUM_BIN_X; j++) {
-                    bins[i][j] = new Bin();
+                    bins[i][j] = new MainUI.Bin();
                 }
             }
-            addMouseMotionListener(new MyMouseAdapter());
-            addMouseListener(new MyMouseAdapter());
+            addMouseMotionListener(new MainUI.WarehouseMap.MyMouseAdapter());
+            addMouseListener(new MainUI.WarehouseMap.MyMouseAdapter());
 
         }
 
@@ -318,19 +312,20 @@ public class MainUI extends javax.swing.JFrame {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-
             g.setColor(Color.white);
-
             drawLine(g);
             drawCoordinate(g);
             drawRect(g);
+            // if the user is dragging the bin, draw the coordinate rectangle
             if (isDragged) {
                 rectX.setBounds(31, draggedY * 30 + 1, 900, 29);
                 rectY.setBounds(draggedX * 30 + 1, 31, 29, 600);
                 Graphics2D g2d = (Graphics2D) g;
                 if (!isConflict) {
+                    // set rectangle to green
                     g2d.setColor(new Color(0, 255, 126));
                 } else {
+                    // set rectangle to red
                     g2d.setColor(new Color(255, 98, 94));
                 }
                 g2d.fill(rectX);
@@ -338,6 +333,11 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
+        /**
+         * Draw the grid for the map system
+         *
+         * @param g
+         */
         private void drawLine(Graphics g) {
             // draw horizontal line
             for (int i = 0; i <= 630; i += 30) {
@@ -350,6 +350,11 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
+        /**
+         * Draw the coordinate model for the map system
+         *
+         * @param g
+         */
         private void drawCoordinate(Graphics g) {
             // draw horizontal coordinate
             int number = 0;
@@ -365,6 +370,11 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
+        /**
+         * Draw the bin by filling up the cell according to the bins array
+         *
+         * @param g
+         */
         private void drawRect(Graphics g) {
             g.setColor(new Color(0, 150, 255));
             for (int i = 0; i < NUM_BIN_Y; i++) {
@@ -376,6 +386,13 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
+        /**
+         * Draw the bin by setting the bin element to be true and repaint the
+         * component
+         *
+         * @param X location of bin in x-axis
+         * @param Y location of bin in y-axis
+         */
         private void drawOnClickBin(int X, int Y) {
             if (bins[Y - 1][X - 1].isExist == false) {
                 bins[Y - 1][X - 1].isExist = true;
@@ -384,23 +401,51 @@ public class MainUI extends javax.swing.JFrame {
         }
 
         private class MyMouseAdapter extends MouseAdapter {
+            
+            /**
+             * For delete the cell
+             */
+            int deletedX;
+            int deletedY;
+            
+            /**
+             * delete the cell according to the recorded deletedX and deletedY
+             */
+            void deleteCell() {
+                bins[deletedY-1][deletedX-1].isExist = false;
+                repaint();
+            }
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 mouseX = e.getX();
                 mouseY = e.getY();
-
                 int X = mouseX / 30;
                 int Y = mouseY / 30;
-
+                
+                // check if mouse event is right click
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
+                        && (bins[Y - 1][X - 1].isExist)
+                        && SwingUtilities.isRightMouseButton(e)) {
+                    deletedX = X;
+                    deletedY = Y;
+                    MainUI.WarehouseMap.MyMouseAdapter.PopupMenu popupMenu = new MainUI.WarehouseMap.MyMouseAdapter.PopupMenu();
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                    return;
+                }
+                
+                // double click for showing the product info if the cell is
+                // already existed
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
                         && (bins[Y - 1][X - 1].isExist)
                         && e.getClickCount() == 2) {
+                    // show up the product details
                     ProductPopup productPopup = new ProductPopup();
                     productPopup.setVisible(true);
                     return;
                 }
-
+                
+                // double click for adding a cell
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
                         && e.getClickCount() == 2) {
                     drawOnClickBin(X, Y);
@@ -409,13 +454,10 @@ public class MainUI extends javax.swing.JFrame {
 
             @Override
             public void mouseDragged(MouseEvent e) {
-
                 mouseX = e.getX();
                 mouseY = e.getY();
-
                 draggedX = mouseX / 30;
                 draggedY = mouseY / 30;
-
                 if ((draggedX > 0 && draggedY > 0)
                         && (draggedX <= 30 && draggedY <= 20)) {
                     if (bins[draggedY - 1][draggedX - 1].isExist && !onDragged) {
@@ -438,10 +480,8 @@ public class MainUI extends javax.swing.JFrame {
             public void mouseReleased(MouseEvent e) {
                 mouseX = e.getX();
                 mouseY = e.getY();
-
                 int X = mouseX / 30;
                 int Y = mouseY / 30;
-
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20) && isDragged) {
                     if (!bins[Y - 1][X - 1].isExist) {
                         drawOnClickBin(X, Y);
@@ -451,6 +491,33 @@ public class MainUI extends javax.swing.JFrame {
                     isDragged = false;
                     onDragged = false;
                     repaint();
+                }
+            }
+
+            private class PopupMenu extends JPopupMenu {
+
+                JMenuItem info;
+                JMenuItem delete;
+
+                PopupMenu() {
+                    info = new JMenuItem("Info");
+                    delete = new JMenuItem("Delete");
+                    info.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            // show up the product details
+                            ProductPopup productPopup = new ProductPopup();
+                            productPopup.setVisible(true);
+                        }
+                    });
+                    delete.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            deleteCell();
+                        }
+                    });
+                    add(info);
+                    add(delete);
                 }
             }
         }
