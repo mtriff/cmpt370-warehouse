@@ -30,5 +30,10 @@ public class GuiDB implements GuiDBInterface {
     public Object[] getBinLocations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean login(int userId, String password, int type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
