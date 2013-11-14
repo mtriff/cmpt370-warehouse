@@ -4,6 +4,11 @@
  */
 package warehouseui;
 
+import database.stockhandler.StockhandlerDB;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import stockHandler.StockPickerTable;
+
 /**
  *
  * @author Xianming
@@ -28,15 +33,24 @@ public class StockUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Order 1", "Order 2", "Order 3", "Order 4" }));
-
+        StockhandlerDB stker;
+        stker = new StockhandlerDB();
+        Integer[] dog = stker.getReadyOrderNummbers();
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(stker.getReadyOrderNummbers() ));
+        
+        
+        
         jButton1.setLabel("Print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +66,8 @@ public class StockUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Label", "Start Time", "End Time"
+               // "Label", "Start Time", "End Time"
+               "Object number", "location", "Name", "Quantity", "Description", "Completed", "Comments" 
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -95,8 +110,32 @@ public class StockUI extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+        StockPickerTable stkTable = new StockPickerTable();
+
+        if (evt.getActionCommand() == "Print")
+        {
+
+        
+        stkTable.printTable(jTable1);
+        }
+        else if (evt.getActionCommand() == "comboBoxChanged")
+        {
+            JComboBox cb = (JComboBox)evt.getSource();
+        Integer orderNumber;
+            orderNumber = (Integer)cb.getSelectedItem();
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][])stkTable.loadTable(orderNumber), new String[] {"Object number", "location", "Name", "Quantity", "Description", "Completed", "Comments"}));
+    
+        }
+    
+    }
+    
+    public void jComboBox1ActionPerformed(java.awt.event.ActionEvent e) {
+        StockPickerTable stkTable;
+        stkTable = new StockPickerTable();
+        
+    }
+    
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;

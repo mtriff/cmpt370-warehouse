@@ -10,6 +10,26 @@ package database.stockhandler;
  */
 public class StockhandlerDB implements StockhandlerDBInterface 
 {
+    /* Addes the orders items to the table Please change the export to be of type  */  
+    public Object[][] getOrder(int orderId) {
+        
+        Object[][] returnArr;
+        returnArr = new Object[][]{
+            {"Object number", "location", "Name",5, "DescriptionS", "", ""},
+            {"Object number", "location", "NameS",20000000, "Description", "", ""},
+            {"Object number", "location", "Name",2, "Description", "", ""}          
+        };
+        return returnArr;
+    }
+    
+    public Integer[] getReadyOrderNummbers() {
+        
+        Integer[] returnArr;
+        returnArr = new Integer[]{3,4,5,34,54};
+        return returnArr;
+    }
+    
+    
     @Override
     public Object[] getProductDetails(int prodId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
