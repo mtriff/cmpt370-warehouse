@@ -25,109 +25,109 @@ public class modifyInventory {
     
        /**
      * 
-     * @param itemNumber
+     * @param ProductNumber
      * @return 
      */
-    public String getItemName(int itemNumber){
-        return database.getItemName(itemNumber);
+    public String getProductName(int ProductNumber){
+        return database.getProductName(ProductNumber);
     }
     
     /**
      * 
      * @param name
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setItemName(String name, int itemNumber){
-         database.setItemName(name, itemNumber);
+    public void setProductName(String name, int ProductNumber){
+         database.setProductName(name, ProductNumber);
     }
     
     /**
      * 
-     * @param itemName
+     * @param ProductName
      * @return 
      */
-    public int getItemNumber(String itemName){
-        return database.getItemNumber(itemName);
+    public int getProductNumber(String ProductName){
+        return database.getProductNumber(ProductName);
     }
     
     /**
      * 
-     * @param itemNumber
-     * @param itemName 
+     * @param ProductNumber
+     * @param ProductName 
      */
-    public void setItemNumber(int itemNumber, String itemName){
-        database.setItemNumber(itemNumber, itemName);
+    public void setProductNumber(int ProductNumber, String ProductName){
+        database.setProductNumber(ProductNumber, ProductName);
     }
 
     /**
      * 
      * @param description
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setItemDescription (String description,int itemNumber){
-        database.setItemDescription(description, itemNumber);
+    public void setProductDescription (String description,int ProductNumber){
+        database.setProductDescription(ProductNumber,description );
     }
     
     /**
      * 
      * @param category
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setCategory(int category,int itemNumber){
-        database.setCategory(category, itemNumber);
+    public void setCategory(int category,int ProductNumber){
+        database.setProductCategory(ProductNumber,category);
     }
     
     /**
      * 
-     * @param itemNumber
+     * @param ProductNumber
      * @return 
      */
-    public int getItemPrice(int itemNumber){
-        return database.getItemPrice(itemNumber);
+    public int getProductPrice(int ProductNumber){
+        return database.getProductPrice(ProductNumber);
     }
     
     /**
      * 
      * @param price
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setItemPrice(int price, int itemNumber){
-        database.setItemPrice(price, itemNumber);
+    public void setProductPrice(int price, int ProductNumber){
+        database.setProductPrice(price, ProductNumber);
     }
 
     /**
      * 
-     * @param itemNumber
+     * @param ProductNumber
      * @return 
      */
-    public int getItemQuantity(int itemNumber){
-        return database.getItemQuantity(itemNumber);
+    public int getProductQuantity(int ProductNumber){
+        return database.getProductQuantity(ProductNumber);
     }
     
     /**
      * 
      * @param quantity
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setItemQuantity(int quantity,int itemNumber){
-        database.setItemQuantity(quantity, itemNumber);
+    public void setProductQuantity(int quantity,int ProductNumber){
+        database.setProductQuantity(quantity, ProductNumber);
     }
     
     /**
      * 
      * @param location
-     * @param itemNumber 
+     * @param ProductNumber 
      */
-    public void setLocation(int location, int itemNumber){
-        database.setLocation(location, itemNumber);
+    public void setLocation(int location, int ProductNumber){
+        database.setLocation(location,ProductNumber);
     }    
     /**
      * 
-     * @param itemNumber
+     * @param ProductNumber
      * @return 
      */
-    public int getLocation(int itemNumber){
-        return database.getLocation(itemNumber);
+    public int getLocation(int ProductNumber){
+        return database.getLocation(ProductNumber);
     }
     
             
@@ -140,11 +140,11 @@ public class modifyInventory {
         
     }
 
-    public Object getItemCategory(int itemNumber) {
-        return database.getCategory(itemNumber);
+    public Object getProductCategory(int ProductNumber) {
+        return database.getCategory(ProductNumber);
     }
     
-    public String getItemDescription(int itemNumber){
-        return database.getItemDescription(itemNumber);
+    public String getProductDescription(int ProductNumber){
+        return database.getProductDescription(ProductNumber);
     }
 }

@@ -15,51 +15,51 @@ public class manageEmployee {
     
     
     public String getEmployeeName(){
-        return database.
+        return database.getEmployeeName();
     }
     
-    public void setEmployeeName(String newName){
-        this.employeeName=newName;
+    public void setEmployeeName(String newName, int employeeID){
+        database.setEmployeeName(newName,employeeID);
     }
     
-    public int getID(){
+    /*public int getEmployeeID(){
         return employeeID;
     }
     
-    public void setID(int id){
+    public void setEmployeeID(int employeeID){
         this.employeeID=id;
+    }*/
+    
+    public String getTitle(int employeeID){
+        return database.getTitle();
     }
     
-    public String getTitle(){
-        return title;
+    public void setTitle(String newPosition,int employeeID ){
+        database.setTitle(newPosition,employeeID);
     }
     
-    public void setTitle(String newPosition){
-        this.title=newPosition;
+    public String getCurrentWork(int employeeID){
+        return database.getCurrentWork(employeeID);
     }
     
-    public String getCurrentWork(){
-        return currentWork;
+    public void setCurrentWork(String newCurrentWork, int employeeID){
+        database.setCurrentWork(currentWork,employeeID)
     }
     
-    public void setCurrentWork(String newCurrentWork){
-        this.currentWork=newCurrentWork;
+    public String getNextWork(int employeeID){
+        return database.getNextWork();
     }
     
-    public String getNextWork(){
-        return nextWork;
+    public void setNextWork(String newNextWork, int employeeID){
+        database.setNextWork(newNextWork,employeeID)
     }
     
-    public void setNextWork(String newNextWork){
-        this.nextWork=newNextWork;
+    public int getNumOfWorkDone(int employeeID){
+        return database.getNumOfWorkDone(employeeID);
     }
     
-    public int getNumOfWorkDone(){
-        return numOfWorkDone;
-    }
-    
-    public void setNumOfWorkDone(int newNumer){
-        this.numOfWorkDone=newNumer;
+    public void setNumOfWorkDone(int newNumer, int employeeID){
+        database.setNumOfWorkDone(newNumber, employeeID);
     }
     
     
@@ -114,31 +114,6 @@ public class manageEmployee {
             return 0;
         }
         return e.getNextWork();
-    }
-    
-    /*
-     * param manager type in newPosition
-     * change the employee position
-     */
-    public void changeTitle(String newTitle){
-        Employee.setTitle(newTitle);
-    }
-    
-    /*
-     * param manager type in newWorkTask
-     * change the employee current work task
-     */
-    public void changeWorkTask(String newWorkTask){
-        Employee.setCurrentWork(newWorkTask);
-    }
-    
-    
-    /*
-     * param manager type in newNextWork
-     * change the employee next work task
-     */
-    public void changeNextTask(String newNextWork){
-        Employee.setNextWork(newNextWork);
     }
     
     

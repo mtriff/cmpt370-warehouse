@@ -25,7 +25,6 @@ public interface ManagerDBInterface {
      * @param currentWork
      * @param nextWork
      * @param number
-     * @return The ID assigned to the new employee
      */
     public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number);
     
@@ -50,7 +49,6 @@ public interface ManagerDBInterface {
      * Change the title of an employee
      * @param title
      * @param employeeId The ID of the employee whose title we will update
-     * @return True on success, False on failure
      */
     public void setTitle(String title,int employeeId);
     
@@ -133,9 +131,8 @@ public interface ManagerDBInterface {
     public String getProductDescription(int itemNumber);
     /**
      *
-     * @param category
-     * @param itemNumber
-     * @return
+     * @param itemId
+     * @param categoryId
      */
     public void setProductCategory(int itemId, int categoryId);
     
@@ -148,23 +145,22 @@ public interface ManagerDBInterface {
     
     /**
      *
+     * @param itemId
      * @param price
-     * @param itemNumber
      */
     public void setProductPrice(int itemId, float price);
     
     /**
      *
-     * @param itemNumber
+     * @param itemId
      * @return
      */
     public int getProductQuantity(int itemId);
     
     /**
      *
+     * @param itemId
      * @param quantity
-     * @param itemNumber
-     * @return
      */
     public void setProductQuantity(int itemId, int quantity);
     
