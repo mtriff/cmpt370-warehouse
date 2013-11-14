@@ -1,0 +1,7 @@
+1.Select shipment:  
+User select a shipment requirement in table. Then presses ship. The new shipment is generated in system. and the data of item number, item name, item quantity, destination, data has been assign to the new shipment.
+
+
+2.Assign shipmengt task to shipping company and stock handler:
+
+User select a stock handler and a shipping company in the table. Then presses comfirm, system will assign the selected stock handler and shipping company to the new shipmeng.
