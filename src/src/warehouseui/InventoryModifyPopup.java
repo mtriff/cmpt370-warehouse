@@ -157,7 +157,7 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
 
     private void search(java.awt.event.ActionEvent evt){
         
-        if(nameTextfield.getText().compareTo("")!=0){
+        if(nameTextfield.getText().compareTo("")!=0&&newModify.getProductNumber(nameTextfield.getText())!=-1){
             int ProductNumber = newModify.getProductNumber(nameTextfield.getText());
              quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
              priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
@@ -166,7 +166,7 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
              descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
              locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
         }
-        else if(numberTextfield.getText().compareTo("")!=0){           
+        else if(numberTextfield.getText().compareTo("")!=0&& newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("")!=0){           
              int ProductNumber = Integer.parseInt(numberTextfield.getText());
              nameTextfield.setText(newModify.getProductName(ProductNumber));
              quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
@@ -188,12 +188,23 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
     
     
     private void confirm(java.awt.event.ActionEvent evt){
+        if(nameTextfield.getText().compareTo("")!=0&&
+           quantityTextfield.getText().compareTo("")!=0&&
+           numberTextfield.getText().compareTo("")!=0&&
+            priceTextfield.getText().compareTo("")!=0&&
+            categoryTextfield.getText().compareTo("")!=0&&
+            descriptionTextfield.getText().compareTo("")!=0&&
+            locationTextfield.getText().compareTo("")!=0){
         newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
         newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
         newModify.setProductPrice(Integer.parseInt(priceTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
         newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
         newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
         newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+        
+        //test
+        System.out.println(newModify.toString());
+        }
     }
     /**
      * @param args the command line arguments

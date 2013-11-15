@@ -135,14 +135,14 @@ public class OrderStockUI extends javax.swing.JPanel {
     
         private void search(java.awt.event.ActionEvent evt){
         
-        if(nameTextField.getText().compareTo("")!=0){
+        if(nameTextField.getText().compareTo("")!=0&&newOrder.getProductNumber(nameTextField.getText())!=-1){
             int ProductNumber = newOrder.getProductNumber(nameTextField.getText());
              sizeTextField.setText(String.valueOf(newOrder.getItemSize(ProductNumber)));
              weightTextField.setText(String.valueOf(newOrder.getItemWeight(ProductNumber)));
              numberTextField.setText(String.valueOf(ProductNumber));
 
         }
-        else if(numberTextField.getText().compareTo("")!=0){           
+        else if(numberTextField.getText().compareTo("")!=0&& newOrder.getProductName(Integer.parseInt(numberTextField.getText())).compareTo("")!=0){          
              int ProductNumber = Integer.parseInt(numberTextField.getText());
              nameTextField.setText(newOrder.getProductName(ProductNumber));
              sizeTextField.setText(String.valueOf(newOrder.getItemSize(ProductNumber)));
