@@ -2,7 +2,6 @@ package database;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.neo4j.cypher.javacompat.ExecutionEngine;
@@ -84,6 +83,10 @@ public class Neo4jDB {
             tx.finish();
             return null;
         }        
+        finally
+        {
+            tx.finish();
+        }
     }
     
     private static void registerShutdownHook(final GraphDatabaseService graphDb) {

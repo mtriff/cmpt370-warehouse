@@ -17,22 +17,14 @@ public interface GuiDBInterface {
      * @param column The column that the bin is in
      * @return ID of the newly created bin
      */
-    public int createBin(int row, int column);
+    public boolean createBin(int row, int column);
     
     /**
      * Remove the bin at the specified location
      * @param id The id of the bin to be deleted
      * @return true on success, false on failure
      */
-    public boolean removeBin(int id);
-    
-    /**
-     * Get the ID of the bin at (row, column)
-     * @param row The row the bin is located at
-     * @param column The column the bin is located at
-     * @return ID of the bin at the requested location, or null if no bin is there
-     */
-    public int getBinId(int row, int column);
+    public boolean removeBin(int row, int column);
     
     /**
      * Get the locations of all of the bins in the warehouse
