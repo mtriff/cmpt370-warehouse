@@ -43,7 +43,18 @@ public class ManagerUI extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
 
         jTabbedPane1.setToolTipText("");
-
+        
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButton(evt);
+            }
+        });
+        
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButton(evt);
+            }
+        });
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
             {null, null, null, null},
@@ -162,8 +173,24 @@ public class ManagerUI extends javax.swing.JFrame {
                 .add(0, 15, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>                        
-    // Variables declaration - do not modify                     
+    }// </editor-fold>                      
+    
+    private void addButton(java.awt.event.ActionEvent evt) {
+            EmployeeInfo newEmployee;
+        if(jTabbedPane1.getSelectedIndex()==1){
+            newEmployee = new EmployeeInfo(1);
+            newEmployee.setVisible(true);
+        }
+    }
+    
+   private void editButton(java.awt.event.ActionEvent evt) {
+        EmployeeInfo newEmployee;
+        if(jTabbedPane1.getSelectedIndex()==1){
+            newEmployee = new EmployeeInfo(2);
+            newEmployee.setVisible(true);
+         }
+   }
+    // Variables declaration - do not modify        
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

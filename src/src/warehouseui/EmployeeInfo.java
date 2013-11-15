@@ -12,10 +12,16 @@ package warehouseui;
  */
 public class EmployeeInfo extends javax.swing.JFrame {
 
+       //the function for this UI. 1 is Add, 2 is Eidt
+        private int function;  
     /**
      * Creates new form EmployeeInfo
      */
-    public EmployeeInfo() {
+
+            
+    public EmployeeInfo(int function) {
+        
+        this.function = function;
         initComponents();
     }
 
@@ -228,7 +234,7 @@ public class EmployeeInfo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeInfo().setVisible(true);
+                new EmployeeInfo(1).setVisible(true);
             }
         });
     }
