@@ -163,7 +163,7 @@ public class manageProduct {
      *add a new product into the management system
      */
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description){
-        database.addProduct(name,quantities,category,price, size, description);
+        database.addProductForList(name,quantities,category,price, size, description);
         return true;
     }
     

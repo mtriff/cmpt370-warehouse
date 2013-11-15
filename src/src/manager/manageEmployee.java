@@ -22,13 +22,13 @@ public class manageEmployee {
         database.setEmployeeName(newName,employeeID);
     }
     
-    /*public int getEmployeeID(){
+    public int getEmployeeID(){
         return employeeID;
     }
     
     public void setEmployeeID(int employeeID){
         this.employeeID=id;
-    }*/
+    }
     
     public String getTitle(int employeeID){
         return database.getTitle();
