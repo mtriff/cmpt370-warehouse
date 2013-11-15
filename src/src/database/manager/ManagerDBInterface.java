@@ -34,6 +34,11 @@ public interface ManagerDBInterface {
     
     public void setEmployeeName(String name,int employeeId);
     
+    public int getEmployeeID(String name);
+    
+    public void setEmployeeID(String name,int employeeId);
+    
+    
     /**
      * Get the average speed of the employee in performing their tasks
      * @param employeeId The ID of the employee to check
@@ -80,6 +85,7 @@ public interface ManagerDBInterface {
     
     
     //Product
+    public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
     
     /**
      *
