@@ -12,6 +12,7 @@ public class orderItem {
     private int itemCategory;
     private float price;
     private float size;
+    private float weight;
     private String itemDescription;
 
 /**
@@ -24,7 +25,7 @@ public class orderItem {
  * @param size
  * @param itemDescription 
  */
-    public orderItem(String itemName, int itemQuantity, int itemCategory, float price, float size, String itemDescription) {
+    public orderItem(String itemName, int itemQuantity, int itemCategory, float price, float size, String itemDescription,float weight) {
         this.itemName = itemName;
 //        this.orderID = orderID;
         this.itemQuantity = itemQuantity;
@@ -32,6 +33,7 @@ public class orderItem {
         this.price = price;
         this.size = size;
         this.itemDescription = itemDescription;
+        this.weight = weight;
     }
 
 
@@ -53,6 +55,22 @@ public class orderItem {
 //public void setOrderID(int orderID) {
 //	this.orderID = orderID;
 //}
+
+public void setSize(float size) {
+        this.size = size;
+}
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+public float getSize() {
+	return size;
+}
+
+    public float getWeight() {
+        return weight;
+    }
 
 public int getItemQuantity() {
 	return itemQuantity;
@@ -110,6 +128,7 @@ public void setsize(float size) {
                    +"Category =" + itemCategory + "\r\n"
                    +"Price =" + price +"\r\n"
                    +"Size =" + size +"\r\n"
-                   +"Description =" + itemDescription + "\r\n";
+                   +"Description =" + itemDescription + "\r\n"
+                   +"Weight =" + weight + "\r\n";
         }
 }

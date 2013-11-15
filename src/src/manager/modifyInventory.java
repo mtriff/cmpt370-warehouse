@@ -18,7 +18,7 @@ import warehouseui.InventoryModifyPopup;
 public class modifyInventory {
     
     private ManagerDB database;
-    
+    private String testString;
     public modifyInventory(){
         database =new ManagerDB();
     }
@@ -38,7 +38,8 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setProductName(String name, int ProductNumber){
-         database.setProductName(name, ProductNumber);
+         testString =  testString + "Name = " + name + "\r\n";// for test
+        database.setProductName(name, ProductNumber);
     }
     
     /**
@@ -47,6 +48,7 @@ public class modifyInventory {
      * @return 
      */
     public int getProductNumber(String ProductName){
+        
         return database.getProductNumber(ProductName);
     }
     
@@ -56,6 +58,7 @@ public class modifyInventory {
      * @param ProductName 
      */
     public void setProductNumber(int ProductNumber, String ProductName){
+        testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
         database.setProductNumber(ProductNumber, ProductName);
     }
 
@@ -65,6 +68,7 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setProductDescription (String description,int ProductNumber){
+        testString =  testString + "description = " + description + "\r\n";// for test
         database.setProductDescription(ProductNumber,description );
     }
     
@@ -74,6 +78,7 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setCategory(int category,int ProductNumber){
+        testString =  testString + "category = " + category + "\r\n";// for test
         database.setProductCategory(ProductNumber,category);
     }
     
@@ -92,6 +97,7 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setProductPrice(int price, int ProductNumber){
+        testString =  testString + "price = " + price + "\r\n";// for test
         database.setProductPrice(price, ProductNumber);
     }
 
@@ -110,6 +116,8 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setProductQuantity(int quantity,int ProductNumber){
+        
+        testString =  testString + "quantity = " + quantity + "\r\n"; // for test
         database.setProductQuantity(quantity, ProductNumber);
     }
     
@@ -119,6 +127,7 @@ public class modifyInventory {
      * @param ProductNumber 
      */
     public void setLocation(int location, int ProductNumber){
+        testString =  testString + "location = " + location + "\r\n";  // for test
         database.setLocation(location,ProductNumber);
     }    
     /**
@@ -127,6 +136,7 @@ public class modifyInventory {
      * @return 
      */
     public int getLocation(int ProductNumber){
+        
         return database.getLocation(ProductNumber);
     }
     
@@ -146,5 +156,11 @@ public class modifyInventory {
     
     public String getProductDescription(int ProductNumber){
         return database.getProductDescription(ProductNumber);
+    }
+    
+    
+    @Override
+    public String toString(){
+        return testString;
     }
 }

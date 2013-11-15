@@ -15,17 +15,24 @@ public class ShipperDB implements ShipperDBInterface {
      */
     @Override
     public Object[] getShipmentList() {
-        Object[] returnArr=new String[3];
-    
-        returnArr[0]=1;
-        returnArr[1]=2; //Added by Xingze
-        returnArr[2]=3; //Added by Xingze
+        Object[][] returnArr=new Object[][]{
+                {1,"Nexus 7",30,"Saskatoon","2013-05-07"},
+                {2,"Lenovo X230",26,"Beijing","2013-06-09"},
+                {3,"iPad Mini",15,"London","2013-06-12"}
+            };   
+        
         return returnArr;
     }
 
     @Override
     public Object[] getPendingShipmentList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          Object[][] returnArr=new Object[][]{
+                {1,"CALL OF DUTY: GHOST",30,"Saskatoon","2013-05-07"},
+                {2,"Borderlands 2",26,"Beijing","2013-06-09"},
+                {3,"Far Cry 3",15,"London","2013-06-12"}
+            };   
+        
+        return returnArr;
     }
 
     /*

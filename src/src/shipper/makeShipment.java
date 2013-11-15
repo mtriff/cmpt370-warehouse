@@ -28,7 +28,7 @@ public class makeShipment {
 	public Object shipRequire(){
 		//todo  get info from database
             Object shipmentInfo[][];         
-           shipmentInfo = (Object[][]) database.getShipmentProducts(1);
+           shipmentInfo = (Object[][]) database.getShipmentList();
 	    return shipmentInfo;
 	}
 	
