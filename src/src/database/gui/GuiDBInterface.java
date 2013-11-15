@@ -44,7 +44,7 @@ public interface GuiDBInterface {
      * Performs login check
      * @param userId The id of the user being authenticated
      * @param password The password of the user being authenticated
-     * @param type The type of user being authenticated (1 is Manager, 2 is Receiver
+     * @param type The type of user being authenticated (1 is Manager, 2 is Stock Handler, 3 is Receiver, 4 is Shipper)
      * @return 
      */
     public boolean login(int userId, String password, int type);
