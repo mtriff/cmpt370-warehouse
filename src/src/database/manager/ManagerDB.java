@@ -104,8 +104,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return "One";
-        else
+        else if(itemNumber == 2)
             return "Two";
+        else 
+            return "";
     }
     
     @Override
@@ -116,10 +118,12 @@ public class ManagerDB implements ManagerDBInterface {
     @Override
     public int getProductNumber(String itemName) {
         // for test modify inventory
-        if(itemName.compareTo("One")==0)
+        if(itemName.compareTo("apple")==0)
             return 1;
-        else
-            return 2;
+        else if(itemName.compareTo("banana")==0)
+            return  2;
+        else 
+            return -1;
     }
     
     @Override
@@ -132,8 +136,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
-        else
-            return 200;
+        else if(itemNumber == 2)
+            return  200;
+        else 
+            return -1;
     }
     
     @Override
@@ -141,8 +147,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
-        else
-            return 200;
+        else if(itemNumber == 2)
+            return  200;
+        else 
+            return -1;
     }
     
     @Override
@@ -160,8 +168,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return 1010;
-        else
-            return 2020;
+        else if(itemNumber == 2)
+            return  2020;
+        else 
+            return -1;
     }
     
     @Override
@@ -169,8 +179,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
-        else
-            return 200;
+        else if(itemNumber == 2)
+            return  2000;
+        else 
+            return -1;
     }
     
     @Override
@@ -178,8 +190,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test modify inventory
         if(itemNumber == 1)
             return "100";
-        else
+        else if(itemNumber == 2)
             return "200";
+        else 
+            return "";
     }
     
     @Override
@@ -187,8 +201,10 @@ public class ManagerDB implements ManagerDBInterface {
         // for test order stock
         if(itemNumber == 1)
             return (float) 100.0;
-        else
+        else if(itemNumber == 2)
             return (float) 200.0;
+        else 
+            return -1;
     }
     
     @Override
@@ -196,31 +212,33 @@ public class ManagerDB implements ManagerDBInterface {
         // for test order stock
         if(itemNumber == 1)
             return (float) 100.0;
-        else
+        else if(itemNumber == 2)
             return (float) 200.0;
+        else 
+            return -1;
     }
     
     @Override
     public void setProductDescription(int itemNumber, String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
     public void setProductSize(int itemId, float size) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
     @Override
     public void setProductCategory(int itemId, int categoryId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
     
     @Override
     public void setProductPrice(int itemId, float price) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
