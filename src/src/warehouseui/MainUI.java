@@ -4,6 +4,7 @@
  */
 package warehouseui;
 
+import database.gui.GuiDB;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -44,12 +45,15 @@ public class MainUI extends javax.swing.JFrame {
     private JPanel jPanel1;
     private MainUI.WarehouseMap jPanel2;
     private JMenuItem menuItem_add;
+    
+    private GuiDB database;
 
     // End of variables declaration     
     /**
      * Creates new form MainUI
      */
     public MainUI() {
+        database=new GuiDB();
         initComponents();
     }
 
@@ -301,7 +305,7 @@ public class MainUI extends javax.swing.JFrame {
             }
             addMouseMotionListener(new MainUI.WarehouseMap.MyMouseAdapter());
             addMouseListener(new MainUI.WarehouseMap.MyMouseAdapter());
-
+            reloadBins();
         }
 
         @Override
@@ -386,6 +390,16 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
+        private void reloadBins()
+        {
+            String[] currentBins=database.getBinLocations();
+            for(int i=0; i<currentBins.length; i++)
+            {
+                String currBin=currentBins[i];
+                bins[Integer.parseInt(currBin.split(" ")[0])-1][Integer.parseInt(currBin.split(" ")[1])-1].isExist=true;
+            }
+        }
+        
         /**
          * Draw the bin by setting the bin element to be true and repaint the
          * component
@@ -396,10 +410,11 @@ public class MainUI extends javax.swing.JFrame {
         private void drawOnClickBin(int X, int Y) {
             if (bins[Y - 1][X - 1].isExist == false) {
                 bins[Y - 1][X - 1].isExist = true;
+                database.createBin(Y, X);
             }
             repaint();
         }
-
+        
         private class MyMouseAdapter extends MouseAdapter {
             
             /**
@@ -413,6 +428,7 @@ public class MainUI extends javax.swing.JFrame {
              */
             void deleteCell() {
                 bins[deletedY-1][deletedX-1].isExist = false;
+                database.removeBin(deletedY, deletedX);
                 repaint();
             }
 
