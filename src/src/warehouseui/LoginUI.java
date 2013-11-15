@@ -5,6 +5,7 @@
 package warehouseui;
 
 import database.gui.GuiDB;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -108,6 +109,9 @@ public class LoginUI extends javax.swing.JFrame {
         GuiDB database=new GuiDB();
         if (database.login(username, password, type)) {
             new MainUI().setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Invalid Username or Password");
         }
     }
 
