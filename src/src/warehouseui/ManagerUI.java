@@ -113,7 +113,7 @@ public class ManagerUI extends javax.swing.JFrame {
                 jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE));
 
-        jTabbedPane1.addTab("Stock Report", jPanel2);
+    //    jTabbedPane1.addTab("Stock Report", jPanel2);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
@@ -136,7 +136,7 @@ public class ManagerUI extends javax.swing.JFrame {
                 jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE));
 
-        jTabbedPane1.addTab("Employee Report", jPanel3);
+    //    jTabbedPane1.addTab("Employee Report", jPanel3);
 
         jTabbedPane1.addTab("OrderStock", new OrderStockUI());
         
