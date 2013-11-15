@@ -184,12 +184,20 @@ public class ManagerDB implements ManagerDBInterface {
     
     @Override
     public float getProductSize(int itemNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // for test order stock
+        if(itemNumber == 1)
+            return (float) 100.0;
+        else
+            return (float) 200.0;
     }
     
     @Override
     public float getProductWeight(int itemNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // for test order stock
+        if(itemNumber == 1)
+            return (float) 100.0;
+        else
+            return (float) 200.0;
     }
     
     @Override
