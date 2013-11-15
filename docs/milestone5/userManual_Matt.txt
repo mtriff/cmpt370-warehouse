@@ -1,3 +1,12 @@
+Login User Manual
+
+Currently, the system only has one user, to log in enter the credentials as follows:
+User ID #: 1
+Password: password
+Permission: Manager
+
+Any other credentials will deny your access to the system.
+
 Database Package User Manual
 
 The database package utilizes two different databases, a MySQL Database, and  a Neo4j Graph Database.
