@@ -111,10 +111,6 @@ public class LoginUI extends javax.swing.JFrame {
             new MainUI().setVisible(true);
             this.setVisible(false);
         }
-        else
-        {
-            //Set error message "Incorrect User Details!"
-        }
         else {
             JOptionPane.showMessageDialog(null, "Invalid Username or Password");
         }

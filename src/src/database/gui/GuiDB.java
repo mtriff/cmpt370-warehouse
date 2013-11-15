@@ -64,37 +64,13 @@ public class GuiDB implements GuiDBInterface {
                 Node currNode=listNodes.next();
                 if(currNode.hasProperty("row") && currNode.hasProperty("column"))
                 {
-                    System.out.println("Row: "+currNode.getProperty("row")+"Column: "+currNode.getProperty("column"));
+                    //System.out.println("Row: "+currNode.getProperty("row")+"Column: "+currNode.getProperty("column"));
                     returnArray.add(currNode.getProperty("row")+" "+currNode.getProperty("column"));
                 }
             }
-            System.out.println("---END---");
-            
-//            if(count>0)
-//            {
-//                Integer[][] returnArray=new Integer[count][2];
-//                listNodes=result.columnAs("n");
-//                int i=0;
-//                while(listNodes.hasNext())
-//                {
-//                                    System.out.println("In loop!!");
-//
-//                    Node currNode=listNodes.next();
-//                    if(currNode.hasProperty("row"))
-//                    {
-//                        
-//                        returnArray[i][0]=(Integer) currNode.getProperty("row");
-//                        returnArray[i][1]=(Integer) currNode.getProperty("column");
-//                        i++;
-//                        
-//                        System.out.println("Added: "+returnArray[i][0]+","+returnArray[i][1]);
-//                    }
-//                }
                 
                 return returnArray.toArray(new String[returnArray.size()]);
-//            }
-//            
-//            return null;
+
         }
         
         return null;

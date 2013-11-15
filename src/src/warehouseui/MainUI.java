@@ -396,7 +396,7 @@ public class MainUI extends javax.swing.JFrame {
             for(int i=0; i<currentBins.length; i++)
             {
                 String currBin=currentBins[i];
-                bins[Integer.parseInt(currBin.split(" ")[0])][Integer.parseInt(currBin.split(" ")[1])].isExist=true;
+                bins[Integer.parseInt(currBin.split(" ")[0])-1][Integer.parseInt(currBin.split(" ")[1])-1].isExist=true;
             }
         }
         
