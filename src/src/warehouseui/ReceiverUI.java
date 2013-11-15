@@ -106,7 +106,7 @@ public class ReceiverUI extends javax.swing.JFrame {
                 .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(jScrollPane1)
+            //    .add(jScrollPane1)
                 .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
@@ -155,7 +155,7 @@ public class ReceiverUI extends javax.swing.JFrame {
                 layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 275, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+          //      .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 275, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                 .add(jLabel1)
@@ -195,14 +195,16 @@ public class ReceiverUI extends javax.swing.JFrame {
                 && quantityTextField.getText().compareTo("") != 0
                 && priceTextField.getText().compareTo("") != 0
                 && sizeTextField.getText().compareTo("") != 0
-                && descriptionTextField.getText().compareTo("") != 0) {
+                && descriptionTextField.getText().compareTo("") != 0
+                && weightTextField.getText().compareTo("") != 0) {
 
             newOrder.setItemName(nameTextField.getText());
             newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
             newOrder.setPrice(Float.valueOf(priceTextField.getText()));
             newOrder.setSize(Float.valueOf(sizeTextField.getText()));
             newOrder.setDescription(descriptionTextField.getText());
-            newOrder.setItemCategory((int) jComboBox1.getSelectedItem());
+            newOrder.setItemCategory(jComboBox1.getSelectedIndex()+1);
+            newOrder.setWeight(Float.valueOf(weightTextField.getText()));
             newOrder.createOrder();
 
             // Check if order number is empty.
@@ -224,6 +226,7 @@ public class ReceiverUI extends javax.swing.JFrame {
             priceTextField.setText("");
             sizeTextField.setText("");
             descriptionTextField.setText("");
+            weightTextField.setText("");
 
             if (newOrderNumber != -1) {
                 orderNumberTextField.setText(String.valueOf(newOrderNumber));
