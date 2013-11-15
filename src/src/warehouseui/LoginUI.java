@@ -31,16 +31,16 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Username");
+        jLabel1.setText("User ID #:");
 
-        jLabel2.setText("Password");
+        jLabel2.setText("Password:");
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -49,9 +49,9 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Permission");
+        jLabel3.setText("Permission:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Manager", "Stock Picker", "Shipper", "Receiver"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Manager", "Stock Handler", "Shipper", "Receiver"}));
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,12 +100,15 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        String username = jTextField1.getText();
+
+        int username = Integer.parseInt(jTextField1.getText());
         String password = jTextField2.getText();
-        //if (GuiDB.login(username, password)) {
+        int type = jComboBox1.getSelectedIndex()+1; //As described in GuiDBInterface, the types start at value 1 (not 0)
+        
+        GuiDB database=new GuiDB();
+        if (database.login(username, password, type)) {
             new MainUI().setVisible(true);
-        //}
+        }
     }
 
     /**
