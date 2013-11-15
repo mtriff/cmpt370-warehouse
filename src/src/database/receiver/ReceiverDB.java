@@ -62,7 +62,7 @@ public class ReceiverDB implements ReceiverDBInterface {
     
     
     @Override  
-    public int addProduct(String name, int category, float price, float weight) {
+    public int addProduct(String name, int category, float price,float size, float weight) {
         System.out.println("Using addProduct");
         String query="INSERT INTO product(name, category, price, weight) VALUES ('"
                 +name+"',"+category+","+price+","+weight+");"
