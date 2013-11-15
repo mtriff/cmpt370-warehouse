@@ -5,6 +5,7 @@
 package warehouseui;
 
 import database.gui.GuiDB;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -113,6 +114,9 @@ public class LoginUI extends javax.swing.JFrame {
         else
         {
             //Set error message "Incorrect User Details!"
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Invalid Username or Password");
         }
     }
 

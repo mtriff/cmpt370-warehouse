@@ -129,7 +129,7 @@ public class ManagerUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("OrderStock", new OrderStockUI());
         
-        jTabbedPane1.addTab("Inventory", new InventoryModifyPopup());
+        jTabbedPane1.addTab("Modify Inventory", new InventoryModifyPopup());
 
         jButton7.setText("Add");
 

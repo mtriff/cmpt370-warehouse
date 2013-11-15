@@ -14,6 +14,7 @@ public class receiveOrder {
     private float price;
     private float size;
     private String itemDescription;
+    private float weight;
         
         public receiveOrder(){
         database =new ReceiverDB();
@@ -25,7 +26,7 @@ public class receiveOrder {
          * @return 
 	 */
         public orderItem createOrder(){
-            newOrder = new orderItem(itemName,itemQuantity,itemCategory,price,size,itemDescription);
+            newOrder = new orderItem(itemName,itemQuantity,itemCategory,price,size,itemDescription,weight);
             printOrder();
             return newOrder;
             
@@ -62,7 +63,7 @@ public class receiveOrder {
         }
         
         public int addProduct(){
-               return database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getsize()) ;
+               return database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getsize(), newOrder.getWeight()) ;
         }
 ///**
 // * set productID to orderItem
@@ -106,6 +107,14 @@ public class receiveOrder {
 	public void setPrice(float price) {
             this.price = price;
 	}
+
+/**
+ * set weight to orderItem
+ * @param weight 
+ */
+        public void setWeight(float weight){
+            this.weight = weight;
+        }
 /**
  * 
  * @param size 
