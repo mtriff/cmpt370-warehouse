@@ -4,29 +4,85 @@
  */
 package database.stockhandler;
 
+import database.MysqlDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Implementation of all Stock Handler database tasks
  * @author Matt
  */
 public class StockhandlerDB implements StockhandlerDBInterface 
 {
-    /* Addes the orders items to the table Please change the export to be of type  */  
+    /* Adds the orders items to the table */  
     public Object[][] getOrder(int orderId) {
+        try {
+            ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='ready' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id AND shipments.id="+orderId+";");
+ 
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][7];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=rowCount+1;
+                        returnArray[rowCount][2]=results.getString(2);
+                        returnArray[rowCount][3]=results.getInt(3);
+                        returnArray[rowCount][4]="Item "+(rowCount+1);
+                        returnArray[rowCount][5]="";
+                        returnArray[rowCount][6]="";
+                     
+                        rowCount++;
+                    }
+                    
+                    return returnArray;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StockhandlerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        Object[][] returnArr;
-        returnArr = new Object[][]{
-            {"Object number", "location", "Name",5, "DescriptionS", "", ""},
-            {"Object number", "location", "NameS",20000000, "Description", "", ""},
-            {"Object number", "location", "Name",2, "Description", "", ""}          
-        };
-        return returnArr;
+        return null;
     }
     
     public Integer[] getReadyOrderNummbers() {
         
-        Integer[] returnArr;
-        returnArr = new Integer[]{3,4,5,34,54};
-        return returnArr;
+//        Integer[] returnArr;
+//        returnArr = new Integer[]{1};
+//        return returnArr;
+                try {
+            ResultSet results=MysqlDB.runQuery("SELECT shipments.id FROM shipments WHERE status='ready';");
+ 
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Integer[] returnArray=new Integer[numResults];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+                        returnArray[rowCount]=results.getInt(1);
+
+                        rowCount++;
+                    }
+                    
+                    return returnArray;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StockhandlerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     
@@ -53,12 +109,6 @@ public class StockhandlerDB implements StockhandlerDBInterface
     @Override
     public Object[] assignBins(Object[] itemsObject[]) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static class getProductDetails {
-
-        public getProductDetails() {
-        }
     }
     
 }
