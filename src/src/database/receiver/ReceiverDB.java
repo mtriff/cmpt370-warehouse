@@ -11,6 +11,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import receiver.orderItem;
 
 
 /**
@@ -20,52 +21,42 @@ import java.util.logging.Logger;
 public class ReceiverDB implements ReceiverDBInterface {
 
     @Override
-    public Object[] getOrderProducts(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean markOrderReceived(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean setOrderStatus(int orderId, String status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public boolean addItemsToOrder(int orderId, Object[] itemsList) {
+            orderItem newItem=(orderItem) itemsList[0];
+        
+            String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
+                +newItem.getItemName()+"',"+newItem.getItemCategory()+","+newItem.getPrice()+","+newItem.getSize()+","+newItem.getWeight()+");";
+            System.out.println(query);
+        try {
+          ResultSet results=MysqlDB.runQuery(query);
+
+          if(results!=null)
+          {
+              query="SELECT last_insert_id() AS last_id FROM product;";
+              results=MysqlDB.runQuery(query);
+              
+              System.out.println("Returning ID: "+results.getInt("last_id"));
+              int currId=results.getInt("last_id");
+              query="INSERT INTO shipmentManifest VALUES ("+orderId+","+currId+","+newItem.getItemQuantity()+");";
+              results=MysqlDB.runQuery(query);
+              
+              if(results!=null)
+              {
+                  return true;
+              }
+          }
+        } catch (SQLException ex) {
+          Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return false;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public boolean setTrackingNumber(int orderId, String trackingNum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean updateProductQuantity(int orderId, int productId, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] getOrderDetails(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getOrderStatus(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
     @Override  
     public int addProduct(String name, int category, float price,float size, float weight) {
-        System.out.println("Using addProduct");
-        String query="INSERT INTO product(name, category, price, weight) VALUES ('"
-                +name+"',"+category+","+price+","+weight+");"
+        //System.out.println("Using addProduct");
+        String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
+                +name+"',"+category+","+price+","+size+","+weight+");"
                 +"SELECT last_insert_id() AS last_id FROM product;";
         
         try {
@@ -83,7 +74,6 @@ public class ReceiverDB implements ReceiverDBInterface {
         return -1;
     }
 
-    //Added by Xingze for test
     @Override
     public Object[] getProductCategories() {
         try {
@@ -95,6 +85,7 @@ public class ReceiverDB implements ReceiverDBInterface {
                 Object[] returnArray=new String[numResults];
                 if(results.first())
                 {
+                    results.previous();
                     int rowCount=0;
                     while(results.next())
                     {
@@ -112,14 +103,5 @@ public class ReceiverDB implements ReceiverDBInterface {
         return null;
     }
 
-    @Override
-    public int addProductCategory(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public boolean addStock(int productID, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

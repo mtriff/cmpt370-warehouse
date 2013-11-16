@@ -104,10 +104,6 @@ public void setPrice(float price) {
 	this.price = price;
 }
 
-public float getsize() {
-	return size;
-}
-
 public void setsize(float size) {
 	this.size = size;
 }
