@@ -12,36 +12,40 @@ import java.sql.Array;
  *
  * @author ronglihan
  */
-public class employeeReport {
+public class employeeReport
+{
     private employee Employee;
 
-    
+
     /*
     *pre all the employee in the database
     *find the most efficient employee in the whole warehouse
     *posts return the most efficient employee name
     */
-    public String mostEfficient(){
+    public String mostEfficient()
+    {
         return null;
     }
-    
-    
+
+
     /*
     *pre all the employee in the database
-    *calculate the number of working employees 
+    *calculate the number of working employees
     *posts return the number of working employee
     */
-    public String currentWork(){
+    public String currentWork()
+    {
         return null;
     }
-    
-    
+
+
     /*
     *pre all the employee in the database
     *calculate the number of free employee
     *posts return the most efficient employee name
     */
-    public String currentFree(){
+    public String currentFree()
+    {
         return null;
     }
 }

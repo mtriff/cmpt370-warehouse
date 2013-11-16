@@ -14,13 +14,15 @@ import java.util.logging.Logger;
  * Implementation of all Stock Handler database tasks
  * @author Matt
  */
-public class StockhandlerDB implements StockhandlerDBInterface 
+public class StockhandlerDB implements StockhandlerDBInterface
 {
-    /* Adds the orders items to the table */  
-    public Object[][] getOrder(int orderId) {
-        try {
+    /* Adds the orders items to the table */
+    public Object[][] getOrder(int orderId)
+    {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='ready' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id AND shipments.id="+orderId+";");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -38,28 +40,32 @@ public class StockhandlerDB implements StockhandlerDBInterface
                         returnArray[rowCount][4]="Item "+(rowCount+1);
                         returnArray[rowCount][5]="";
                         returnArray[rowCount][6]="";
-                     
+
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(StockhandlerDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
-    
-    public Integer[] getReadyOrderNummbers() {
-        
+
+    public Integer[] getReadyOrderNummbers()
+    {
+
 //        Integer[] returnArr;
 //        returnArr = new Integer[]{1};
 //        return returnArr;
-                try {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT shipments.id FROM shipments WHERE status='ready';");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -74,41 +80,48 @@ public class StockhandlerDB implements StockhandlerDBInterface
 
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(StockhandlerDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
-    
-    
+
+
     @Override
-    public Object[] getProductDetails(int prodId) {
+    public Object[] getProductDetails(int prodId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] getProductLocation(int prodId) {
+    public Object[] getProductLocation(int prodId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] getBinProducts(int binId) {
+    public Object[] getBinProducts(int binId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] findBestPath(Object[] itemsObject[]) {
+    public Object[] findBestPath(Object[] itemsObject[])
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] assignBins(Object[] itemsObject[]) {
+    public Object[] assignBins(Object[] itemsObject[])
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
