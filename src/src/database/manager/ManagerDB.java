@@ -37,6 +37,15 @@ public class ManagerDB implements ManagerDBInterface {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public int getEmployeeID(String name){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void setEmployeeID(String name,int employeeId){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public float getEmployeeSpeed(int employeeId) {
@@ -90,11 +99,11 @@ public class ManagerDB implements ManagerDBInterface {
     }
     
     
-    /*//edit by Rongli Han
+    //edit by Rongli Han
      @Override
-     public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
-     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }*/
+     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
     
     
     // added by Xingze
