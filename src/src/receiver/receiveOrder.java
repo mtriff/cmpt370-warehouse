@@ -63,7 +63,7 @@ public class receiveOrder {
         }
         
         public int addProduct(){
-               return database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getsize(), newOrder.getWeight()) ;
+               return database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getSize(), newOrder.getWeight()) ;
         }
 ///**
 // * set productID to orderItem

@@ -84,7 +84,6 @@ public class MysqlDB {
     public static ResultSet runQuery(String query) throws SQLException
     {
         Statement statement;
-        ResultSet results;
         if(connection==null)
         {
             connect();
@@ -93,8 +92,11 @@ public class MysqlDB {
         if(connection!=null)
         {
             statement=connection.createStatement();
-            results=statement.executeQuery(query);
-            return results;
+            boolean successful=statement.execute(query);
+            if(successful)
+            {
+                return statement.getResultSet();
+            }
         }
         
         
