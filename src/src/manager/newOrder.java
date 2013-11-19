@@ -12,7 +12,7 @@ package manager;
  */
 public class newOrder
 {
-
+    //
     private String productName;
     private int productNumber;
     private int productQuantity;
