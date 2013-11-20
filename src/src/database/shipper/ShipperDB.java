@@ -14,19 +14,22 @@ import java.util.logging.Logger;
  *
  * @author Matt
  */
-public class ShipperDB implements ShipperDBInterface {
+public class ShipperDB implements ShipperDBInterface
+{
 
     @Override
-    public Object[] getShipmentList() {
+    public Object[] getShipmentList()
+    {
 //        Object[][] returnArr=new Object[][]{
 //                {1,"Nexus 7",30,"Saskatoon","2013-05-07"},
 //                {2,"Lenovo X230",26,"Beijing","2013-06-09"},
 //                {3,"iPad Mini",15,"London","2013-06-12"}
 //            };
-//        
-        try {
+//
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity, shipments.destination, shipments.sentDate FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='ready' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id;");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -44,32 +47,36 @@ public class ShipperDB implements ShipperDBInterface {
                         returnArray[rowCount][2]=results.getInt(3);
                         returnArray[rowCount][3]=results.getString(4);
                         returnArray[rowCount][4]=results.getString(5);
-                     
+
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
         return null;
     }
 
     @Override
-    public Object[] getPendingShipmentList() {
+    public Object[] getPendingShipmentList()
+    {
 //          Object[][] returnArr=new Object[][]{
 //                {1,"CALL OF DUTY: GHOST",30,"Saskatoon","2013-05-07"},
 //                {2,"Borderlands 2",26,"Beijing","2013-06-09"},
 //                {3,"Far Cry 3",15,"London","2013-06-12"}
-//            };   
-          
-              try {
+//            };
+
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity, shipments.destination, shipments.sentDate FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='pending' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id;");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -87,26 +94,30 @@ public class ShipperDB implements ShipperDBInterface {
                         returnArray[rowCount][2]=results.getInt(3);
                         returnArray[rowCount][3]=results.getString(4);
                         returnArray[rowCount][4]=results.getString(5);
-                     
+
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
 
     @Override
-    public Object[] getStockHandlers() {
+    public Object[] getStockHandlers()
+    {
 
-        try {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT id,name FROM employees WHERE title='Stock Handler';");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -121,26 +132,30 @@ public class ShipperDB implements ShipperDBInterface {
                         System.out.println(results.toString());
                         returnArray[rowCount][0]=results.getInt(1);
                         returnArray[rowCount][1]=results.getString(2);
-                     
+
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
 
     @Override
-    public Object[] getShippingCompanies() {
+    public Object[] getShippingCompanies()
+    {
 
-        try {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT * FROM shipmentCompanies;");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -155,17 +170,19 @@ public class ShipperDB implements ShipperDBInterface {
                         System.out.println(results.toString());
                         returnArray[rowCount][0]=results.getInt(1);
                         returnArray[rowCount][1]=results.getString(2);
-                     
+
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
 }

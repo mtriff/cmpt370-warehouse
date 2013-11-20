@@ -8,267 +8,305 @@ package database.manager;
  *
  * @author Matt
  */
-public class ManagerDB implements ManagerDBInterface {
-    
-    //@edit by Rongli Han
+public class ManagerDB implements ManagerDBInterface
+{
+
     @Override
-    public Object[] getEmployeesList() {
-        Object[] returnArr=new String[3];
-        
-        returnArr[0]=1;
-        returnArr[1]=2;
-        returnArr[2]=3;
+    public Object[] getEmployeesList()
+    {
+        Object[][] returnArr=new Object[][]
+        {
+            {1,"Mike","Manager"},
+            {2,"Jason","Receiver"},
+            {3,"Tim","Shipper"}
+        };
         return returnArr;
     }
-    
-    
+
+
+
     @Override
-    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number) {
+    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public String getEmployeeName(int employeeId) {
+    public String getEmployeeName(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void setEmployeeName(String name,int employeeId) {
+    public void setEmployeeName(String name,int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public int getEmployeeID(String name){
+    public int getEmployeeID(String name)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void setEmployeeID(String name,int employeeId){
+    public void setEmployeeID(String name,int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public float getEmployeeSpeed(int employeeId) {
+    public float getEmployeeSpeed(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void setEmployeeSpeed(float speed,int employeeId) {
+    public void setEmployeeSpeed(float speed,int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public String getTitle(int employeeId) {
+    public String getTitle(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void setTitle(String title,int employeeId) {
+    public void setTitle(String title,int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+
     @Override
-    public String getCurrentWork(int employeeId){
+    public String getCurrentWork(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
-    public void setCurrentWork(String currentWork, int employeeId){
+    public void setCurrentWork(String currentWork, int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
-    public String getNextWork(int employeeId){
+    public String getNextWork(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
-    public void setNextWork(String nextWork, int employeeId){
+    public void setNextWork(String nextWork, int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
-    public int getNumofWorkDone(int employeeId){
+    public int getNumofWorkDone(int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @Override
-    public void setNumofWorkDone(int num ,int employeeId){
+    public void setNumofWorkDone(int num ,int employeeId)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-    
+
+
     //edit by Rongli Han
-     @Override
-     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
+    @Override
+    public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }
-    
-    
+    }
+
+
     // added by Xingze
     @Override
-    public String getProductName(int itemNumber) {
-        
+    public String getProductName(int itemNumber)
+    {
+
         // for test modify inventory
         if(itemNumber == 1)
             return "One";
         else if(itemNumber == 2)
             return "Two";
-        else 
+        else
             return "";
     }
-    
+
     @Override
-    public void setProductName(String name, int itemNumber) {
-        
+    public void setProductName(String name, int itemNumber)
+    {
+
     }
-    
+
     @Override
-    public int getProductNumber(String itemName) {
+    public int getProductNumber(String itemName)
+    {
         // for test modify inventory
         if(itemName.compareTo("apple")==0)
             return 1;
         else if(itemName.compareTo("banana")==0)
             return  2;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public void setProductNumber(int itemNumber, String itemName) {
-        
+    public void setProductNumber(int itemNumber, String itemName)
+    {
+
     }
-    
+
     @Override
-    public int getProductPrice(int itemNumber) {
+    public int getProductPrice(int itemNumber)
+    {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
         else if(itemNumber == 2)
             return  200;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public int getProductQuantity(int itemNumber) {
+    public int getProductQuantity(int itemNumber)
+    {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
         else if(itemNumber == 2)
             return  200;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public void setProductQuantity(int quantity, int itemNumber) {
-        
+    public void setProductQuantity(int quantity, int itemNumber)
+    {
+
     }
-    
+
     @Override
-    public void setLocation(int location, int itemNumber) {
-        
+    public void setLocation(int location, int itemNumber)
+    {
+
     }
-    
+
     @Override
-    public int getLocation(int itemNumber) {
+    public int getLocation(int itemNumber)
+    {
         // for test modify inventory
         if(itemNumber == 1)
             return 1010;
         else if(itemNumber == 2)
             return  2020;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public int getCategory(int itemNumber) {
+    public int getCategory(int itemNumber)
+    {
         // for test modify inventory
         if(itemNumber == 1)
             return 100;
         else if(itemNumber == 2)
             return  2000;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public String getProductDescription(int itemNumber) {
+    public String getProductDescription(int itemNumber)
+    {
         // for test modify inventory
         if(itemNumber == 1)
             return "100";
         else if(itemNumber == 2)
             return "200";
-        else 
+        else
             return "";
     }
-    
+
     @Override
-    public float getProductSize(int itemNumber) {
+    public float getProductSize(int itemNumber)
+    {
         // for test order stock
         if(itemNumber == 1)
             return (float) 100.0;
         else if(itemNumber == 2)
             return (float) 200.0;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public float getProductWeight(int itemNumber) {
+    public float getProductWeight(int itemNumber)
+    {
         // for test order stock
         if(itemNumber == 1)
             return (float) 100.0;
         else if(itemNumber == 2)
             return (float) 200.0;
-        else 
+        else
             return -1;
     }
-    
+
     @Override
-    public void setProductDescription(int itemNumber, String description) {
-  //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setProductDescription(int itemNumber, String description)
+    {
+        //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public void setProductSize(int itemId, float size) {
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setProductSize(int itemId, float size)
+    {
+        //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+
     @Override
-    public void setProductCategory(int itemId, int categoryId) {
-   //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setProductCategory(int itemId, int categoryId)
+    {
+        //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
+
+
     @Override
-    public void setProductPrice(int itemId, float price) {
+    public void setProductPrice(int itemId, float price)
+    {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+
     @Override
-    public Object[] getProducts() {
+    public Object[] getProducts()
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public int addProduct(String name, int category, float price, float weight) {
+    public int addProduct(String name, int category, float price, float weight)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public Object[] getProductList() {
-        Object[] returnArr=new String[3];
-        
-        returnArr[0]=1;
-        returnArr[1]=2;
-        returnArr[2]=3;
-        
+    public Object[] getProductList() 
+    {
+        Object[][] returnArr=new Object[][]{
+                {1,"Apple","20","30","0105","100","Fruit"},
+                {2,"Banana","30","40","0205","100","Fruit"},
+                {3,"Orange","40","50","0305","100","Fruit"}
+        };
         return returnArr;
     }
 }

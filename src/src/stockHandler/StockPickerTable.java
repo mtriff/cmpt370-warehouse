@@ -24,35 +24,36 @@ import sun.security.util.Length;
  *
  * @author Spencer
  */
-public class StockPickerTable extends JComponent {
+public class StockPickerTable extends JComponent
+{
     StockhandlerDB database=new StockhandlerDB();
     ShipperDB database2=new ShipperDB();
-    
+
     private MessageFormat header;
-    
-   
-     
-    
-     /**
-     * @param palletTable
-     * @return number of items loaded
-     */
+
+
+
+
+    /**
+    * @param palletTable
+    * @return number of items loaded
+    */
     public Object[][] loadTable(int orderNumber )
     {
         StockhandlerDB db =new StockhandlerDB();
-            
-  //      jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.shipRequire(),shipmentTitle));
+
+        //      jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newShipment.shipRequire(),shipmentTitle));
         Object[][] stockArray;
         stockArray = (Object[][]) db.getOrder(orderNumber);
         return stockArray;
     }
-    
+
     /**
      *
      * @param itemNum The items inventory number
      * @param palletTable the pallet number
      * @return The object that was added
-     */   
+     */
     public Object[] addItem(int itemNum, javax.swing.JTable palletTable)
     {
         DefaultTableModel model = (DefaultTableModel) palletTable.getModel();
@@ -60,23 +61,26 @@ public class StockPickerTable extends JComponent {
         model.addRow(database.getProductDetails(itemNum));
         return database.getProductDetails(itemNum);
     }
-    
-    
-    
+
+
+
     /**
      *  Prints the table that is input
      * @param palletTable the table that is to be printed
      */
-    
-    public void printTable(javax.swing.JTable palletTable ) 
+
+    public void printTable(javax.swing.JTable palletTable )
+    {
+        try
         {
-        try {  
             palletTable.print(JTable.PrintMode.FIT_WIDTH, header, null);
-        } catch (PrinterException ex) {
+        }
+        catch (PrinterException ex)
+        {
             Logger.getLogger(StockPickerTable.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        }
- 
+
+    }
+
 
 }

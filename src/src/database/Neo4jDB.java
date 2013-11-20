@@ -16,16 +16,17 @@ import static org.neo4j.kernel.impl.util.FileUtils.deleteRecursively;
  * Singleton class to provide access to the Neo4j database
  * @author Matt
  */
-public class Neo4jDB {
-    
+public class Neo4jDB
+{
+
     private static Neo4jDB database;
-    
+
     //Variables for database connection
     private static final String DB_PATH="graphDatabase/warehouse-db";
     private static GraphDatabaseService graphDb;
     private static ExecutionEngine engine;
-    
-    
+
+
     /**
      * Constructor, creates a Neo4j database connection
      */
@@ -34,14 +35,14 @@ public class Neo4jDB {
         //Connect to the database
         createDB();
     }
-    
+
     static void createDB()
     {
         graphDb=new GraphDatabaseFactory().newEmbeddedDatabase(DB_PATH);
         registerShutdownHook(graphDb);
         engine=new ExecutionEngine(graphDb);
     }
-    
+
     /**
      * Accessor to the database
      * @return database connection
@@ -52,10 +53,10 @@ public class Neo4jDB {
         {
             database=new Neo4jDB();
         }
-        
+
         return database;
     }
-    
+
     /**
      * Runs the given query on the database
      * @param query A Cypher query to be run on the Neo4j database
@@ -67,9 +68,9 @@ public class Neo4jDB {
         {
             createDB();
         }
-        
+
         Transaction tx=graphDb.beginTx();
-        
+
         try
         {
             ExecutionResult result=engine.execute(query);
@@ -82,24 +83,25 @@ public class Neo4jDB {
             Logger.getLogger(Neo4jDB.class.getName()).log(Level.SEVERE, null, ex);
             tx.finish();
             return null;
-        }        
+        }
         finally
         {
             tx.finish();
         }
     }
-    
-    private static void registerShutdownHook(final GraphDatabaseService graphDb) {
-            Runtime.getRuntime().addShutdownHook(new Thread()
+
+    private static void registerShutdownHook(final GraphDatabaseService graphDb)
+    {
+        Runtime.getRuntime().addShutdownHook(new Thread()
+        {
+            @Override
+            public void run()
             {
-                @Override
-                public void run()
-                {
-                    graphDb.shutdown();
-                }
-            });
+                graphDb.shutdown();
+            }
+        });
     }
-    
+
     private static void clearDbPath()
     {
         try
@@ -111,14 +113,14 @@ public class Neo4jDB {
             throw new RuntimeException( e );
         }
     }
-    
+
     public static void main(String args[])
-    {        
+    {
         //Uncomment the following line to completely wipe your database
         // !!THIS IS NOT UNDOABLE!!
         //Neo4jDB.clearDbPath();
-        
-        //Hello World Example running a cypher query in 
+
+        //Hello World Example running a cypher query in
         ExecutionResult result=Neo4jDB.runQuery("CREATE (firstNode {hello: \"World\"}) RETURN firstNode");
         System.out.println(result.dumpToString());
     }

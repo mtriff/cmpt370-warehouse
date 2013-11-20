@@ -10,6 +10,7 @@ import javax.swing.JFrame;
  *
  * @author Xianming
  */
-public class Warehouse extends JFrame {
+public class Warehouse extends JFrame
+{
 
 }

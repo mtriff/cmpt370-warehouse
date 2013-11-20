@@ -11,115 +11,110 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import receiver.orderItem;
 
 
 /**
  *
  * @author Matt
  */
-public class ReceiverDB implements ReceiverDBInterface {
+public class ReceiverDB implements ReceiverDBInterface
+{
 
     @Override
-    public Object[] getOrderProducts(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public boolean addItemsToOrder(int orderId, Object[] itemsList)
+    {
+        orderItem newItem=(orderItem) itemsList[0];
 
-    @Override
-    public boolean markOrderReceived(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
+                     +newItem.getItemName()+"',"+newItem.getItemCategory()+","+newItem.getPrice()+","+newItem.getSize()+","+newItem.getWeight()+");";
+        System.out.println(query);
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
 
-    @Override
-    public boolean setOrderStatus(int orderId, String status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            if(results!=null)
+            {
+                query="SELECT last_insert_id() AS last_id FROM product;";
+                results=MysqlDB.runQuery(query);
 
-    @Override
-    public boolean addItemsToOrder(int orderId, Object[] itemsList) {
+                System.out.println("Returning ID: "+results.getInt("last_id"));
+                int currId=results.getInt("last_id");
+                query="INSERT INTO shipmentManifest VALUES ("+orderId+","+currId+","+newItem.getItemQuantity()+");";
+                results=MysqlDB.runQuery(query);
+
+                if(results!=null)
+                {
+                    return true;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return false;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean setTrackingNumber(int orderId, String trackingNum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public int addProduct(String name, int category, float price,float size, float weight)
+    {
+        //System.out.println("Using addProduct");
+        String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
+                     +name+"',"+category+","+price+","+size+","+weight+");"
+                     +"SELECT last_insert_id() AS last_id FROM product;";
 
-    @Override
-    public boolean updateProductQuantity(int orderId, int productId, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
 
-    @Override
-    public Object[] getOrderDetails(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getOrderStatus(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    @Override  
-    public int addProduct(String name, int category, float price,float size, float weight) {
-        System.out.println("Using addProduct");
-        String query="INSERT INTO product(name, category, price, weight) VALUES ('"
-                +name+"',"+category+","+price+","+weight+");"
-                +"SELECT last_insert_id() AS last_id FROM product;";
-        
-        try {
-          ResultSet results=MysqlDB.runQuery(query);
-
-          if(results!=null)
-          {
-              System.out.println("Returning ID: "+results.getInt("last_id"));
-              return results.getInt("last_id");
-          }
-        } catch (SQLException ex) {
-          Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+            if(results!=null)
+            {
+                System.out.println("Returning ID: "+results.getInt("last_id"));
+                return results.getInt("last_id");
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return -1;
     }
 
-    //Added by Xingze for test
     @Override
-    public Object[] getProductCategories() {
-        try {
+    public Object[] getProductCategories()
+    {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT name FROM prodCategory;");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
                 Object[] returnArray=new String[numResults];
                 if(results.first())
                 {
+                    results.previous();
                     int rowCount=0;
                     while(results.next())
                     {
                         returnArray[rowCount]=results.getObject("name");
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
 
-    @Override
-    public int addProductCategory(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public boolean addStock(int productID, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
