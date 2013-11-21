@@ -11,23 +11,15 @@ import javax.swing.JPanel;
  *
  * @author Xianming
  */
-<<<<<<< HEAD
+
 public class LocateBinPopup extends javax.swing.JFrame {
     JPanel tempPanel;
-=======
-public class LocateBinPopup extends javax.swing.JFrame
-{
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
 
     /**
      * Creates new form LocateBinPopup
      */
-<<<<<<< HEAD
     public LocateBinPopup(JPanel p1) {
-=======
-    public LocateBinPopup()
-    {
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
+
         initComponents();
         this.tempPanel = p1;
     }
@@ -117,64 +109,10 @@ public class LocateBinPopup extends javax.swing.JFrame
     {
         // TODO add your handling code here:
         this.setVisible(false);
-<<<<<<< HEAD
+
     }                       
-    
-    
-    // Variables declaration - do not modify                     
-=======
-    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        }
-        catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(LocateBinPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(LocateBinPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(LocateBinPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(LocateBinPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new LocateBinPopup().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

@@ -46,26 +46,17 @@ public class MainUI extends javax.swing.JFrame
     private JPanel jPanel1;
     private MainUI.WarehouseMap jPanel2;
     private JMenuItem menuItem_add;
-<<<<<<< HEAD
     private static int hightlightX;
     private static int hightlightY;
-=======
-
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
     private GuiDB database;
 
     // End of variables declaration
     /**
      * Creates new form MainUI
      */
-<<<<<<< HEAD
-    public MainUI() {
-        database = new GuiDB();
-=======
     public MainUI()
     {
         database=new GuiDB();
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
         initComponents();
     }
 
@@ -155,21 +146,14 @@ public class MainUI extends javax.swing.JFrame
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-<<<<<<< HEAD
         menuItem_add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //new LocateBinPopup().setVisible(true);
                 LocateBinPopup temp = new LocateBinPopup(jPanel2);
                 temp.setVisible(true);
-=======
-        menuItem_add.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent evt)
-            {
-                new LocateBinPopup().setVisible(true);
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
             }
         });
+
         editMenu.setText("Search");
         editMenu.add(menuItem_add);
 
@@ -332,19 +316,14 @@ public class MainUI extends javax.swing.JFrame
     static MainUI.Bin[][] bins;
                 WarehouseMap temp = new WarehouseMap();
 
-<<<<<<< HEAD
     static void highlightBin(int X, int Y) {
         if (bins[Y - 1][X - 1].isExist == true) {
             bins[Y - 1][X - 1].isHightlighted = true;
         }
     }
 
-    class WarehouseMap extends JPanel {
-=======
     private class WarehouseMap extends JPanel
     {
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
-
         // ----- Instance Variables -----
         Dimension dim = new Dimension(930, 630); // size of the map
         final int NUM_BIN_X = 30;
@@ -460,7 +439,7 @@ public class MainUI extends javax.swing.JFrame
          *
          * @param g
          */
-<<<<<<< HEAD
+
         private void drawRect(Graphics g) {
             for (int i = 0; i < NUM_BIN_Y; i++) {
                 for (int j = 0; j < NUM_BIN_X; j++) {
@@ -469,22 +448,12 @@ public class MainUI extends javax.swing.JFrame
                         g.fillRect((j + 1) * 30 + 1, (i + 1) * 30 + 1, 29, 29);
                     } else if (bins[i][j].isExist == true && bins[i][j].isHightlighted == true) {
                         g.setColor(new Color(0, 255, 126)); // set the color as green
-=======
-        private void drawRect(Graphics g)
-        {
-            g.setColor(new Color(0, 150, 255));
-            for (int i = 0; i < NUM_BIN_Y; i++)
-            {
-                for (int j = 0; j < NUM_BIN_X; j++)
-                {
-                    if (bins[i][j].isExist == true)
-                    {
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
                         g.fillRect((j + 1) * 30 + 1, (i + 1) * 30 + 1, 29, 29);
                     }
                 }
             }
         }
+
 
         private void reloadBins() {
             String[] currentBins = database.getBinLocations();
@@ -511,12 +480,8 @@ public class MainUI extends javax.swing.JFrame
             repaint();
         }
 
-<<<<<<< HEAD
-        private class MyMouseAdapter extends MouseAdapter {
-=======
         private class MyMouseAdapter extends MouseAdapter
         {
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
 
             /**
              * For delete the cell
@@ -527,14 +492,10 @@ public class MainUI extends javax.swing.JFrame
             /**
              * delete the cell according to the recorded deletedX and deletedY
              */
-<<<<<<< HEAD
-            void deleteCell() {
-                bins[deletedY - 1][deletedX - 1].isExist = false;
-=======
+
             void deleteCell()
             {
                 bins[deletedY-1][deletedX-1].isExist = false;
->>>>>>> bb7b998b8e84e4b247fb959847456044d27d928e
                 database.removeBin(deletedY, deletedX);
                 repaint();
             }
