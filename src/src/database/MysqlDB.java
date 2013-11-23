@@ -13,34 +13,38 @@ import java.util.logging.Logger;
  * Singleton class to provide access to the MySQL database via JDBC
  * @author Matt
  */
-public class MysqlDB {
-    
+public class MysqlDB
+{
+
     /**
      * Singleton database class to run queries on
      */
     private static MysqlDB database;
-    
+
     //Variables for database connection
     private static Connection connection=null;
     private static final String DATABASEURL="jdbc:mysql://edjo.usask.ca/cmpt370_group02";
-    
+
     /**
      * Constructor, creates a database connector
      */
     private MysqlDB()
     {
         int rv;
-        try {
+        try
+        {
             rv=connect();
             if(rv<0)
             {
-                 Logger.getLogger(MysqlDB.class.getName()).log(Level.SEVERE, null, "Unable to connect to DB!");       
+                Logger.getLogger(MysqlDB.class.getName()).log(Level.SEVERE, null, "Unable to connect to DB!");
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(MysqlDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private static int connect() throws SQLException
     {
         //Connect to the database
@@ -53,15 +57,15 @@ public class MysqlDB {
             System.out.println("Failed to connect");
             Logger.getLogger(MysqlDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         if(connection!=null)
         {
             return 0;
         }
-        
+
         return -1;
     }
-    
+
     /**
      * Accessor to the database
      * @return database connection
@@ -72,10 +76,10 @@ public class MysqlDB {
         {
             database=new MysqlDB();
         }
-        
+
         return database;
     }
-    
+
     /**
      * Runs the given query on the database
      * @param query A SQL query to be run on the MySQL database
@@ -88,7 +92,7 @@ public class MysqlDB {
         {
             connect();
         }
-        
+
         if(connection!=null)
         {
             statement=connection.createStatement();
@@ -98,14 +102,15 @@ public class MysqlDB {
                 return statement.getResultSet();
             }
         }
-        
-        
+
+
         return null;
     }
-    
+
     public static void main(String [] args)
     {
-        try {
+        try
+        {
             ResultSet ret=MysqlDB.runQuery("SELECT name FROM prodCategory;");
             if(ret==null)
             {
@@ -115,15 +120,18 @@ public class MysqlDB {
             {
                 ResultSetMetaData metaData = ret.getMetaData();
                 int numberOfColumns = metaData.getColumnCount();
-                while(ret.next()){
-                        for(int j=1;j<=numberOfColumns;j++)
-                        {
-                                System.out.printf( "%-8s\t",ret.getObject(j) );
-                                System.out.println("");	
-                        }
+                while(ret.next())
+                {
+                    for(int j=1; j<=numberOfColumns; j++)
+                    {
+                        System.out.printf( "%-8s\t",ret.getObject(j) );
+                        System.out.println("");
+                    }
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(MysqlDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

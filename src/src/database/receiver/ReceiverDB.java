@@ -18,67 +18,78 @@ import receiver.orderItem;
  *
  * @author Matt
  */
-public class ReceiverDB implements ReceiverDBInterface {
+public class ReceiverDB implements ReceiverDBInterface
+{
 
     @Override
-    public boolean addItemsToOrder(int orderId, Object[] itemsList) {
-            orderItem newItem=(orderItem) itemsList[0];
-        
-            String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
-                +newItem.getItemName()+"',"+newItem.getItemCategory()+","+newItem.getPrice()+","+newItem.getSize()+","+newItem.getWeight()+");";
-            System.out.println(query);
-        try {
-          ResultSet results=MysqlDB.runQuery(query);
+    public boolean addItemsToOrder(int orderId, Object[] itemsList)
+    {
+        orderItem newItem=(orderItem) itemsList[0];
 
-          if(results!=null)
-          {
-              query="SELECT last_insert_id() AS last_id FROM product;";
-              results=MysqlDB.runQuery(query);
-              
-              System.out.println("Returning ID: "+results.getInt("last_id"));
-              int currId=results.getInt("last_id");
-              query="INSERT INTO shipmentManifest VALUES ("+orderId+","+currId+","+newItem.getItemQuantity()+");";
-              results=MysqlDB.runQuery(query);
-              
-              if(results!=null)
-              {
-                  return true;
-              }
-          }
-        } catch (SQLException ex) {
-          Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
+                     +newItem.getItemName()+"',"+newItem.getItemCategory()+","+newItem.getPrice()+","+newItem.getSize()+","+newItem.getWeight()+");";
+        System.out.println(query);
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
+
+            if(results!=null)
+            {
+                query="SELECT last_insert_id() AS last_id FROM product;";
+                results=MysqlDB.runQuery(query);
+
+                System.out.println("Returning ID: "+results.getInt("last_id"));
+                int currId=results.getInt("last_id");
+                query="INSERT INTO shipmentManifest VALUES ("+orderId+","+currId+","+newItem.getItemQuantity()+");";
+                results=MysqlDB.runQuery(query);
+
+                if(results!=null)
+                {
+                    return true;
+                }
+            }
         }
-        
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return false;
     }
-    
-    @Override  
-    public int addProduct(String name, int category, float price,float size, float weight) {
+
+    @Override
+    public int addProduct(String name, int category, float price,float size, float weight)
+    {
         //System.out.println("Using addProduct");
         String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
-                +name+"',"+category+","+price+","+size+","+weight+");"
-                +"SELECT last_insert_id() AS last_id FROM product;";
-        
-        try {
-          ResultSet results=MysqlDB.runQuery(query);
+                     +name+"',"+category+","+price+","+size+","+weight+");"
+                     +"SELECT last_insert_id() AS last_id FROM product;";
 
-          if(results!=null)
-          {
-              System.out.println("Returning ID: "+results.getInt("last_id"));
-              return results.getInt("last_id");
-          }
-        } catch (SQLException ex) {
-          Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
+
+            if(results!=null)
+            {
+                System.out.println("Returning ID: "+results.getInt("last_id"));
+                return results.getInt("last_id");
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return -1;
     }
 
     @Override
-    public Object[] getProductCategories() {
-        try {
+    public Object[] getProductCategories()
+    {
+        try
+        {
             ResultSet results=MysqlDB.runQuery("SELECT name FROM prodCategory;");
- 
+
             if(results.last())
             {
                 int numResults=results.getRow();
@@ -92,14 +103,16 @@ public class ReceiverDB implements ReceiverDBInterface {
                         returnArray[rowCount]=results.getObject("name");
                         rowCount++;
                     }
-                    
+
                     return returnArray;
                 }
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex)
+        {
             Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
 
