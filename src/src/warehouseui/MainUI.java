@@ -47,14 +47,13 @@ public class MainUI extends javax.swing.JFrame {
     private JMenuItem menuItem_add;
     private static int hightlightX;
     private static int hightlightY;
-    private GuiDB database;
 
     // End of variables declaration     
     /**
      * Creates new form MainUI
      */
-    public MainUI() {
-        database = new GuiDB();
+    public MainUI()
+    {
         initComponents();
     }
 
@@ -306,7 +305,9 @@ public class MainUI extends javax.swing.JFrame {
         Rectangle rectY = new Rectangle(); // coordinate rectangle for y-axis
         boolean onDragged = false; // whether mouse is dragging a bin
         boolean isConflict = false; // whether there is conflict when moving a bin
-
+        private GuiDB database;
+        
+        
         // ----- Class Methods -----
         public WarehouseMap() {
             bins = new MainUI.Bin[NUM_BIN_Y][NUM_BIN_X];
@@ -317,6 +318,7 @@ public class MainUI extends javax.swing.JFrame {
             }
             addMouseMotionListener(new MainUI.WarehouseMap.MyMouseAdapter());
             addMouseListener(new MainUI.WarehouseMap.MyMouseAdapter());
+            database=new GuiDB();
             reloadBins();
         }
 
@@ -405,7 +407,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
 
-        private void reloadBins() {
+        private void reloadBins() {            
             String[] currentBins = database.getBinLocations();
             for (int i = 0; i < currentBins.length; i++) {
                 String currBin = currentBins[i];

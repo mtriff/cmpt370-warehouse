@@ -51,7 +51,8 @@ public class GuiDB implements GuiDBInterface {
     }
 
     @Override
-    public String[] getBinLocations() {
+    public String[] getBinLocations()
+    {
         String query="START n=node(*) RETURN n";
         ExecutionResult result=Neo4jDB.runQuery(query);
         if(result!=null)
