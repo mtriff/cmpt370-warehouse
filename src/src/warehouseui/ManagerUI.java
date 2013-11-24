@@ -80,7 +80,7 @@ public class ManagerUI extends javax.swing.JFrame
                 editButton(evt);
             }
         });
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(),new String[]{"Number", "Name","Size","Weight","Location","Price","Describtion"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(),new String[]{"Number", "Name","Quantity","Category","Size","Weight","Location","Price","description"}));
 
         jScrollPane1.setViewportView(jTable1);
 
@@ -126,7 +126,7 @@ public class ManagerUI extends javax.swing.JFrame
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE));
 
-        //    jTabbedPane1.addTab("Stock Report", jPanel2);
+            jTabbedPane1.addTab("Stock Report", jPanel2);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
                              new Object[][]
@@ -151,11 +151,11 @@ public class ManagerUI extends javax.swing.JFrame
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE));
 
-        //    jTabbedPane1.addTab("Employee Report", jPanel3);
+            jTabbedPane1.addTab("Employee Report", jPanel3);
 
         jTabbedPane1.addTab("OrderStock", new OrderStockUI());
 
-        jTabbedPane1.addTab("Modify Inventory", new InventoryModifyPopup());
+//        jTabbedPane1.addTab("Modify Inventory", new InventoryModifyPopup());
 
         jButton7.setText("Add");
 
@@ -192,12 +192,14 @@ public class ManagerUI extends javax.swing.JFrame
 
     private void addButton(java.awt.event.ActionEvent evt) throws InterruptedException
     {
-        EmployeeInfo newUI;
-
+        EmployeeInfo employeeUI;
+        ReceiverUI receiverUI;
+        
+        //Employee Table
         if(jTabbedPane1.getSelectedIndex()==1)
         {
-            newUI = new EmployeeInfo(1,newEmployee);
-            newUI.addWindowListener(new WindowAdapter()
+            employeeUI = new EmployeeInfo(1,newEmployee);
+            employeeUI.addWindowListener(new WindowAdapter()
             {
                 public void windowDeactivated(WindowEvent e)
                 {
@@ -205,17 +207,39 @@ public class ManagerUI extends javax.swing.JFrame
                 }
             });
 
-            newUI.setVisible(true);
+            employeeUI.setVisible(true);
+        }
+        
+        
+        //Product List Table
+         if(jTabbedPane1.getSelectedIndex()==0)
+        {
+            InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup();
+            modifyInventoryUI.addWindowListener(new WindowAdapter()
+            {
+                public void windowDeactivated(WindowEvent e)
+                {
+                    addNewProduct();
+                }
+            });
+
+            modifyInventoryUI.setVisible(true);
         }
     }
     /**
-     *
+     *add new Employee
      */
-    private void addNewEmployee()
-    {
+    private void addNewEmployee(){
         DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
         Object[] newE = newEmployee.getNew();
         tableModel.addRow(newE);
+    }
+    
+    /**
+     * add new Product
+     */
+    private void addNewProduct(){
+        
     }
 
     /**

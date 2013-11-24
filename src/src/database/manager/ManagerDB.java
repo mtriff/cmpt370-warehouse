@@ -301,11 +301,11 @@ public class ManagerDB implements ManagerDBInterface
 
     @Override
     public Object[] getProductList() 
-    {
+    {   //Number,Name,Quantity,Category,Size,Weight,Location,Price,Description
         Object[][] returnArr=new Object[][]{
-                {1,"Apple","20","30","0105","100","Fruit"},
-                {2,"Banana","30","40","0205","100","Fruit"},
-                {3,"Orange","40","50","0305","100","Fruit"}
+                {1,"Apple","20","Food","20","30","0105","100","Fruit"},
+                {2,"Banana","15","Food","30","40","0205","100","Fruit"},
+                {3,"Orange","35","Food","40","50","0305","100","Fruit"}
         };
         return returnArr;
     }

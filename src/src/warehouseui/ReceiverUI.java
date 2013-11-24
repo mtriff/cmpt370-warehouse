@@ -4,6 +4,9 @@
  */
 package warehouseui;
 
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import manager.manageProduct;
 import receiver.receiveOrder;
 
 /**
@@ -12,6 +15,8 @@ import receiver.receiveOrder;
  */
 public class ReceiverUI extends javax.swing.JFrame
 {
+    private JLabel jLabel9;
+    private JTextField locationTextField;
 
     /**
      * Creates new form ReceiverUI
@@ -19,6 +24,12 @@ public class ReceiverUI extends javax.swing.JFrame
     public ReceiverUI()
     {
         newOrder = new receiveOrder();
+        initComponents();
+    }
+
+    ReceiverUI(int i) {
+        newOrder = new receiveOrder();
+        newProduct = new manageProduct();
         initComponents();
     }
 
@@ -48,10 +59,13 @@ public class ReceiverUI extends javax.swing.JFrame
         sizeTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();  // for location
         descriptionTextField = new javax.swing.JTextField();
         weightTextField = new javax.swing.JTextField();
+        locationTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -192,7 +206,7 @@ public class ReceiverUI extends javax.swing.JFrame
                  .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         nameTextField.getAccessibleContext().setAccessibleName("");
-
+        getContentPane().add(locationTextField);
         pack();
     }// </editor-fold>
 
@@ -206,48 +220,51 @@ public class ReceiverUI extends javax.swing.JFrame
                 && descriptionTextField.getText().compareTo("") != 0
                 && weightTextField.getText().compareTo("") != 0)
         {
-
-            newOrder.setItemName(nameTextField.getText());
-            newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
-            newOrder.setPrice(Float.valueOf(priceTextField.getText()));
-            newOrder.setSize(Float.valueOf(sizeTextField.getText()));
-            newOrder.setDescription(descriptionTextField.getText());
-            newOrder.setItemCategory(jComboBox1.getSelectedIndex()+1);
-            newOrder.setWeight(Float.valueOf(weightTextField.getText()));
-            newOrder.createOrder();
+            if(this.function ==0){
+                 newOrder.setItemName(nameTextField.getText());
+                newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
+                newOrder.setPrice(Float.valueOf(priceTextField.getText()));
+                newOrder.setSize(Float.valueOf(sizeTextField.getText()));
+                newOrder.setDescription(descriptionTextField.getText());
+                newOrder.setItemCategory(jComboBox1.getSelectedIndex()+1);
+                newOrder.setWeight(Float.valueOf(weightTextField.getText()));
+                newOrder.createOrder();
 
             // Check if order number is empty.
             // If user input order number, add the product into exist order
             // If order number is not empty, create a new order
 
 
-            int newOrderNumber = -1;
-            if (orderNumberTextField.getText().compareTo("") != 0)
-            {
-                newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
-                newOrder.addItemsToOrder();
-            }
-            else
-            {
-                newOrderNumber = newOrder.addProduct();
-            }
+                 int newOrderNumber = -1;
+                if (orderNumberTextField.getText().compareTo("") != 0)
+                {
+                     newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
+                    newOrder.addItemsToOrder();
+                 }
+                 else
+                {
+                     newOrderNumber = newOrder.addProduct();
+                 }
 
 
-            nameTextField.setText("");
-            quantityTextField.setText("");
-            priceTextField.setText("");
-            sizeTextField.setText("");
-            descriptionTextField.setText("");
-            weightTextField.setText("");
+                nameTextField.setText("");
+                quantityTextField.setText("");
+                priceTextField.setText("");
+                 sizeTextField.setText("");
+                descriptionTextField.setText("");
+                weightTextField.setText("");
 
-            if (newOrderNumber != -1)
-            {
-                orderNumberTextField.setText(String.valueOf(newOrderNumber));
-            }
-//            if(newOrderNumber!== -1)
-//                orderNumberTextField.setText("");
-//            else
-//                orderNumberTextField.setText(String.valueOf(newOrderNumber));
+                if (newOrderNumber != -1)
+                {
+                    orderNumberTextField.setText(String.valueOf(newOrderNumber));
+                }
+
+           } // end if function =0
+            
+//            if(this.function ==1){
+//                newProduct
+//            } //end if function =1
+            
         }
     }
 
@@ -327,5 +344,7 @@ public class ReceiverUI extends javax.swing.JFrame
     private javax.swing.JTextField sizeTextField;
     private javax.swing.JTextField weightTextField;
     private receiveOrder newOrder;
+    private int function = 0;  // function for UI. 0 for receiver, 1 for add product list,2 for edit product 
+    private manageProduct newProduct;
     // End of variables declaration
 }

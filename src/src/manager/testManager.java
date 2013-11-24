@@ -7,6 +7,7 @@
 package manager;
 
 import javax.swing.JFrame;
+import warehouseui.InventoryModifyPopup;
 import warehouseui.MainUI;
 import warehouseui.ManagerUI;
 
