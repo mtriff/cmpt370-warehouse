@@ -69,20 +69,6 @@ public class ReceiverUI extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        /*
-         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-         new Object [][] {
-         {null, null, null, null},
-         {null, null, null, null},
-         {null, null, null, null},
-         {null, null, null, null}
-         },
-         new String [] {
-         "Title 1", "Title 2", "Title 3", "Title 4"
-         }
-         ));
-         jScrollPane1.setViewportView(jTable1);
-         * */
 
         jLabel1.setText("Name");
 

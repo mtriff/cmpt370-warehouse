@@ -4,6 +4,7 @@
  */
 package warehouseui;
 
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import shipper.makeShipment;
 
@@ -140,9 +141,27 @@ public class ShippingConfirmPopup extends javax.swing.JFrame
         {
             makeNewShipment(wayBill,choosenItem1,choosenItem2);
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            
+            ConfirmPopup popup = new ConfirmPopup("Shipping Requirement has been created");
+            popup.setVisible(true);
+            popup.addWindowListener(new WindowAdapter()
+            {
+                public void windowDeactivated(WindowEvent e)
+                {
+                    closeThis();
+                }
+            });
+            
         }
+        else
+            new ConfirmPopup("Please input all the information").setVisible(true);
     }
 
+    
+    public void closeThis(){
+        
+        this.setVisible(false);
+    }
     /**
     * @author Xingze
     * @param wayBill
