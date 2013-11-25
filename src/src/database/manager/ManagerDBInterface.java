@@ -148,7 +148,7 @@ public interface ManagerDBInterface
      * @param itemNumber
      * @return
      */
-    public int getProductPrice(int itemNumber);
+    public float getProductPrice(int itemNumber);
 
     /**
      *

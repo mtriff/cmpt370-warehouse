@@ -4,6 +4,12 @@
  */
 package database.manager;
 
+import database.MysqlDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Matt
@@ -14,13 +20,39 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public Object[] getEmployeesList()
     {
-        Object[][] returnArr=new Object[][]
+         try
         {
-            {1,"Mike","Manager"},
-            {2,"Jason","Receiver"},
-            {3,"Tim","Shipper"}
-        };
-        return returnArr;
+            ResultSet results=MysqlDB.runQuery("SELECT * FROM employees;");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][3];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+                        returnArray[rowCount][2]=results.getString(3);
+
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
     }
 
 
@@ -34,7 +66,21 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getEmployeeName(int employeeId)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT name FROM employees WHERE id="+employeeId+";");
+
+            if(results.last())
+            {
+                return results.getString(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;     
     }
 
     @Override
@@ -70,7 +116,21 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getTitle(int employeeId)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT title FROM employees WHERE id="+employeeId+";");
+
+            if(results.last())
+            {
+                return results.getString(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;     
     }
 
     @Override
@@ -130,13 +190,21 @@ public class ManagerDB implements ManagerDBInterface
     public String getProductName(int itemNumber)
     {
 
-        // for test modify inventory
-        if(itemNumber == 1)
-            return "One";
-        else if(itemNumber == 2)
-            return "Two";
-        else
-            return "";
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT name FROM product WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getString(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;     
     }
 
     @Override
@@ -164,27 +232,43 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public int getProductPrice(int itemNumber)
+    public float getProductPrice(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return 100;
-        else if(itemNumber == 2)
-            return  200;
-        else
-            return -1;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT price FROM product WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getFloat(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return 0;     
     }
 
     @Override
     public int getProductQuantity(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return 100;
-        else if(itemNumber == 2)
-            return  200;
-        else
-            return -1;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT onHand FROM prodStock WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getInt(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return 0;     
     }
 
     @Override
@@ -214,13 +298,22 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public int getCategory(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return 100;
-        else if(itemNumber == 2)
-            return  2000;
-        else
-            return -1;
+
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT category FROM product WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getInt(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
     @Override
@@ -238,25 +331,43 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public float getProductSize(int itemNumber)
     {
-        // for test order stock
-        if(itemNumber == 1)
-            return (float) 100.0;
-        else if(itemNumber == 2)
-            return (float) 200.0;
-        else
-            return -1;
+
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT size FROM product WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getFloat(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
     @Override
     public float getProductWeight(int itemNumber)
     {
-        // for test order stock
-        if(itemNumber == 1)
-            return (float) 100.0;
-        else if(itemNumber == 2)
-            return (float) 200.0;
-        else
-            return -1;
+
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT weight FROM product WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getFloat(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
     @Override
