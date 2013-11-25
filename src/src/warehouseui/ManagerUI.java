@@ -17,7 +17,7 @@ import manager.manageProduct;
  *
  * @author Xianming
  */
-public class ManagerUI extends javax.swing.JFrame
+public class ManagerUI extends javax.swing.JPanel
 {
 
     /**
@@ -163,8 +163,8 @@ public class ManagerUI extends javax.swing.JFrame
 
         jButton9.setText("Delete");
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jTabbedPane1)
@@ -187,7 +187,7 @@ public class ManagerUI extends javax.swing.JFrame
                       .add(jButton9))
                  .add(0, 15, Short.MAX_VALUE)));
 
-        pack();
+       // pack();
     }// </editor-fold>
 
     private void addButton(java.awt.event.ActionEvent evt) throws InterruptedException

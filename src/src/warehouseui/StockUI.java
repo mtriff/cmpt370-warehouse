@@ -13,7 +13,7 @@ import stockHandler.StockPickerTable;
  *
  * @author Xianming
  */
-public class StockUI extends javax.swing.JFrame
+public class StockUI extends javax.swing.JPanel
 {
 
     /**
@@ -86,8 +86,8 @@ public class StockUI extends javax.swing.JFrame
         jLabel2.setToolTipText("");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
@@ -115,7 +115,7 @@ public class StockUI extends javax.swing.JFrame
                  .addContainerGap())
         );
 
-        pack();
+        //pack();
     }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)

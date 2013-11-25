@@ -13,7 +13,7 @@ import receiver.receiveOrder;
  *
  * @author Xianming
  */
-public class ReceiverUI extends javax.swing.JFrame
+public class ReceiverUI extends javax.swing.JPanel
 {
     private JLabel jLabel9;
     private JTextField locationTextField;
@@ -67,7 +67,7 @@ public class ReceiverUI extends javax.swing.JFrame
         jButton2 = new javax.swing.JButton();
         
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 
         jLabel1.setText("Name");
@@ -106,8 +106,8 @@ public class ReceiverUI extends javax.swing.JFrame
             }
         });
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
@@ -192,8 +192,8 @@ public class ReceiverUI extends javax.swing.JFrame
                  .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         nameTextField.getAccessibleContext().setAccessibleName("");
-        getContentPane().add(locationTextField);
-        pack();
+        add(locationTextField);
+        //pack();
     }// </editor-fold>
 
     private void confirmReceive(java.awt.event.ActionEvent evt)

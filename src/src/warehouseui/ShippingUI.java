@@ -10,7 +10,7 @@ import shipper.makeShipment;
  *
  * @author Xianming
  */
-public class ShippingUI extends javax.swing.JFrame
+public class ShippingUI extends javax.swing.JPanel
 {
 
     /**
@@ -59,8 +59,8 @@ public class ShippingUI extends javax.swing.JFrame
 
         jScrollPane1.setViewportView(jTable1);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
@@ -82,7 +82,7 @@ public class ShippingUI extends javax.swing.JFrame
                  .addContainerGap())
         );
 
-        pack();
+        //pack();
     }// </editor-fold>
 
     /**
