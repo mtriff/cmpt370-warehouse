@@ -48,7 +48,7 @@ public class MainUI extends javax.swing.JFrame
     private JMenuItem menuItem_add;
     private static int hightlightX;
     private static int hightlightY;
-    private GuiDB database;
+
 
     // End of variables declaration
     /**
@@ -56,7 +56,6 @@ public class MainUI extends javax.swing.JFrame
      */
     public MainUI()
     {
-        database=new GuiDB();
         initComponents();
     }
 
@@ -322,6 +321,8 @@ public class MainUI extends javax.swing.JFrame
         }
     }
 
+
+
     private class WarehouseMap extends JPanel
     {
         // ----- Instance Variables -----
@@ -339,7 +340,9 @@ public class MainUI extends javax.swing.JFrame
         Rectangle rectY = new Rectangle(); // coordinate rectangle for y-axis
         boolean onDragged = false; // whether mouse is dragging a bin
         boolean isConflict = false; // whether there is conflict when moving a bin
-
+        private GuiDB database;
+        
+        
         // ----- Class Methods -----
         public WarehouseMap()
         {
@@ -353,6 +356,7 @@ public class MainUI extends javax.swing.JFrame
             }
             addMouseMotionListener(new MainUI.WarehouseMap.MyMouseAdapter());
             addMouseListener(new MainUI.WarehouseMap.MyMouseAdapter());
+            database=new GuiDB();
             reloadBins();
         }
 
@@ -454,8 +458,7 @@ public class MainUI extends javax.swing.JFrame
             }
         }
 
-
-        private void reloadBins() {
+        private void reloadBins() {            
             String[] currentBins = database.getBinLocations();
             for (int i = 0; i < currentBins.length; i++) {
                 String currBin = currentBins[i];
@@ -492,6 +495,7 @@ public class MainUI extends javax.swing.JFrame
             /**
              * delete the cell according to the recorded deletedX and deletedY
              */
+
 
             void deleteCell()
             {

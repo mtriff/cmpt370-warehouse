@@ -19,7 +19,6 @@ public class LocateBinPopup extends javax.swing.JFrame {
      * Creates new form LocateBinPopup
      */
     public LocateBinPopup(JPanel p1) {
-
         initComponents();
         this.tempPanel = p1;
     }
@@ -111,8 +110,9 @@ public class LocateBinPopup extends javax.swing.JFrame {
         this.setVisible(false);
 
     }                       
-
-    // Variables declaration - do not modify
+  
+    
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
