@@ -405,9 +405,9 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public int addProduct(String name, int category, float price, float weight)
+    public int addProduct(String name)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return 2000;
     }
 
     @Override

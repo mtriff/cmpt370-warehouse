@@ -174,7 +174,10 @@ public class modifyInventory
     {
         return database.getProductDescription(ProductNumber);
     }
-
+    
+    public int addProduct(String name){
+        return database.addProduct(name);
+    }
 
     @Override
     public String toString()

@@ -221,7 +221,7 @@ public interface ManagerDBInterface
      * @param weight The weight of the item, in kilograms
      * @return The ID number of the newly added item
      */
-    public int addProduct(String name, int category, float price, float weight);
+    public int addProduct(String name);
 
     public Object[] getProductList();
 

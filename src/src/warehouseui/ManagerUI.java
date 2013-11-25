@@ -193,8 +193,23 @@ public class ManagerUI extends javax.swing.JFrame
     private void addButton(java.awt.event.ActionEvent evt) throws InterruptedException
     {
         EmployeeInfo employeeUI;
-        ReceiverUI receiverUI;
         
+         //Product List Table
+         if(jTabbedPane1.getSelectedIndex()==0)
+        {
+            InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup();
+            modifyInventoryUI.addWindowListener(new WindowAdapter()
+            {
+                public void windowDeactivated(WindowEvent e)
+                {
+                    addNewProduct();
+                }
+            });
+
+            modifyInventoryUI.setVisible(true);
+        }
+         
+         
         //Employee Table
         if(jTabbedPane1.getSelectedIndex()==1)
         {
@@ -209,12 +224,43 @@ public class ManagerUI extends javax.swing.JFrame
 
             employeeUI.setVisible(true);
         }
+       
+    }
+
+
+    /**
+     *
+     * @param evt
+     */
+    private void editButton(java.awt.event.ActionEvent evt)
+    {
+        //Employee Table
+        if(jTabbedPane1.getSelectedIndex()==1){
+            EmployeeInfo newUI;
+            if(jTabbedPane1.getSelectedIndex()==1)
+            {
+                newUI = new EmployeeInfo(2,newEmployee);
+                final int selectRow = jTable2.getSelectedRow();
+                newUI.setData(jTable2.getValueAt(selectRow, 0),jTable2.getValueAt(selectRow, 1),jTable2.getValueAt(selectRow, 2));
+                newUI.addWindowListener(new WindowAdapter(){
+                public void windowDeactivated(WindowEvent e){
+                    modityEmployee(selectRow);
+                }
+            });
+
+            newUI.setVisible(true);
+        }
+        }
         
-        
-        //Product List Table
-         if(jTabbedPane1.getSelectedIndex()==0)
-        {
-            InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup();
+         //Product List Table
+        if(jTabbedPane1.getSelectedIndex()==0){
+            int row = jTable1.getSelectedRow();
+            
+            InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup(jTable1.getValueAt(row, 0),jTable1.getValueAt(row, 1),
+                                                                              jTable1.getValueAt(row, 2),jTable1.getValueAt(row, 3),
+                                                                              jTable1.getValueAt(row, 4),jTable1.getValueAt(row, 5),
+                                                                              jTable1.getValueAt(row, 6),jTable1.getValueAt(row, 7),
+                                                                              jTable1.getValueAt(row, 8));
             modifyInventoryUI.addWindowListener(new WindowAdapter()
             {
                 public void windowDeactivated(WindowEvent e)
@@ -226,7 +272,8 @@ public class ManagerUI extends javax.swing.JFrame
             modifyInventoryUI.setVisible(true);
         }
     }
-    /**
+
+        /**
      *add new Employee
      */
     private void addNewEmployee(){
@@ -239,34 +286,10 @@ public class ManagerUI extends javax.swing.JFrame
      * add new Product
      */
     private void addNewProduct(){
-        
+        //reset table
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(),new String[]{"Number", "Name","Quantity","Category","Size","Weight","Location","Price","description"}));
     }
-
-    /**
-     *
-     * @param evt
-     */
-    private void editButton(java.awt.event.ActionEvent evt)
-    {
-        EmployeeInfo newUI;
-        if(jTabbedPane1.getSelectedIndex()==1)
-        {
-            newUI = new EmployeeInfo(2,newEmployee);
-            final int selectRow = jTable2.getSelectedRow();
-            newUI.setData(jTable2.getValueAt(selectRow, 0),jTable2.getValueAt(selectRow, 1),jTable2.getValueAt(selectRow, 2));
-            newUI.addWindowListener(new WindowAdapter()
-            {
-                public void windowDeactivated(WindowEvent e)
-                {
-                    modityEmployee(selectRow);
-                }
-            });
-
-            newUI.setVisible(true);
-        }
-
-    }
-
+    
     private void  modityEmployee(int row)
     {
         Object[] newE = newEmployee.getNew();
