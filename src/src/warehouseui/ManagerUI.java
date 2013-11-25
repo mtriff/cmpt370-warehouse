@@ -279,7 +279,8 @@ public class ManagerUI extends javax.swing.JFrame
     private void addNewEmployee(){
         DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
         Object[] newE = newEmployee.getNew();
-        tableModel.addRow(newE);
+        if(newE[0]!=null)
+            tableModel.addRow(newE);
     }
     
     /**

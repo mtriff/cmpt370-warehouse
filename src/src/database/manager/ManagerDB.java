@@ -58,7 +58,7 @@ public class ManagerDB implements ManagerDBInterface
 
 
     @Override
-    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number)
+    public void addEmployee(String name, int id,String title)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

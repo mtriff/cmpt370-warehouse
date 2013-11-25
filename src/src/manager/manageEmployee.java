@@ -34,14 +34,6 @@ public class manageEmployee
     public String[] getNew()
     {
 
-//        newEmployee[0] = name;
-//        newEmployee[1] = number;
-//        newEmployee[2] = title;
-        for(int i = 0; i<3; i++)
-        {
-            System.out.println(newEmployee[i]);
-            System.out.println("*");
-        }
         return newEmployee;
     }
 
@@ -52,14 +44,7 @@ public class manageEmployee
         newEmployee[1] = new String(number);
         newEmployee[2] = new String(title);
 
-//        this.name = name;
-//        this.number = number;
-//        this.title = title;
-
-        for(int i = 0; i<3; i++)
-        {
-            System.out.println(newEmployee[i]);
-        }
+        database.addEmployee(name, Integer.parseInt(number), title);
     }
 }
 ////    public String getEmployeeName(){

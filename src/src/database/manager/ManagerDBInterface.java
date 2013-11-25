@@ -27,7 +27,7 @@ public interface ManagerDBInterface
      * @param nextWork
      * @param number
      */
-    public void addEmployee(String name, int id,String title, String currentWork, String nextWork, int number);
+    public void addEmployee(String name, int id,String title);
 
 
     public String getEmployeeName(int employeeId);

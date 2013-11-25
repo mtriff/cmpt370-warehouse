@@ -14,8 +14,9 @@ public class ConfirmPopup extends javax.swing.JFrame
     /**
      * Creates new form ConfirmPopup
      */
-    public ConfirmPopup()
+    public ConfirmPopup(String content)
     {
+        this.content = content;
         initComponents();
     }
 
@@ -35,9 +36,9 @@ public class ConfirmPopup extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Are you sure about the change?");
+        jLabel1.setText(this.content);
 
-        jButton1.setText("Confirm");
+        jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -59,7 +60,7 @@ public class ConfirmPopup extends javax.swing.JFrame
             .add(layout.createSequentialGroup()
                  .add(jButton1)
                  .add(18, 18, 18)
-                 .add(jButton2)
+//                 .add(jButton2)
                  .add(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,7 +71,8 @@ public class ConfirmPopup extends javax.swing.JFrame
                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                  .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                       .add(jButton1)
-                      .add(jButton2))
+//                      .add(jButton2)
+                 )
                  .addContainerGap())
         );
 
@@ -79,7 +81,7 @@ public class ConfirmPopup extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
     {
-        // TODO add your handling code here:
+       this.setVisible(false);
     }
 
     /**
@@ -126,7 +128,7 @@ public class ConfirmPopup extends javax.swing.JFrame
         {
             public void run()
             {
-                new ConfirmPopup().setVisible(true);
+                new ConfirmPopup("OOPS").setVisible(true);
             }
         });
     }
@@ -134,5 +136,6 @@ public class ConfirmPopup extends javax.swing.JFrame
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private String content;
     // End of variables declaration
 }
