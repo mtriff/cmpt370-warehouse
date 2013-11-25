@@ -69,7 +69,7 @@ public class manageProduct
      * @param itemNumber
      * @return
      */
-    public int getItemPrice(int itemNumber)
+    public float getItemPrice(int itemNumber)
     {
         return database.getProductPrice(itemNumber);
     }

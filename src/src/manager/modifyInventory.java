@@ -95,7 +95,7 @@ public class modifyInventory
      * @param ProductNumber
      * @return
      */
-    public int getProductPrice(int ProductNumber)
+    public float getProductPrice(int ProductNumber)
     {
         return database.getProductPrice(ProductNumber);
     }
