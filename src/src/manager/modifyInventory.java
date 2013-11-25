@@ -15,136 +15,173 @@ import warehouseui.InventoryModifyPopup;
  * modify inventory, change data and location
  * @author Xingze
  */
-public class modifyInventory {
-    
+public class modifyInventory
+{
+
     private ManagerDB database;
-    
-    public modifyInventory(){
+    private String testString;
+    public modifyInventory()
+    {
         database =new ManagerDB();
     }
-    
-       /**
-     * 
-     * @param itemNumber
-     * @return 
-     */
-    public String getItemName(int itemNumber){
-        return database.getItemName(itemNumber);
-    }
-    
+
     /**
-     * 
+    *
+    * @param ProductNumber
+    * @return
+    */
+    public String getProductName(int ProductNumber)
+    {
+        return database.getProductName(ProductNumber);
+    }
+
+    /**
+     *
      * @param name
-     * @param itemNumber 
+     * @param ProductNumber
      */
-    public void setItemName(String name, int itemNumber){
-         database.setItemName(name, itemNumber);
-    }
-    
-    /**
-     * 
-     * @param itemName
-     * @return 
-     */
-    public int getItemNumber(String itemName){
-        return database.getItemNumber(itemName);
-    }
-    
-    /**
-     * 
-     * @param itemNumber
-     * @param itemName 
-     */
-    public void setItemNumber(int itemNumber, String itemName){
-        database.setItemNumber(itemNumber, itemName);
+    public void setProductName(String name, int ProductNumber)
+    {
+        testString =  testString + "Name = " + name + "\r\n";// for test
+        database.setProductName(name, ProductNumber);
     }
 
     /**
-     * 
+     *
+     * @param ProductName
+     * @return
+     */
+    public int getProductNumber(String ProductName)
+    {
+
+        return database.getProductNumber(ProductName);
+    }
+
+    /**
+     *
+     * @param ProductNumber
+     * @param ProductName
+     */
+    public void setProductNumber(int ProductNumber, String ProductName)
+    {
+        testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
+        database.setProductNumber(ProductNumber, ProductName);
+    }
+
+    /**
+     *
      * @param description
-     * @param itemNumber 
+     * @param ProductNumber
      */
-    public void setItemDescription (String description,int itemNumber){
-        database.setItemDescription(description, itemNumber);
-    }
-    
-    /**
-     * 
-     * @param category
-     * @param itemNumber 
-     */
-    public void setCategory(int category,int itemNumber){
-        database.setCategory(category, itemNumber);
-    }
-    
-    /**
-     * 
-     * @param itemNumber
-     * @return 
-     */
-    public int getItemPrice(int itemNumber){
-        return database.getItemPrice(itemNumber);
-    }
-    
-    /**
-     * 
-     * @param price
-     * @param itemNumber 
-     */
-    public void setItemPrice(int price, int itemNumber){
-        database.setItemPrice(price, itemNumber);
+    public void setProductDescription (String description,int ProductNumber)
+    {
+        testString =  testString + "description = " + description + "\r\n";// for test
+        database.setProductDescription(ProductNumber,description );
     }
 
     /**
-     * 
-     * @param itemNumber
-     * @return 
+     *
+     * @param category
+     * @param ProductNumber
      */
-    public int getItemQuantity(int itemNumber){
-        return database.getItemQuantity(itemNumber);
+    public void setCategory(int category,int ProductNumber)
+    {
+        testString =  testString + "category = " + category + "\r\n";// for test
+        database.setProductCategory(ProductNumber,category);
     }
-    
+
     /**
-     * 
+     *
+     * @param ProductNumber
+     * @return
+     */
+    public float getProductPrice(int ProductNumber)
+    {
+        return database.getProductPrice(ProductNumber);
+    }
+
+    /**
+     *
+     * @param price
+     * @param ProductNumber
+     */
+    public void setProductPrice(int price, int ProductNumber)
+    {
+        testString =  testString + "price = " + price + "\r\n";// for test
+        database.setProductPrice(price, ProductNumber);
+    }
+
+    /**
+     *
+     * @param ProductNumber
+     * @return
+     */
+    public int getProductQuantity(int ProductNumber)
+    {
+        return database.getProductQuantity(ProductNumber);
+    }
+
+    /**
+     *
      * @param quantity
-     * @param itemNumber 
+     * @param ProductNumber
      */
-    public void setItemQuantity(int quantity,int itemNumber){
-        database.setItemQuantity(quantity, itemNumber);
+    public void setProductQuantity(int quantity,int ProductNumber)
+    {
+
+        testString =  testString + "quantity = " + quantity + "\r\n"; // for test
+        database.setProductQuantity(quantity, ProductNumber);
     }
-    
+
     /**
-     * 
+     *
      * @param location
-     * @param itemNumber 
+     * @param ProductNumber
      */
-    public void setLocation(int location, int itemNumber){
-        database.setLocation(location, itemNumber);
-    }    
-    /**
-     * 
-     * @param itemNumber
-     * @return 
-     */
-    public int getLocation(int itemNumber){
-        return database.getLocation(itemNumber);
+    public void setLocation(int location, int ProductNumber)
+    {
+        testString =  testString + "location = " + location + "\r\n";  // for test
+        database.setLocation(location,ProductNumber);
     }
-    
-            
-    public static void main(String[] argo){
+    /**
+     *
+     * @param ProductNumber
+     * @return
+     */
+    public int getLocation(int ProductNumber)
+    {
+
+        return database.getLocation(ProductNumber);
+    }
+
+
+    public static void main(String[] argo)
+    {
         modifyInventory test = new modifyInventory();
 
         InventoryModifyPopup newInv = new InventoryModifyPopup();
         newInv.setVisible(true);
 
-        
+
     }
 
-    public Object getItemCategory(int itemNumber) {
-        return database.getCategory(itemNumber);
+    public Object getProductCategory(int ProductNumber)
+    {
+        return database.getCategory(ProductNumber);
+    }
+
+    public String getProductDescription(int ProductNumber)
+    {
+        return database.getProductDescription(ProductNumber);
     }
     
-    public String getItemDescription(int itemNumber){
-        return database.getItemDescription(itemNumber);
+    public int addProduct(String name){
+        return database.addProduct(name);
+    }
+
+    @Override
+    public String toString()
+    {
+        return testString;
     }
 }

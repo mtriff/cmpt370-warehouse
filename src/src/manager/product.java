@@ -8,19 +8,21 @@ package manager;
  *
  * @author hanrongli
  */
-public class product {
+public class product
+{
     private String itemName;
     private int itemQuantities;
     private String itemCategory;
     private float price;
     private float size;
     private String itemDescription;
-    
-    
+
+
     /*
      * constructor for product
      */
-    public product(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
+    public product(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
+    {
         this.itemName=pName;
         this.itemQuantities=pQuantities;
         this.itemCategory=pCategory;
@@ -28,54 +30,66 @@ public class product {
         this.size=pSize;
         this.itemDescription=pDescription;
     }
-    
-    
-    public String getProductName(){
+
+
+    public String getProductName()
+    {
         return itemName;
     }
-    
-    public void setProductName(String newProductName){
+
+    public void setProductName(String newProductName)
+    {
         this.itemName=newProductName;
     }
-    
-    public int getProductQuantities(){
+
+    public int getProductQuantities()
+    {
         return itemQuantities;
     }
-    
-    public void setProductQuantities(int newQuantities){
+
+    public void setProductQuantities(int newQuantities)
+    {
         this.itemQuantities=newQuantities;
     }
-    
-    public String getProductCategory(){
+
+    public String getProductCategory()
+    {
         return itemCategory;
     }
-    
-    public void setProductCategory(String newCategory){
+
+    public void setProductCategory(String newCategory)
+    {
         this.itemCategory = newCategory;
     }
-    
-    
-    public String getDescription(){
+
+
+    public String getDescription()
+    {
         return itemDescription;
     }
-    
-    public void setProductDescription(String newDescription){
+
+    public void setProductDescription(String newDescription)
+    {
         this.itemDescription=newDescription;
     }
-    
-    public float getProductProductPrice() {
+
+    public float getProductProductPrice()
+    {
         return price;
     }
-    
-    public void setProductPrice(float price) {
+
+    public void setProductPrice(float price)
+    {
         this.price = price;
     }
-    
-    public float getProductSize() {
+
+    public float getProductSize()
+    {
         return size;
     }
-    
-    public void setProductSize(float size) {
+
+    public void setProductSize(float size)
+    {
         this.size = size;
-    }            
+    }
 }
