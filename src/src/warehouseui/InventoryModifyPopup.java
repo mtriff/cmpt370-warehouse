@@ -262,7 +262,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
                 number = newModify.addProduct(nameTextfield.getText());
                 numberTextfield.setText(String.valueOf(number));
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()),number);
-                newModify.setProductPrice(Integer.parseInt(priceTextfield.getText()),number);
+                newModify.setProductPrice(number,Float.parseFloat(priceTextfield.getText()));
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()),number);
                 newModify.setProductDescription(descriptionTextfield.getText(),number);
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
