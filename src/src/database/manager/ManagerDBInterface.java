@@ -36,19 +36,19 @@ public interface ManagerDBInterface
     public void setEmployeeName(String name,int employeeId);
 
     public int getEmployeeID(String name);
-
+    /**
     public void setEmployeeID(String name,int employeeId);
 
 
-    /**
+
      * Get the average speed of the employee in performing their tasks
      * @param employeeId The ID of the employee to check
      * @return The speed of the employee, or null on failure
-     */
+
     public float getEmployeeSpeed(int employeeId);
 
     public void setEmployeeSpeed(float speed,int employeeId);
-
+     */
     public String getTitle(int employeeId);
 
     /**
@@ -67,7 +67,7 @@ public interface ManagerDBInterface
      * Creates a new (empty) order with the current date
      * @param employeeId
      * @return The ID of the newly created order
-     */
+   
     public String getCurrentWork(int employeeId);
 
     public void setCurrentWork(String currentWork, int employeeId);
@@ -79,7 +79,7 @@ public interface ManagerDBInterface
     public int getNumofWorkDone(int employeeId);
 
     public void setNumofWorkDone(int num ,int employeeId);
-
+  */
 
 
     //public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
@@ -113,9 +113,9 @@ public interface ManagerDBInterface
      *
      * @param itemNumber
      * @param itemName
-     */
-    public void setProductNumber(int itemNumber, String itemName);
 
+    public void setProductNumber(int itemNumber, String itemName);
+     */
     /**
      *
      * @param description
@@ -206,12 +206,6 @@ public interface ManagerDBInterface
      * @return
      */
     public float getProductWeight(int itemNumber);
-
-    /**
-     *
-     * @return List of products
-     */
-    public Object[] getProducts();
 
     /**
      * Adds a new item to the warehouse system

@@ -65,7 +65,8 @@ public class modifyInventory
     public void setProductNumber(int ProductNumber, String ProductName)
     {
         testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
-        database.setProductNumber(ProductNumber, ProductName);
+        System.out.println("Not to be implemented, item number set by database only.");
+        //database.setProductNumber(ProductNumber, ProductName);
     }
 
     /**
