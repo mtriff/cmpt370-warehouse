@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import shipper.shipmentTask;
 
 /**
  *
@@ -184,5 +185,9 @@ public class ShipperDB implements ShipperDBInterface
         }
 
         return null;
+    }
+
+    public void setNewShipment(shipmentTask newTask) {
+        //need be implemented
     }
 }

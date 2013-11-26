@@ -3,6 +3,9 @@
  * and open the template in the editor.
  */
 package database.shipper;
+
+import shipper.shipmentTask;
+
 /**
  * An interface, contains all methods to be used by Shipping features
  * @author Matt
@@ -35,4 +38,11 @@ public interface ShipperDBInterface
      * @return an array that includes name of shipping companies
      */
     public Object[] getShippingCompanies(); //Added by Xingze
+    
+    
+    /**
+     * Set new shipment
+     * @param newTask new shipment
+     */
+    public void setNewShipment(shipmentTask newTask); //Added by Xingze
 }
