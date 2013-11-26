@@ -106,10 +106,10 @@ public class modifyInventory
      * @param price
      * @param ProductNumber
      */
-    public void setProductPrice(int price, int ProductNumber)
+    public void setProductPrice(int ProductNumber,float price )
     {
         testString =  testString + "price = " + price + "\r\n";// for test
-        database.setProductPrice(price, ProductNumber);
+        database.setProductPrice(ProductNumber,price);
     }
 
     /**
