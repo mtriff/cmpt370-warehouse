@@ -131,7 +131,7 @@ public class modifyInventory
     {
 
         testString =  testString + "quantity = " + quantity + "\r\n"; // for test
-        database.setProductQuantity(quantity, ProductNumber);
+        database.setProductQuantity(ProductNumber,quantity);
     }
 
     /**
