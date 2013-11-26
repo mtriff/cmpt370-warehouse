@@ -46,6 +46,10 @@ public class manageEmployee
 
         database.addEmployee(name, Integer.parseInt(number), title);
     }
+
+    public void deleteEmployee(Object valueAt) {
+       database.deleteEmployee((int) valueAt);
+    }
 }
 ////    public String getEmployeeName(){
 ////        return database.getEmployeeName();

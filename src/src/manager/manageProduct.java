@@ -214,6 +214,10 @@ public class manageProduct
 
      }*/
 
+    public void deleteProduct(Object valueAt) {
+        database.deleteProduct((int) valueAt);
+    }
+
 
 
 
