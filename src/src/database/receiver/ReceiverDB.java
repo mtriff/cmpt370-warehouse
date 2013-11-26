@@ -60,26 +60,26 @@ public class ReceiverDB implements ReceiverDBInterface
     @Override
     public int addProduct(String name, int category, float price,float size, float weight)
     {
-        //System.out.println("Using addProduct");
         String query="INSERT INTO product(name, category, price, size, weight) VALUES ('"
-                     +name+"',"+category+","+price+","+size+","+weight+");"
-                     +"SELECT last_insert_id() AS last_id FROM product;";
-
+                 +name+"',"+category+","+price+","+size+","+weight+");";
+        
+        System.out.println(query);
         try
         {
             ResultSet results=MysqlDB.runQuery(query);
 
             if(results!=null)
             {
+                query="SELECT last_insert_id() AS last_id FROM product;";
+                results=MysqlDB.runQuery(query);
+
                 System.out.println("Returning ID: "+results.getInt("last_id"));
                 return results.getInt("last_id");
             }
-        }
-        catch (SQLException ex)
-        {
+        }   catch (SQLException ex) {
             Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         return -1;
     }
 

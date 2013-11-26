@@ -60,7 +60,8 @@ public class manageProduct
      */
     public void setItemNumber(int itemNumber, String itemName)
     {
-        database.setProductNumber(itemNumber, itemName);
+        //Not to be implemented (Item number is SET by the database
+        //database.setProductNumber(itemNumber, itemName);
     }
 
 
