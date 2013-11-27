@@ -250,6 +250,7 @@ public class ManagerUI extends javax.swing.JPanel
         
                  //Product List Table
         if(jTabbedPane1.getSelectedIndex()==0){
+            if(jTable1.getSelectedRow()!= -1){
             int row = jTable1.getSelectedRow();
             
             InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup(jTable1.getValueAt(row, 0),jTable1.getValueAt(row, 1),
@@ -267,9 +268,15 @@ public class ManagerUI extends javax.swing.JPanel
 
             modifyInventoryUI.setVisible(true);
         }
-        
+           else 
+             new ConfirmPopup("Please select a product").setVisible(true);
+        }
+
+            
         //Employee Table
+        
         if(jTabbedPane1.getSelectedIndex()==1){
+             if(jTable2.getSelectedRow()!= -1){
             EmployeeInfo newUI;
             if(jTabbedPane1.getSelectedIndex()==1)
             {
@@ -285,8 +292,12 @@ public class ManagerUI extends javax.swing.JPanel
             newUI.setVisible(true);
         }
         }
-        
-    }
+           else
+            new ConfirmPopup("Please select a employee").setVisible(true);
+        }
+
+        }
+    
 
     
     
@@ -337,7 +348,7 @@ public class ManagerUI extends javax.swing.JPanel
     private void  modityEmployee(int row)
     {
         Object[] newE = newEmployee.getNew();
-        jTable2.setValueAt(Integer.parseInt((String) newE[1]), row, 0);
+        jTable2.setValueAt(newE[1], row, 0);
         jTable2.setValueAt(newE[0], row, 1);
         jTable2.setValueAt(newE[2], row, 2);
     }
