@@ -4,135 +4,190 @@
  */
 package database.shipper;
 
+import database.MysqlDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import shipper.shipmentTask;
+
 /**
  *
  * @author Matt
  */
-public class ShipperDB implements ShipperDBInterface {
+public class ShipperDB implements ShipperDBInterface
+{
 
-    /*
-     * Returning dummy data for now.
-     */
     @Override
-    public Object[] getShipmentList() {
-        Object[][] returnArr=new Object[][]{
-                {1,"Nexus 7",30,"Saskatoon","2013-05-07"},
-                {2,"Lenovo X230",26,"Beijing","2013-06-09"},
-                {3,"iPad Mini",15,"London","2013-06-12"}
-            };   
-        
-        return returnArr;
+    public Object[] getShipmentList()
+    {
+//        Object[][] returnArr=new Object[][]{
+//                {1,"Nexus 7",30,"Saskatoon","2013-05-07"},
+//                {2,"Lenovo X230",26,"Beijing","2013-06-09"},
+//                {3,"iPad Mini",15,"London","2013-06-12"}
+//            };
+//
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity, shipments.destination, shipments.sentDate FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='ready' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id;");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][5];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+                        returnArray[rowCount][2]=results.getInt(3);
+                        returnArray[rowCount][3]=results.getString(4);
+                        returnArray[rowCount][4]=results.getString(5);
+
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        return null;
     }
 
     @Override
-    public Object[] getPendingShipmentList() {
-          Object[][] returnArr=new Object[][]{
-                {1,"CALL OF DUTY: GHOST",30,"Saskatoon","2013-05-07"},
-                {2,"Borderlands 2",26,"Beijing","2013-06-09"},
-                {3,"Far Cry 3",15,"London","2013-06-12"}
-            };   
-        
-        return returnArr;
-    }
+    public Object[] getPendingShipmentList()
+    {
+//          Object[][] returnArr=new Object[][]{
+//                {1,"CALL OF DUTY: GHOST",30,"Saskatoon","2013-05-07"},
+//                {2,"Borderlands 2",26,"Beijing","2013-06-09"},
+//                {3,"Far Cry 3",15,"London","2013-06-12"}
+//            };
 
-    /*
-     * Returning dummy data for now.
-     */
-    @Override
-    public Object[] getShipmentDetails(int shipmentId) {
-        Object[][] returnArr=new Object[][]{
-            {null, "pending", "TRACK124125DS21", 329.9, "U of S, Saskatoon, SK, Canada"}
-        };
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT shipments.id, product.name, shipmentManifest.quantity, shipments.destination, shipments.sentDate FROM shipments INNER JOIN shipmentManifest INNER JOIN product WHERE status='pending' AND shipments.id=shipmentManifest.id AND shipmentManifest.prodID=product.id;");
 
-        return returnArr;
-    }
-    
-    /*
-     * Returning dummy data for now.
-     */
-    @Override
-    public Object[] getShipmentProducts(int shipmentId) {
-        Object[][] returnArr=new Object[][]{
-                {1,"Nexus 7",30,"Saskatoon","2013-05-07"},
-                {2,"Lenovo X230",26,"Beijing","2013-06-09"},
-                {3,"iPad Mini",15,"London","2013-06-12"}
-            };   
-        
-        return returnArr;
-    }
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][5];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
 
-    @Override
-    public String getShipmentStatus(int shipmentId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+                        returnArray[rowCount][2]=results.getInt(3);
+                        returnArray[rowCount][3]=results.getString(4);
+                        returnArray[rowCount][4]=results.getString(5);
 
-    @Override
-    public float getShipmentWeight(int shipmentId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+                        rowCount++;
+                    }
 
-    @Override
-    public int createShipment(String destination) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
     }
 
     @Override
-    public boolean addItemsToShipment(Object[] itemList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object[] getStockHandlers()
+    {
+
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT id,name FROM employees WHERE title='Stock Handler';");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][2];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
     }
 
     @Override
-    public boolean setShipmentStatus(int shipmentId, String status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object[] getShippingCompanies()
+    {
+
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT * FROM shipmentCompanies;");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][2];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
     }
 
-    @Override
-    public boolean markShipmentSent(int shipmentId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean setShipmentDate(int shipmentId, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean setShipmentDestination(int shipmentId, String destination) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean updateProductQuantity(int shipmentId, int productId, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean setTrackingNumber(int shipmentId, String trackingNum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean decreaseStock(int productID, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    /*
-     * Returning dummy data for now.
-     */
-    @Override
-    public Object[] getStockHandlers() {
-        Object[] returnArr=new Object[][]{
-            {1, "Johnny"},{2,"Amy"},{3,"Bush"}
-        };
-        
-        return returnArr;
-    }
-
-    @Override
-    public Object[] getShippingCompanies() {
-       Object[] returnArr=new Object[][]{
-            {1, "UPS"},{2,"DHL"},{3,"EMS"}
-        };
-       return returnArr;
+    public void setNewShipment(shipmentTask newTask) {
+        //need be implemented
     }
 }

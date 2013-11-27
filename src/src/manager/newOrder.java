@@ -10,31 +10,34 @@ package manager;
  *
  * @author Xingze
  */
-public class newOrder {
-    
+public class newOrder
+{
+    //
     private String productName;
     private int productNumber;
     private int productQuantity;
     private float productSize;
     private float productWeight;
 
-    public newOrder(String productName, int productNumber, int productQuantity, float productSize, float productWeight) {
+    public newOrder(String productName, int productNumber, int productQuantity, float productSize, float productWeight)
+    {
         this.productName = productName;
         this.productNumber = productNumber;
         this.productQuantity = productQuantity;
         this.productSize = productSize;
         this.productWeight = productWeight;
     }
-    
+
     @Override
-        public String toString(){
-            return "Name =" + productName  + "\r\n" 
-                   +"Number =" + productNumber + "\r\n"
-                   +"Quantity =" + productQuantity +"\r\n"
-                   +"Size =" + productSize +"\r\n" 
-                   +"Weight =" + productWeight + "\r\n";
-        }
-    
-    
-    
+    public String toString()
+    {
+        return "Name =" + productName  + "\r\n"
+               +"Number =" + productNumber + "\r\n"
+               +"Quantity =" + productQuantity +"\r\n"
+               +"Size =" + productSize +"\r\n"
+               +"Weight =" + productWeight + "\r\n";
+    }
+
+
+
 }

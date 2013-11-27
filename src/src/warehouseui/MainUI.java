@@ -4,9 +4,10 @@
  */
 package warehouseui;
 
+import database.gui.GuiDB;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -14,18 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.WindowConstants;
-import org.jdesktop.layout.GroupLayout;
 
 /**
  *
@@ -33,19 +26,6 @@ import org.jdesktop.layout.GroupLayout;
  */
 public class MainUI extends javax.swing.JFrame {
 
-    // Variables declaration - do not modify                     
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JButton jButton4;
-    private JMenu jMenu1;
-    private JMenu editMenu;
-    private JMenuBar jMenuBar1;
-    private JPanel jPanel1;
-    private MainUI.WarehouseMap jPanel2;
-    private JMenuItem menuItem_add;
-
-    // End of variables declaration     
     /**
      * Creates new form MainUI
      */
@@ -62,167 +42,200 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jButton1 = new JButton();
-        jButton2 = new JButton();
-        jButton3 = new JButton();
-        jButton4 = new JButton();
-        jPanel1 = new JPanel();
-        jPanel2 = new MainUI.WarehouseMap();
-        jMenuBar1 = new JMenuBar();
-        jMenu1 = new JMenu();
-        editMenu = new JMenu();
-        menuItem_add = new JMenuItem("Locate");
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        MapButton = new javax.swing.JButton();
+        ReceiveButton = new javax.swing.JButton();
+        shippingButton = new javax.swing.JButton();
+        StockButton = new javax.swing.JButton();
+        ManageButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new MainUI.WarehouseMap();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Stock");
-        jButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                openStockUI(evt);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MAP");
+
+        MapButton.setText("Map");
+        MapButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Shipping");
-        jButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                openShippingUI(evt);
+        ReceiveButton.setText("Receive");
+        ReceiveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReceiveButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Receiver");
-        jButton3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                openReceiverUI(evt);
+        shippingButton.setText("Shipping");
+        shippingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shippingButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Manager");
-        jButton4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                openManagerUI(evt);
+        StockButton.setText("Stock");
+        StockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StockButtonActionPerformed(evt);
             }
         });
 
-        jPanel2.setBackground(new Color(186, 186, 186));
+        ManageButton.setText("Management");
+        ManageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManageButtonActionPerformed(evt);
+            }
+        });
 
-        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                .add(190, 190, 190)
-                .addContainerGap(193, Short.MAX_VALUE)));
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                .add(155, 155, 155)
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-
-        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
-                .add(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+                jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(MapButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(ReceiveButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(shippingButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(StockButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(ManageButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
-                .add(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+                jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                .add(12, 12, 12)
+                .add(jLabel1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(MapButton)
+                .add(18, 18, 18)
+                .add(ReceiveButton)
+                .add(18, 18, 18)
+                .add(shippingButton)
+                .add(18, 18, 18)
+                .add(StockButton)
+                .add(18, 18, 18)
+                .add(ManageButton)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        MapButton.getAccessibleContext().setAccessibleName("MapButton");
+        ReceiveButton.getAccessibleContext().setAccessibleName("ReceiveButton");
+        StockButton.getAccessibleContext().setAccessibleName("StockButton");
+        ManageButton.getAccessibleContext().setAccessibleName("ManageButton");
 
-        menuItem_add.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                new LocateBinPopup().setVisible(true);
-            }
-        });
-        editMenu.setText("Search");
-        editMenu.add(menuItem_add);
+        jPanel2.setLayout(new java.awt.CardLayout());
 
-        jMenuBar1.add(editMenu);
+        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+                jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 785, Short.MAX_VALUE));
+        jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 500, Short.MAX_VALUE));
 
-        setJMenuBar(jMenuBar1);
+        jPanel2.add(jPanel3, "card1");
 
-        GroupLayout layout = new GroupLayout(getContentPane());
+        org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+                jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 785, Short.MAX_VALUE));
+        jPanel4Layout.setVerticalGroup(
+                jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 500, Short.MAX_VALUE));
+
+        jPanel2.add(new ReceiverUI(), "card2");
+
+        org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+                jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 785, Short.MAX_VALUE));
+        jPanel5Layout.setVerticalGroup(
+                jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 500, Short.MAX_VALUE));
+
+        jPanel2.add(new ShippingUI(), "card3");
+
+        org.jdesktop.layout.GroupLayout jPanel6Layout = new org.jdesktop.layout.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+                jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 785, Short.MAX_VALUE));
+        jPanel6Layout.setVerticalGroup(
+                jPanel6Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 500, Short.MAX_VALUE));
+
+        jPanel2.add(new StockUI(), "card4");
+
+        org.jdesktop.layout.GroupLayout jPanel7Layout = new org.jdesktop.layout.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+                jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 785, Short.MAX_VALUE));
+        jPanel7Layout.setVerticalGroup(
+                jPanel7Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(0, 500, Short.MAX_VALUE));
+
+        jPanel2.add(new ManagerUI(), "card5");
+
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(GroupLayout.LEADING)
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                .add(GroupLayout.TRAILING, jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(GroupLayout.TRAILING, jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(GroupLayout.TRAILING, jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(GroupLayout.TRAILING, jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap()));
+                .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-                layout.createParallelGroup(GroupLayout.LEADING)
-                .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(layout.createParallelGroup(GroupLayout.LEADING)
-                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createSequentialGroup()
-                .add(jButton1)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton3)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton4)
-                .add(0, 0, Short.MAX_VALUE)))
-                .addContainerGap()));
-
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+        this.cl = (CardLayout) (jPanel2.getLayout());
         pack();
     }// </editor-fold>                        
+    CardLayout cl;
 
-    /**
-     * Open stock UI window
-     *
-     * @param evt
-     */
-    private void openStockUI(ActionEvent evt) {
+    private void MapButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        StockUI stockWindow = new StockUI();
-        stockWindow.setVisible(true);
+        cl.show(jPanel2, "card1");
+        jLabel1.setText("MAP");
     }
 
-    /**
-     * Open shipping UI window
-     *
-     * @param evt
-     */
-    private void openShippingUI(ActionEvent evt) {
-        // TODO add your handling code here:
-        ShippingUI shippingWindow = new ShippingUI();
-        shippingWindow.setVisible(true);
+    private void ReceiveButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
+        cl.show(jPanel2, "card2");
+        jLabel1.setText("RECEIVE");
     }
 
-    /**
-     * Open receiver UI window
-     *
-     * @param evt
-     */
-    private void openReceiverUI(ActionEvent evt) {
+    private void shippingButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ReceiverUI receiverWindow = new ReceiverUI();
-        receiverWindow.setVisible(true);
+        cl.show(jPanel2, "card3");
+        jLabel1.setText("SHIPPING");
     }
 
-    /**
-     * Open manager UI window
-     *
-     * @param evt
-     */
-    private void openManagerUI(ActionEvent evt) {
+    private void StockButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ManagerUI managerWindow = new ManagerUI();
-        managerWindow.setVisible(true);
+        cl.show(jPanel2, "card4");
+        jLabel1.setText("STOCK");
     }
 
-    private void openBillPopup(ActionEvent evt) {
-        BillPopup billPopup = new BillPopup();
-        billPopup.setVisible(true);
+    private void ManageButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        cl.show(jPanel2, "card5");
+        jLabel1.setText("MANAGEMENT");
     }
 
     /**
@@ -235,28 +248,27 @@ public class MainUI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginUI().setVisible(true);
-
             }
         });
     }
@@ -265,17 +277,26 @@ public class MainUI extends javax.swing.JFrame {
         // ----- Instance Variables -----
 
         boolean isExist;
+        boolean isHightlighted;
 
         // ----- Class Methods -----
         Bin() {
             isExist = false;
+            isHightlighted = false;
+        }
+    }
+    static MainUI.Bin[][] bins;
+    WarehouseMap temp = new WarehouseMap();
+
+    static void highlightBin(int X, int Y) {
+        if (bins[Y - 1][X - 1].isExist == true) {
+            bins[Y - 1][X - 1].isHightlighted = true;
         }
     }
 
     private class WarehouseMap extends JPanel {
-
         // ----- Instance Variables -----
-        MainUI.Bin[][] bins;
+
         Dimension dim = new Dimension(930, 630); // size of the map
         final int NUM_BIN_X = 30;
         final int NUM_BIN_Y = 20;
@@ -290,6 +311,7 @@ public class MainUI extends javax.swing.JFrame {
         Rectangle rectY = new Rectangle(); // coordinate rectangle for y-axis
         boolean onDragged = false; // whether mouse is dragging a bin
         boolean isConflict = false; // whether there is conflict when moving a bin
+        private GuiDB database;
 
         // ----- Class Methods -----
         public WarehouseMap() {
@@ -301,7 +323,8 @@ public class MainUI extends javax.swing.JFrame {
             }
             addMouseMotionListener(new MainUI.WarehouseMap.MyMouseAdapter());
             addMouseListener(new MainUI.WarehouseMap.MyMouseAdapter());
-
+            database = new GuiDB();
+            reloadBins();
         }
 
         @Override
@@ -376,13 +399,24 @@ public class MainUI extends javax.swing.JFrame {
          * @param g
          */
         private void drawRect(Graphics g) {
-            g.setColor(new Color(0, 150, 255));
             for (int i = 0; i < NUM_BIN_Y; i++) {
                 for (int j = 0; j < NUM_BIN_X; j++) {
-                    if (bins[i][j].isExist == true) {
+                    if (bins[i][j].isExist == true && bins[i][j].isHightlighted == false) {
+                        g.setColor(new Color(0, 150, 255)); // set the color as blue
+                        g.fillRect((j + 1) * 30 + 1, (i + 1) * 30 + 1, 29, 29);
+                    } else if (bins[i][j].isExist == true && bins[i][j].isHightlighted == true) {
+                        g.setColor(new Color(0, 255, 126)); // set the color as green
                         g.fillRect((j + 1) * 30 + 1, (i + 1) * 30 + 1, 29, 29);
                     }
                 }
+            }
+        }
+
+        private void reloadBins() {
+            String[] currentBins = database.getBinLocations();
+            for (int i = 0; i < currentBins.length; i++) {
+                String currBin = currentBins[i];
+                bins[Integer.parseInt(currBin.split(" ")[0]) - 1][Integer.parseInt(currBin.split(" ")[1]) - 1].isExist = true;
             }
         }
 
@@ -396,23 +430,25 @@ public class MainUI extends javax.swing.JFrame {
         private void drawOnClickBin(int X, int Y) {
             if (bins[Y - 1][X - 1].isExist == false) {
                 bins[Y - 1][X - 1].isExist = true;
+                database.createBin(Y, X);
             }
             repaint();
         }
 
         private class MyMouseAdapter extends MouseAdapter {
-            
+
             /**
              * For delete the cell
              */
             int deletedX;
             int deletedY;
-            
+
             /**
              * delete the cell according to the recorded deletedX and deletedY
              */
             void deleteCell() {
-                bins[deletedY-1][deletedX-1].isExist = false;
+                bins[deletedY - 1][deletedX - 1].isExist = false;
+                database.removeBin(deletedY, deletedX);
                 repaint();
             }
 
@@ -422,7 +458,7 @@ public class MainUI extends javax.swing.JFrame {
                 mouseY = e.getY();
                 int X = mouseX / 30;
                 int Y = mouseY / 30;
-                
+
                 // check if mouse event is right click
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
                         && (bins[Y - 1][X - 1].isExist)
@@ -433,7 +469,7 @@ public class MainUI extends javax.swing.JFrame {
                     popupMenu.show(e.getComponent(), e.getX(), e.getY());
                     return;
                 }
-                
+
                 // double click for showing the product info if the cell is
                 // already existed
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
@@ -444,7 +480,7 @@ public class MainUI extends javax.swing.JFrame {
                     productPopup.setVisible(true);
                     return;
                 }
-                
+
                 // double click for adding a cell
                 if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
                         && e.getClickCount() == 2) {
@@ -522,4 +558,19 @@ public class MainUI extends javax.swing.JFrame {
             }
         }
     }
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton ManageButton;
+    private javax.swing.JButton MapButton;
+    private javax.swing.JButton ReceiveButton;
+    private javax.swing.JButton StockButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private MainUI.WarehouseMap jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JButton shippingButton;
+    // End of variables declaration                   
 }

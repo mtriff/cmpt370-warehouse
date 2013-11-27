@@ -12,19 +12,22 @@ import database.shipper.ShipperDB;
  *
  * @author Xingze
  */
-public class futureShipment {
-   
+public class futureShipment
+{
+
     private ShipperDB database;
 
-    public futureShipment() {
+    public futureShipment()
+    {
         database =new ShipperDB();
     }
-    
-    
-    	public Object getFurtureShip(){
-		//todo  get info from database
-            Object shipmentInfo[][];         
-           shipmentInfo = (Object[][]) database.getPendingShipmentList();
-	    return shipmentInfo;
-	}
+
+
+    public Object getFurtureShip()
+    {
+        //todo  get info from database
+        Object shipmentInfo[][];
+        shipmentInfo = (Object[][]) database.getPendingShipmentList();
+        return shipmentInfo;
+    }
 }

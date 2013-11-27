@@ -4,20 +4,55 @@
  */
 package warehouseui;
 
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import manager.modifyInventory;
 
 /**
  *
  * @author Xianming
  */
-public class InventoryModifyPopup extends javax.swing.JPanel {
+public class InventoryModifyPopup extends javax.swing.JFrame
+{
+    private JTextField sizeTextfield;
+    private JTextField weightTextfield;
+    private JLabel jLabeSize;
+    private JLabel jLabeText;
+    private JLabel jLabeWeight;
 
     /**
      * Creates new form InventoryModifyPopup
      */
-    public InventoryModifyPopup() {
+    public InventoryModifyPopup()
+    {
         newModify = new modifyInventory();
         initComponents();
+    }
+/**
+ * 
+ * @param valueAt Number
+ * @param valueAt0 Name
+ * @param valueAt1 Quantity
+ * @param valueAt2 Category
+ * @param valueAt3 Size
+ * @param valueAt4 Weight
+ * @param valueAt5 Location
+ * @param valueAt6 Price
+ * @param valueAt7 Description
+ */    
+   
+    InventoryModifyPopup(Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
+        newModify = new modifyInventory();
+        initComponents();
+        nameTextfield.setText((String) valueAt0);
+        quantityTextfield.setText(String.valueOf(valueAt));
+        priceTextfield.setText(String.valueOf(valueAt6));
+        categoryTextfield.setText(String.valueOf(valueAt2));
+        numberTextfield.setText(String.valueOf(valueAt));
+        descriptionTextfield.setText((String) valueAt7);
+        locationTextfield.setText(String.valueOf(valueAt5));
+
+        
     }
 
     /**
@@ -45,8 +80,12 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
         locationTextfield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        sizeTextfield = new javax.swing.JTextField();
+        weightTextfield = new javax.swing.JTextField();
+        jLabeSize = new javax.swing.JLabel();
+        jLabeWeight = new javax.swing.JLabel();
 
-  //      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Name");
 
@@ -61,6 +100,9 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
         jLabel6.setText("Description");
 
         jLabel7.setText("Location");
+        
+        jLabeSize.setText("Size");
+        jLabeWeight.setText("Weight");
 
         jButton1.setText("Search");
 
@@ -77,8 +119,8 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
                 confirm(evt);
             }
         });
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
-        setLayout(layout);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
@@ -152,29 +194,34 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
         
         
 
+        pack();
+    }// </editor-fold>  
 
-    }// </editor-fold>                        
-
-    private void search(java.awt.event.ActionEvent evt){
+    private void search(java.awt.event.ActionEvent evt)
+    {
         
-        if(nameTextfield.getText().compareTo("")!=0&&newModify.getProductNumber(nameTextfield.getText())!=-1){
+        if(nameTextfield.getText().compareTo("")!=0&&newModify.getProductNumber(nameTextfield.getText())!=-1)
+        {
             int ProductNumber = newModify.getProductNumber(nameTextfield.getText());
-             quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
-             priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
-             categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
-             numberTextfield.setText(String.valueOf(ProductNumber));
-             descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
-             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+            quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
+            priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
+            categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
+            numberTextfield.setText(String.valueOf(ProductNumber));
+            descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
+            locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+            this.found = true;
         }
-        else if(numberTextfield.getText().compareTo("")!=0&& newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("")!=0){           
-             int ProductNumber = Integer.parseInt(numberTextfield.getText());
-             nameTextfield.setText(newModify.getProductName(ProductNumber));
-             quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
-             priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
-             categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
-             numberTextfield.setText(String.valueOf(ProductNumber));
-             descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
-             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+        else if(numberTextfield.getText().compareTo("")!=0&& newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("")!=0)
+        {
+            int ProductNumber = Integer.parseInt(numberTextfield.getText());
+            nameTextfield.setText(newModify.getProductName(ProductNumber));
+            quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
+            priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
+            categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
+            numberTextfield.setText(String.valueOf(ProductNumber));
+            descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
+            locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+            this.found = true;
         }
 
 //        nameTextfield.setText("1");
@@ -185,62 +232,93 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
 //        descriptionTextfield.setText("6");
 //        locationTextfield.setText("7");
     }
-    
-    
-    private void confirm(java.awt.event.ActionEvent evt){
+
+
+    private void confirm(java.awt.event.ActionEvent evt)
+    {   
         if(nameTextfield.getText().compareTo("")!=0&&
-           quantityTextfield.getText().compareTo("")!=0&&
-           numberTextfield.getText().compareTo("")!=0&&
-            priceTextfield.getText().compareTo("")!=0&&
-            categoryTextfield.getText().compareTo("")!=0&&
-            descriptionTextfield.getText().compareTo("")!=0&&
-            locationTextfield.getText().compareTo("")!=0){
-        newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-        newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-        newModify.setProductPrice(Integer.parseInt(priceTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-        newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-        newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-        newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-        
-        //test
-        System.out.println(newModify.toString());
+                quantityTextfield.getText().compareTo("")!=0&&
+//                numberTextfield.getText().compareTo("")!=0&&
+                priceTextfield.getText().compareTo("")!=0&&
+                categoryTextfield.getText().compareTo("")!=0&&
+                descriptionTextfield.getText().compareTo("")!=0&&
+                locationTextfield.getText().compareTo("")!=0)
+        {
+            if(this.found == true){
+                newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
+                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()),Float.parseFloat(priceTextfield.getText()));
+                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+                newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
+                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+            
+                this.found = false;
+            //test
+                System.out.println(newModify.toString());
+            }
+            else{
+                //need change type of category
+                int number;
+                number = newModify.addProduct(nameTextfield.getText());
+                numberTextfield.setText(String.valueOf(number));
+                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()),number);
+                newModify.setProductPrice(number,Float.parseFloat(priceTextfield.getText()));
+                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()),number);
+                newModify.setProductDescription(descriptionTextfield.getText(),number);
+                newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
+                
+            }
         }
     }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        }
+        catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        }
+        catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new InventoryModifyPopup().setVisible(true);
             }
         });
     }
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -258,5 +336,6 @@ public class InventoryModifyPopup extends javax.swing.JPanel {
     private javax.swing.JTextField descriptionTextfield;
     private javax.swing.JTextField locationTextfield;
     private modifyInventory newModify;
-    // End of variables declaration                   
+    private boolean found = false;
+    // End of variables declaration
 }
