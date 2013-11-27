@@ -224,14 +224,15 @@ public class ReceiverUI extends javax.swing.JPanel
                  int newOrderNumber = -1;
                 if (orderNumberTextField.getText().compareTo("") != 0)
                 {
-                     newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
+                    newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
                     newOrder.addItemsToOrder();
                  }
                  else
                 {
                      newOrderNumber = newOrder.addProduct();
                  }
-
+                
+                new ConfirmPopup("Item has been recorded").setVisible(true);
 
                 nameTextField.setText("");
                 quantityTextField.setText("");

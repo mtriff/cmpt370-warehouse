@@ -218,5 +218,17 @@ public interface ManagerDBInterface
     public int addProduct(String name);
 
     public Object[] getProductList();
+    
+    /**
+     * Delete product
+     * @param number ID of product
+     */
+    public void deleteProduct(int number);
 
+    
+    /**
+     * Delete Employee
+     * @param number ID of employee
+     */
+    public void deleteEmployee(int number);
 }

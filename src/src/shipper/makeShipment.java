@@ -90,6 +90,11 @@ public class makeShipment
         int bill = Integer.parseInt(wayBill);
         newTask.setShippingCompany(company);
         newTask.setwayBill(bill);
+        
+    }
+    
+    public void writeToDatabase(){
+        database.setNewShipment(newTask);
         System.out.println(newTask.toString());
     }
     /**

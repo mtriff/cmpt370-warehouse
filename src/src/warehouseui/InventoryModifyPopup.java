@@ -45,12 +45,12 @@ public class InventoryModifyPopup extends javax.swing.JFrame
         newModify = new modifyInventory();
         initComponents();
         nameTextfield.setText((String) valueAt0);
-        quantityTextfield.setText((String) valueAt1);
-        priceTextfield.setText((String) valueAt6);
-        categoryTextfield.setText((String) valueAt2);
+        quantityTextfield.setText(String.valueOf(valueAt));
+        priceTextfield.setText(String.valueOf(valueAt6));
+        categoryTextfield.setText(String.valueOf(valueAt2));
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
-        locationTextfield.setText((String) valueAt5);
+        locationTextfield.setText(String.valueOf(valueAt5));
 
         
     }
@@ -247,7 +247,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
             if(this.found == true){
                 newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductPrice(Integer.parseInt(priceTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()),Float.parseFloat(priceTextfield.getText()));
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
@@ -262,7 +262,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
                 number = newModify.addProduct(nameTextfield.getText());
                 numberTextfield.setText(String.valueOf(number));
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()),number);
-                newModify.setProductPrice(Integer.parseInt(priceTextfield.getText()),number);
+                newModify.setProductPrice(number,Float.parseFloat(priceTextfield.getText()));
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()),number);
                 newModify.setProductDescription(descriptionTextfield.getText(),number);
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);

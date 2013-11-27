@@ -496,4 +496,14 @@ public class ManagerDB implements ManagerDBInterface
 
         return null;        
     }
+
+    @Override
+    public void deleteProduct(int number) {
+        //need be implemented 
+    }
+
+    @Override
+    public void deleteEmployee(int number) {
+        //need be implemented
+    }
 }
