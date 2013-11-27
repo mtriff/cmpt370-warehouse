@@ -26,6 +26,11 @@ public class GuiDB implements GuiDBInterface
     @Override
     public boolean createBin(int row, int column)
     {
+        if(row<1 || column<1)
+        {
+            return false;
+        }
+        
         String query="CREATE (bin {row: "+row+", column:"+column+"}) RETURN bin";
         ExecutionResult result=Neo4jDB.runQuery(query);
         if(result.getQueryStatistics().getNodesCreated()==1)
