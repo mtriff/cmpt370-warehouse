@@ -303,7 +303,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            ResultSet results=MysqlDB.runQuery("UPDATE product SET quantity='"+quantity+"' WHERE id="+itemNumber+";");
+            ResultSet results=MysqlDB.runQuery("UPDATE prodStock SET onHand="+quantity+" WHERE id="+itemNumber+";");
         }
         catch (SQLException ex)
         {
