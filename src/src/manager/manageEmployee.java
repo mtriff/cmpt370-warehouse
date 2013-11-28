@@ -192,6 +192,7 @@ public class manageEmployee
        database.deleteEmployee((int) valueAt);
     }
 }
+<<<<<<< HEAD
 ////    public String getEmployeeName(){
 ////        return database.getEmployeeName();
 ////    }
@@ -313,4 +314,6 @@ public class manageEmployee
 //     }
 //
 //}
+>>>>>>> master
+=======
 >>>>>>> master
