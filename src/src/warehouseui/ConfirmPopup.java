@@ -77,6 +77,8 @@ public class ConfirmPopup extends javax.swing.JFrame
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)

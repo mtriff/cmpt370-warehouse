@@ -190,6 +190,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
 
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>  
 
     private void search(java.awt.event.ActionEvent evt) {
