@@ -12,35 +12,28 @@ import manager.modifyInventory;
  *
  * @author Xianming
  */
-public class InventoryModifyPopup extends javax.swing.JFrame
-{
-    private JTextField sizeTextfield;
-    private JTextField weightTextfield;
-    private JLabel jLabeSize;
-    private JLabel jLabeText;
-    private JLabel jLabeWeight;
+public class InventoryModifyPopup extends javax.swing.JFrame {
 
     /**
      * Creates new form InventoryModifyPopup
      */
-    public InventoryModifyPopup()
-    {
+    public InventoryModifyPopup() {
         newModify = new modifyInventory();
         initComponents();
     }
-/**
- * 
- * @param valueAt Number
- * @param valueAt0 Name
- * @param valueAt1 Quantity
- * @param valueAt2 Category
- * @param valueAt3 Size
- * @param valueAt4 Weight
- * @param valueAt5 Location
- * @param valueAt6 Price
- * @param valueAt7 Description
- */    
-   
+
+    /**
+     *
+     * @param valueAt Number
+     * @param valueAt0 Name
+     * @param valueAt1 Quantity
+     * @param valueAt2 Category
+     * @param valueAt3 Size
+     * @param valueAt4 Weight
+     * @param valueAt5 Location
+     * @param valueAt6 Price
+     * @param valueAt7 Description
+     */
     InventoryModifyPopup(Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
         newModify = new modifyInventory();
         initComponents();
@@ -52,7 +45,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
 
-        
+
     }
 
     /**
@@ -75,15 +68,13 @@ public class InventoryModifyPopup extends javax.swing.JFrame
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         numberTextfield = new javax.swing.JTextField();
         descriptionTextfield = new javax.swing.JTextField();
         locationTextfield = new javax.swing.JTextField();
+        weightTextfield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        sizeTextfield = new javax.swing.JTextField();
-        weightTextfield = new javax.swing.JTextField();
-        jLabeSize = new javax.swing.JLabel();
-        jLabeWeight = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,9 +91,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame
         jLabel6.setText("Description");
 
         jLabel7.setText("Location");
-        
-        jLabeSize.setText("Size");
-        jLabeWeight.setText("Weight");
+
+        jLabel8.setText("Weight");
 
         jButton1.setText("Search");
 
@@ -112,8 +102,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search(evt);
             }
-        });   
-        
+        });
+
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirm(evt);
@@ -122,86 +112,89 @@ public class InventoryModifyPopup extends javax.swing.JFrame
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel3)
-                    .add(jLabel4)
-                    .add(layout.createSequentialGroup()
-                        .add(jButton1)
-                        .add(18, 18, 18)
-                        .add(jButton2))
-                    .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel2)
-                            .add(jLabel1))
-                        .add(18, 18, 18)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(layout.createSequentialGroup()
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(layout.createSequentialGroup()
-                                        .add(priceTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(jLabel7))
-                                    .add(layout.createSequentialGroup()
-                                        .add(nameTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(jLabel5))
-                                    .add(layout.createSequentialGroup()
-                                        .add(quantityTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(jLabel6)))
-                                .add(18, 18, 18)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(numberTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(descriptionTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(locationTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .add(jLabel3)
+                .add(jLabel4)
+                .add(layout.createSequentialGroup()
+                .add(jButton1)
+                .add(18, 18, 18)
+                .add(jButton2))
+                .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jLabel2)
+                .add(jLabel1))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .add(priceTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel7))
+                .add(layout.createSequentialGroup()
+                .add(nameTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel5))
+                .add(layout.createSequentialGroup()
+                .add(quantityTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel6))
+                .add(layout.createSequentialGroup()
+                .add(quantityTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel8)))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(numberTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(descriptionTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(locationTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(weightTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
-                    .add(nameTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel5)
-                    .add(numberTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jLabel1)
+                .add(nameTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel5)
+                .add(numberTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel2)
-                    .add(quantityTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel6)
-                    .add(descriptionTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jLabel2)
+                .add(quantityTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel6)
+                .add(descriptionTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel3)
-                    .add(priceTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel7)
-                    .add(locationTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jLabel3)
+                .add(priceTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel7)
+                .add(locationTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel4)
-                    .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jLabel4)
+                .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel8)
+                .add(weightTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 33, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jButton1)
-                    .add(jButton2))
-                .addContainerGap())
-        );
-        
-        
+                .add(jButton1)
+                .add(jButton2))
+                .addContainerGap()));
+
+
 
         pack();
     }// </editor-fold>  
 
-    private void search(java.awt.event.ActionEvent evt)
-    {
-        
-        if(nameTextfield.getText().compareTo("")!=0&&newModify.getProductNumber(nameTextfield.getText())!=-1)
-        {
+    private void search(java.awt.event.ActionEvent evt) {
+
+        if (nameTextfield.getText().compareTo("") != 0 && newModify.getProductNumber(nameTextfield.getText()) != -1) {
             int ProductNumber = newModify.getProductNumber(nameTextfield.getText());
             quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
             priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
@@ -210,9 +203,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
             descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
             this.found = true;
-        }
-        else if(numberTextfield.getText().compareTo("")!=0&& newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("")!=0)
-        {
+        } else if (numberTextfield.getText().compareTo("") != 0 && newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("") != 0) {
             int ProductNumber = Integer.parseInt(numberTextfield.getText());
             nameTextfield.setText(newModify.getProductName(ProductNumber));
             quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
@@ -233,87 +224,70 @@ public class InventoryModifyPopup extends javax.swing.JFrame
 //        locationTextfield.setText("7");
     }
 
-
-    private void confirm(java.awt.event.ActionEvent evt)
-    {   
-        if(nameTextfield.getText().compareTo("")!=0&&
-                quantityTextfield.getText().compareTo("")!=0&&
-//                numberTextfield.getText().compareTo("")!=0&&
-                priceTextfield.getText().compareTo("")!=0&&
-                categoryTextfield.getText().compareTo("")!=0&&
-                descriptionTextfield.getText().compareTo("")!=0&&
-                locationTextfield.getText().compareTo("")!=0)
-        {
-            if(this.found == true){
+    private void confirm(java.awt.event.ActionEvent evt) {
+        if (nameTextfield.getText().compareTo("") != 0
+                && quantityTextfield.getText().compareTo("") != 0
+                && //                numberTextfield.getText().compareTo("")!=0&&
+                priceTextfield.getText().compareTo("") != 0
+                && categoryTextfield.getText().compareTo("") != 0
+                && descriptionTextfield.getText().compareTo("") != 0
+                && locationTextfield.getText().compareTo("") != 0) {
+            if (this.found == true) {
                 newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()),Float.parseFloat(priceTextfield.getText()));
+                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()), Float.parseFloat(priceTextfield.getText()));
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-            
+
                 this.found = false;
-            //test
+                //test
                 System.out.println(newModify.toString());
-            }
-            else{
+            } else {
                 //need change type of category
                 int number;
                 number = newModify.addProduct(nameTextfield.getText());
                 numberTextfield.setText(String.valueOf(number));
-                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()),number);
-                newModify.setProductPrice(number,Float.parseFloat(priceTextfield.getText()));
-                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()),number);
-                newModify.setProductDescription(descriptionTextfield.getText(),number);
-                newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
-                
+                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
+                newModify.setProductPrice(number, Float.parseFloat(priceTextfield.getText()));
+                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
+                newModify.setProductDescription(descriptionTextfield.getText(), number);
+                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), number);
+
             }
         }
     }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        }
-        catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InventoryModifyPopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new InventoryModifyPopup().setVisible(true);
             }
         });
@@ -328,6 +302,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField nameTextfield;
     private javax.swing.JTextField quantityTextfield;
     private javax.swing.JTextField priceTextfield;
@@ -335,6 +310,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame
     private javax.swing.JTextField numberTextfield;
     private javax.swing.JTextField descriptionTextfield;
     private javax.swing.JTextField locationTextfield;
+    private javax.swing.JTextField weightTextfield;
     private modifyInventory newModify;
     private boolean found = false;
     // End of variables declaration
