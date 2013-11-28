@@ -83,21 +83,7 @@ public class ManagerDB implements ManagerDBInterface
 
         return null;     
     }
-<<<<<<< HEAD
-    
-    @Override
-    public int getEmployeeID(String name){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public void setEmployeeID(String name,int employeeId){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-=======
 
->>>>>>> master
     @Override
     public void setEmployeeName(String name,int employeeId)
     {
@@ -202,17 +188,6 @@ public class ManagerDB implements ManagerDBInterface
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-<<<<<<< HEAD
-    
-    
-    //edit by Rongli Han
-     @Override
-     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }
-    
-    
-=======
 
 */
     //edit by Rongli Han
@@ -223,7 +198,6 @@ public class ManagerDB implements ManagerDBInterface
     }
 
 
->>>>>>> master
     // added by Xingze
     @Override
     public String getProductName(int itemNumber)

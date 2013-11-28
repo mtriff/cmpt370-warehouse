@@ -36,17 +36,8 @@ public interface ManagerDBInterface
 
 
     public void setEmployeeName(String name,int employeeId);
-<<<<<<< HEAD
-    
-    public int getEmployeeID(String name);
-    
-    public void setEmployeeID(String name,int employeeId);
-    
-    
-=======
 
     public int getEmployeeID(String name);
->>>>>>> master
     /**
     public void setEmployeeID(String name,int employeeId);
 
@@ -98,11 +89,7 @@ public interface ManagerDBInterface
 
     //Product
     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> master
     /**
      *
      * @param itemNumber
