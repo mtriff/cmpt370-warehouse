@@ -111,7 +111,7 @@ public class StockUI extends javax.swing.JPanel
                       .add(jButton1)
                       .add(jLabel2))
                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 440, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 600, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                  .addContainerGap())
         );
 

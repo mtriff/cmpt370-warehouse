@@ -42,6 +42,8 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        this.setLocationRelativeTo(null);
+        
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         MapButton = new javax.swing.JButton();
