@@ -180,12 +180,8 @@ public class manageProduct
      *param name: a String, price: a float, quantities: an integer, itemNum: an integer, description: a String
      *add a new product into the management system
      */
-<<<<<<< HEAD
-    public boolean addProduct(String name, int quantities, String category, float price, float size, String description){
-=======
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description)
     {
->>>>>>> master
         database.addProductForList(name,quantities,category,price, size, description);
         return true;
     }
