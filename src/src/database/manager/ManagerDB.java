@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import manager.newOrder;
 
 /**
  *
@@ -505,5 +506,9 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void deleteEmployee(int number) {
         //need be implemented
+    }
+
+    public void addNewOrder(newOrder newOrder) {
+      //need be implemented
     }
 }
