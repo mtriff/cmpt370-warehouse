@@ -65,7 +65,8 @@ public class modifyInventory
     public void setProductNumber(int ProductNumber, String ProductName)
     {
         testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
-        database.setProductNumber(ProductNumber, ProductName);
+        System.out.println("Not to be implemented, item number set by database only.");
+        //database.setProductNumber(ProductNumber, ProductName);
     }
 
     /**
@@ -105,10 +106,10 @@ public class modifyInventory
      * @param price
      * @param ProductNumber
      */
-    public void setProductPrice(int price, int ProductNumber)
+    public void setProductPrice(int ProductNumber,float price )
     {
         testString =  testString + "price = " + price + "\r\n";// for test
-        database.setProductPrice(price, ProductNumber);
+        database.setProductPrice(ProductNumber,price);
     }
 
     /**
@@ -130,7 +131,7 @@ public class modifyInventory
     {
 
         testString =  testString + "quantity = " + quantity + "\r\n"; // for test
-        database.setProductQuantity(quantity, ProductNumber);
+        database.setProductQuantity(ProductNumber,quantity);
     }
 
     /**

@@ -120,6 +120,8 @@ public class ShippingConfirmPopup extends javax.swing.JFrame
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)
@@ -140,6 +142,8 @@ public class ShippingConfirmPopup extends javax.swing.JFrame
         if((choosenItem1 != -1)&&(wayBill.compareTo("")!=0)&&(choosenItem2 != -1))
         {
             makeNewShipment(wayBill,choosenItem1,choosenItem2);
+            newShipment.writeToDatabase(); //write the new task to database
+            
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             
             ConfirmPopup popup = new ConfirmPopup("Shipping Requirement has been created");

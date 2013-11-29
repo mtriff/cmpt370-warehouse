@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import manager.newOrder;
 
 /**
  *
@@ -58,7 +59,7 @@ public class ManagerDB implements ManagerDBInterface
 
 
     @Override
-    public void addEmployee(String name, int id,String title)
+    public void addEmployee(String name, int id, String title)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -86,15 +87,21 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void setEmployeeName(String name,int employeeId)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try
+        {
+            MysqlDB.runQuery("UPDATE employee SET name='"+name+"' WHERE id="+employeeId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }                }
 
     @Override
     public int getEmployeeID(String name)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+/*Candidates for removal
     @Override
     public void setEmployeeID(String name,int employeeId)
     {
@@ -112,7 +119,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+*/
     @Override
     public String getTitle(int employeeId)
     {
@@ -136,10 +143,16 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void setTitle(String title,int employeeId)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try
+        {
+            MysqlDB.runQuery("UPDATE employee SET title='"+title+"' WHERE id="+employeeId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }                }
 
-
+/*
     @Override
     public String getCurrentWork(int employeeId)
     {
@@ -176,7 +189,7 @@ public class ManagerDB implements ManagerDBInterface
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-
+*/
     //edit by Rongli Han
     @Override
     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
@@ -189,7 +202,6 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getProductName(int itemNumber)
     {
-
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT name FROM product WHERE id="+itemNumber+";");
@@ -208,29 +220,45 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public void setProductName(String name, int itemNumber)
+    public void setProductName(String itemName, int itemNumber)
     {
-
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("UPDATE product SET name='"+itemName+"' WHERE id="+itemNumber+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }             
     }
 
     @Override
     public int getProductNumber(String itemName)
     {
-        // for test modify inventory
-        if(itemName.compareTo("apple")==0)
-            return 1;
-        else if(itemName.compareTo("banana")==0)
-            return  2;
-        else
-            return -1;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT id FROM product WHERE name='"+itemName+"';");
+
+            if(results.last())
+            {
+                return results.getInt(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
+    /* Candidate for removal
     @Override
     public void setProductNumber(int itemNumber, String itemName)
     {
 
     }
-
+*/
     @Override
     public float getProductPrice(int itemNumber)
     {
@@ -274,7 +302,14 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void setProductQuantity(int quantity, int itemNumber)
     {
-
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("UPDATE prodStock SET onHand="+quantity+" WHERE id="+itemNumber+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }            
     }
 
     @Override
@@ -298,7 +333,6 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public int getCategory(int itemNumber)
     {
-
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT category FROM product WHERE id="+itemNumber+";");
@@ -319,19 +353,12 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getProductDescription(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return "100";
-        else if(itemNumber == 2)
-            return "200";
-        else
-            return "";
+        return getProductName(itemNumber);
     }
 
     @Override
     public float getProductSize(int itemNumber)
     {
-
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT size FROM product WHERE id="+itemNumber+";");
@@ -373,37 +400,55 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void setProductDescription(int itemNumber, String description)
     {
-        //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setProductName(description, itemNumber);
     }
 
     @Override
     public void setProductSize(int itemId, float size)
     {
-        //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            MysqlDB.runQuery("UPDATE product SET size='"+size+"' WHERE id="+itemId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }                
     }
-
 
     @Override
     public void setProductCategory(int itemId, int categoryId)
     {
-        //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            MysqlDB.runQuery("UPDATE product SET category='"+categoryId+"' WHERE id="+itemId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }            
     }
-
-
 
     @Override
     public void setProductPrice(int itemId, float price)
     {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            MysqlDB.runQuery("UPDATE product SET price='"+price+"' WHERE id="+itemId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }          
     }
 
-
+/*
     @Override
     public Object[] getProducts()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+*/
     @Override
     public int addProduct(String name)
     {
@@ -413,11 +458,57 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public Object[] getProductList() 
     {   //Number,Name,Quantity,Category,Size,Weight,Location,Price,Description
-        Object[][] returnArr=new Object[][]{
-                {1,"Apple","20","Food","20","30","0105","100","Fruit"},
-                {2,"Banana","15","Food","30","40","0205","100","Fruit"},
-                {3,"Orange","35","Food","40","50","0305","100","Fruit"}
-        };
-        return returnArr;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT product.id, product.name, prodStock.onHand, product.category, product.size, product.weight, product.price, prodLocation.binID FROM product JOIN prodLocation JOIN prodStock WHERE product.id=prodLocation.id AND product.id=prodStock.id;");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Object[][] returnArray=new Object[numResults][9];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+                        System.out.println(results.toString());
+                        returnArray[rowCount][0]=results.getInt(1);
+                        returnArray[rowCount][1]=results.getString(2);
+                        returnArray[rowCount][2]=results.getInt(3);
+                        returnArray[rowCount][3]=results.getInt(4);
+                        returnArray[rowCount][4]=results.getFloat(5);
+                        returnArray[rowCount][5]=results.getFloat(6);
+                        returnArray[rowCount][6]=results.getInt(7);
+                        returnArray[rowCount][7]=results.getFloat(8);
+                        returnArray[rowCount][8]=results.getString(2);
+
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;        
+    }
+
+    @Override
+    public void deleteProduct(int number) {
+        //need be implemented 
+    }
+
+    @Override
+    public void deleteEmployee(int number) {
+        //need be implemented
+    }
+
+    public void addNewOrder(newOrder newOrder) {
+      //need be implemented
     }
 }

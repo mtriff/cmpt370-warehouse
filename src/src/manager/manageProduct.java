@@ -60,7 +60,8 @@ public class manageProduct
      */
     public void setItemNumber(int itemNumber, String itemName)
     {
-        database.setProductNumber(itemNumber, itemName);
+        //Not to be implemented (Item number is SET by the database
+        //database.setProductNumber(itemNumber, itemName);
     }
 
 
@@ -186,32 +187,9 @@ public class manageProduct
     }
 
 
-
-    /*
-     * pre a product name as key to search in the system
-     * search the product as the manager type in the UI
-     *pre return the search result
-
-     public String searchProduct(String name){
-     return "";
-     }
-
-
-     /*
-     *pre param:all the product in the database
-     * show a arranged list sorted by price from low to high
-
-     public void sortByPrice(){
-
-     }
-
-     /*
-     *pre param:all the product in the database
-     * show a arranged list sorted by product number in increase order
-
-     public void sortByItemNum(){
-
-     }*/
+    public void deleteProduct(Object valueAt) {
+        database.deleteProduct((int) valueAt);
+    }
 
 
 
