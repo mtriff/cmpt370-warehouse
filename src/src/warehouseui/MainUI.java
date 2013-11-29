@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package warehouseui;
 
 import database.gui.GuiDB;
@@ -323,6 +319,9 @@ public class MainUI extends javax.swing.JFrame {
         });
     }
 
+    /*
+     * Bins for the warehouse map system as a place holder
+     */
     private class Bin {
         // ----- Instance Variables -----
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package warehouseui;
 
 import org.junit.After;
@@ -15,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author Xianming
  */
-public class LoginUITest {
+public class MainUITest {
     
-    public LoginUITest() {
+    public MainUITest() {
     }
     
     @BeforeClass
@@ -37,13 +33,26 @@ public class LoginUITest {
     }
 
     /**
-     * Test of main method, of class LoginUI.
+     * Test of main method, of class MainUI.
      */
     @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        LoginUI.main(args);
+        MainUI.main(args);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of highlightBin method, of class MainUI.
+     */
+    @Test
+    public void testHighlightBin() {
+        System.out.println("highlightBin");
+        int X = 0;
+        int Y = 0;
+        MainUI.highlightBin(X, Y);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
