@@ -44,8 +44,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
-
-
+        
+        
     }
 
     /**
@@ -56,7 +56,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -69,41 +69,45 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         numberTextfield = new javax.swing.JTextField();
         descriptionTextfield = new javax.swing.JTextField();
         locationTextfield = new javax.swing.JTextField();
         weightTextfield = new javax.swing.JTextField();
+        sizeTextfield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
+        
         jLabel1.setText("Name");
-
+        
         jLabel2.setText("Quantity");
-
+        
         jLabel3.setText("Price");
-
+        
         jLabel4.setText("Category");
-
+        
         jLabel5.setText("Product Number");
-
+        
         jLabel6.setText("Description");
-
+        
         jLabel7.setText("Location");
-
+        
         jLabel8.setText("Weight");
-
+        
+        jLabel9.setText("Size");
+        
         jButton1.setText("Search");
-
+        
         jButton2.setText("Confirm");
-
+        
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search(evt);
             }
         });
-
+        
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirm(evt);
@@ -124,10 +128,12 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 .add(jButton2))
                 .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jLabel9)
                 .add(jLabel2)
                 .add(jLabel1))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(sizeTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -181,21 +187,25 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 .add(categoryTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(jLabel8)
                 .add(weightTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jLabel9)
+                .add(sizeTextfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 33, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                 .add(jButton1)
                 .add(jButton2))
                 .addContainerGap()));
-
-
-
+        
+        
+        
         pack();
-                //centralize the window
+        //centralize the window
         this.setLocationRelativeTo(null);
     }// </editor-fold>  
 
     private void search(java.awt.event.ActionEvent evt) {
-
+        
         if (nameTextfield.getText().compareTo("") != 0 && newModify.getProductNumber(nameTextfield.getText()) != -1) {
             int ProductNumber = newModify.getProductNumber(nameTextfield.getText());
             quantityTextfield.setText(String.valueOf(newModify.getProductQuantity(ProductNumber)));
@@ -225,7 +235,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
 //        descriptionTextfield.setText("6");
 //        locationTextfield.setText("7");
     }
-
+    
     private void confirm(java.awt.event.ActionEvent evt) {
         if (nameTextfield.getText().compareTo("") != 0
                 && quantityTextfield.getText().compareTo("") != 0
@@ -241,7 +251,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-
+                
                 this.found = false;
                 //test
                 System.out.println(newModify.toString());
@@ -255,7 +265,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
                 newModify.setProductDescription(descriptionTextfield.getText(), number);
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()), number);
-
+                
             }
         }
     }
@@ -305,6 +315,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nameTextfield;
     private javax.swing.JTextField quantityTextfield;
     private javax.swing.JTextField priceTextfield;
@@ -313,6 +324,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JTextField descriptionTextfield;
     private javax.swing.JTextField locationTextfield;
     private javax.swing.JTextField weightTextfield;
+    private javax.swing.JTextField sizeTextfield;
     private modifyInventory newModify;
     private boolean found = false;
     // End of variables declaration

@@ -150,6 +150,7 @@ public class ProductPopup extends javax.swing.JFrame
         );
 
         pack();
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)

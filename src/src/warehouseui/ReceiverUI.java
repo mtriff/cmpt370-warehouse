@@ -4,6 +4,8 @@
  */
 package warehouseui;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import manager.manageProduct;
@@ -189,6 +191,7 @@ public class ReceiverUI extends javax.swing.JPanel {
 
         nameTextField.getAccessibleContext().setAccessibleName("");
         add(locationTextField);
+        setBorder(BorderFactory.createLineBorder(Color.white));
         //pack();
     }// </editor-fold>
 

@@ -29,15 +29,16 @@ public class MainUI extends javax.swing.JFrame {
     /**
      * Creates new form MainUI
      */
-    public MainUI() {
-        initComponents();
+    public MainUI(int permission) {
+        super("Warehouse System");
+        initComponents(permission);
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      */
     @SuppressWarnings("unchecked")
-    private void initComponents() {
+    private void initComponents(int permission) {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -61,7 +62,7 @@ public class MainUI extends javax.swing.JFrame {
         jLabel1.setText("MAP");
 
         MapButton.setText("Map");
-        MapButton.setToolTipText("Map");
+        MapButton.setToolTipText("Overview and inventory locations");
         MapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MapButtonActionPerformed(evt);
@@ -69,7 +70,7 @@ public class MainUI extends javax.swing.JFrame {
         });
 
         ReceiveButton.setText("Receive");
-        ReceiveButton.setToolTipText("Receive");
+        ReceiveButton.setToolTipText("Process newly received shipments");
         ReceiveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReceiveButtonActionPerformed(evt);
@@ -77,7 +78,7 @@ public class MainUI extends javax.swing.JFrame {
         });
 
         shippingButton.setText("Shipping");
-        shippingButton.setToolTipText("Shipping");
+        shippingButton.setToolTipText("Process customer orders");
         shippingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shippingButtonActionPerformed(evt);
@@ -85,7 +86,7 @@ public class MainUI extends javax.swing.JFrame {
         });
 
         StockButton.setText("Stock");
-        StockButton.setToolTipText("Stock");
+        StockButton.setToolTipText("Print out assigned stocking tasks");
         StockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StockButtonActionPerformed(evt);
@@ -93,12 +94,40 @@ public class MainUI extends javax.swing.JFrame {
         });
 
         ManageButton.setText("Management");
-        ManageButton.setToolTipText("Management");
+        ManageButton.setToolTipText("Manage inventory and employees");
         ManageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManageButtonActionPerformed(evt);
             }
         });
+
+        switch (permission) {
+            // Manager
+            case 1:
+                // can access eveything
+                break;
+            // Stock Handler
+            case 2:
+                ManageButton.setEnabled(false);
+                shippingButton.setEnabled(false);
+                ReceiveButton.setEnabled(false);
+                StockButton.setEnabled(true);
+                break;
+            // Shipper
+            case 3:
+                ManageButton.setEnabled(false);
+                shippingButton.setEnabled(true);
+                ReceiveButton.setEnabled(false);
+                StockButton.setEnabled(false);
+                break;
+            // Receiver
+            case 4:
+                ManageButton.setEnabled(false);
+                shippingButton.setEnabled(false);
+                ReceiveButton.setEnabled(true);
+                StockButton.setEnabled(false);
+                break;
+        }
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -468,7 +497,18 @@ public class MainUI extends javax.swing.JFrame {
                         && SwingUtilities.isRightMouseButton(e)) {
                     deletedX = X;
                     deletedY = Y;
-                    MainUI.WarehouseMap.MyMouseAdapter.PopupMenu popupMenu = new MainUI.WarehouseMap.MyMouseAdapter.PopupMenu();
+                    MainUI.WarehouseMap.MyMouseAdapter.PopupMenu popupMenu = new MainUI.WarehouseMap.MyMouseAdapter.PopupMenu(false);
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                    return;
+                }
+
+                // check if mouse event is right click
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
+                        && (!bins[Y - 1][X - 1].isExist)
+                        && SwingUtilities.isRightMouseButton(e)) {
+                    deletedX = X;
+                    deletedY = Y;
+                    MainUI.WarehouseMap.MyMouseAdapter.PopupMenu popupMenu = new MainUI.WarehouseMap.MyMouseAdapter.PopupMenu(true);
                     popupMenu.show(e.getComponent(), e.getX(), e.getY());
                     return;
                 }
@@ -537,10 +577,13 @@ public class MainUI extends javax.swing.JFrame {
 
                 JMenuItem info;
                 JMenuItem delete;
+                JMenuItem locate;
 
-                PopupMenu() {
+                PopupMenu(boolean isEmpty) {
                     info = new JMenuItem("Info");
                     delete = new JMenuItem("Delete");
+                    locate = new JMenuItem("Locate Bins");
+
                     info.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent evt) {
@@ -555,8 +598,18 @@ public class MainUI extends javax.swing.JFrame {
                             deleteCell();
                         }
                     });
-                    add(info);
-                    add(delete);
+                    locate.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            new LocateBinPopup(jPanel3).setVisible(true);
+                        }
+                    });
+
+                    if (!isEmpty) {
+                        add(info);
+                        add(delete);
+                    }
+                    add(locate);
                 }
             }
         }
