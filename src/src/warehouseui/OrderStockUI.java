@@ -31,7 +31,6 @@ public class OrderStockUI extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents()
     {
-
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
