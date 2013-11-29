@@ -117,7 +117,6 @@ public class GuiDB implements GuiDBInterface
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT binID FROM prodLocation WHERE id="+itemId+";");
-
             if(results.last())
             {
                 int numResults=results.getRow();
