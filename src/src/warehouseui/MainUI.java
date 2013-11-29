@@ -47,6 +47,7 @@ public class MainUI extends javax.swing.JFrame {
         shippingButton = new javax.swing.JButton();
         StockButton = new javax.swing.JButton();
         ManageButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new MainUI.WarehouseMap();
         jPanel4 = new javax.swing.JPanel();
@@ -101,6 +102,14 @@ public class MainUI extends javax.swing.JFrame {
                 ManageButtonActionPerformed(evt);
             }
         });
+        
+        LogoutButton.setText("Logout");
+        LogoutButton.setToolTipText("Logout the system");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
 
         switch (permission) {
             // Manager
@@ -142,7 +151,8 @@ public class MainUI extends javax.swing.JFrame {
                 .add(ReceiveButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(shippingButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(StockButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(ManageButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(ManageButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(LogoutButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -159,6 +169,8 @@ public class MainUI extends javax.swing.JFrame {
                 .add(StockButton)
                 .add(18, 18, 18)
                 .add(ManageButton)
+                .add(360, 360, 360)
+                .add(LogoutButton)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         MapButton.getAccessibleContext().setAccessibleName("MapButton");
@@ -269,6 +281,11 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         cardLayout.show(jPanel2, "card5");
         jLabel1.setText("MANAGEMENT");
+    }
+    
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        new LoginUI().setVisible(true);
     }
 
     /**
@@ -652,6 +669,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton MapButton;
     private javax.swing.JButton ReceiveButton;
     private javax.swing.JButton StockButton;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
