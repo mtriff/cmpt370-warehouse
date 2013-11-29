@@ -9,6 +9,7 @@ package manager;
 /**
  *
  * @author Xingze
+ * @edit Rongli
  */
 public class newOrder
 {
@@ -18,7 +19,13 @@ public class newOrder
     private int productQuantity;
     private float productSize;
     private float productWeight;
-
+    
+    /*
+     *@param a String productName, a integer productNumvber, an integer productQuantity
+     *@param a float productSize itemNum, a float productWeight
+     *add a new product into the management system
+     */
+    
     public newOrder(String productName, int productNumber, int productQuantity, float productSize, float productWeight)
     {
         this.productName = productName;
@@ -28,6 +35,10 @@ public class newOrder
         this.productWeight = productWeight;
     }
 
+    /*
+     *
+     *@return String
+     */    
     @Override
     public String toString()
     {

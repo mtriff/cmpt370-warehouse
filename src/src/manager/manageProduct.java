@@ -167,7 +167,10 @@ public class manageProduct
         database.setProductDescription(itemNumber,description);
     }
 
-
+    /*
+     * @param return tempArray
+     * get the product lisiting from database
+     */
     public Object[] getProductList()
     {
         Object[] tempArray;
@@ -177,8 +180,8 @@ public class manageProduct
 
 
     /*
-     *@param a String, price: a float, quantities: an integer, itemNum: an integer, description: a String
-     *add a new product into the management system
+     * @param a String, price: a float, quantities: an integer, itemNum: an integer, description: a String
+     * add a new product into the management system
      */
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description)
     {
