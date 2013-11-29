@@ -17,6 +17,8 @@ import static org.junit.Assert.*;
  */
 public class GuiDBTest {
     
+    GuiDB database;
+    
     public GuiDBTest() {
     }
     
@@ -30,6 +32,8 @@ public class GuiDBTest {
     
     @Before
     public void setUp() {
+        database=new GuiDB();
+        
     }
     
     @After
@@ -99,5 +103,18 @@ public class GuiDBTest {
         assertEquals(false, instance.login(2, "fake", 1));
         assertEquals(false, instance.login(1, "badpass", 1));
         assertEquals(false, instance.login(1, "password", 2));
+    }
+
+    /**
+     * Test of getItemLocation method, of class GuiDB.
+     */
+    @Test
+    public void testGetItemLocation() {
+        System.out.println("getItemLocation");
+        int itemId = 1;
+        Integer[] expResult = new Integer[1];
+        expResult[0]=2;
+        Integer[] result = database.getItemLocation(itemId);
+        assertArrayEquals(expResult, result);
     }
 }
