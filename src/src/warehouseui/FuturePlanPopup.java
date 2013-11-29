@@ -63,6 +63,8 @@ public class FuturePlanPopup extends javax.swing.JFrame
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     // Variables declaration - do not modify

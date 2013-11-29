@@ -91,6 +91,8 @@ public class LocateBinPopup extends javax.swing.JFrame {
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void locateBin(java.awt.event.ActionEvent evt)

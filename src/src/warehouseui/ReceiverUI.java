@@ -13,16 +13,15 @@ import receiver.receiveOrder;
  *
  * @author Xianming
  */
-public class ReceiverUI extends javax.swing.JPanel
-{
+public class ReceiverUI extends javax.swing.JPanel {
+
     private JLabel jLabel9;
     private JTextField locationTextField;
 
     /**
      * Creates new form ReceiverUI
      */
-    public ReceiverUI()
-    {
+    public ReceiverUI() {
         newOrder = new receiveOrder();
         initComponents();
     }
@@ -40,10 +39,9 @@ public class ReceiverUI extends javax.swing.JPanel
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents()
-    {
+    private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,7 +63,7 @@ public class ReceiverUI extends javax.swing.JPanel
         locationTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        
+
 
         //setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,21 +85,17 @@ public class ReceiverUI extends javax.swing.JPanel
         jLabel7.setText("Description");
 
         jLabel8.setText("Weight");
-
+        
         jButton1.setText("Confirm");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmReceive(evt);
             }
         });
 
         jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel(evt);
             }
         });
@@ -109,154 +103,149 @@ public class ReceiverUI extends javax.swing.JPanel
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                 .addContainerGap()
-                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                      //    .add(jScrollPane1)
-                      .add(layout.createSequentialGroup()
-                           .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(layout.createSequentialGroup()
-                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                          .add(jLabel2)
-                                          .add(jLabel3)
-                                          .add(jLabel1))
-                                     .add(18, 18, 18)
-                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                          .add(layout.createSequentialGroup()
-                                               .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                               .add(18, 18, 18)
-                                               .add(jLabel4))
-                                          .add(layout.createSequentialGroup()
-                                               .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                               .add(18, 18, 18)
-                                               .add(jLabel5))
-                                          .add(layout.createSequentialGroup()
-                                               .add(quantityTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                               .add(18, 18, 18)
-                                               .add(jLabel6)))
-                                     .add(18, 18, 18)
-                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                          .add(sizeTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                          .add(layout.createSequentialGroup()
-                                               .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                                       .add(layout.createSequentialGroup()
-                                                               .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                               .add(18, 18, 18)
-                                                               .add(jLabel7))
-                                                       .add(layout.createSequentialGroup()
-                                                               .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                               .add(18, 18, 18)
-                                                               .add(jLabel8)))
-                                               .add(18, 18, 18)
-                                               .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                                       .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                       .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                                .add(layout.createSequentialGroup()
-                                     .add(jButton1)
-                                     .add(18, 18, 18)
-                                     .add(jButton2)))
-                           .add(0, 0, Short.MAX_VALUE)))
-                 .addContainerGap()));
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1)
+                .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jLabel2)
+                .add(jLabel3)
+                .add(jLabel1))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel4))
+                .add(layout.createSequentialGroup()
+                .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel5))
+                .add(layout.createSequentialGroup()
+                .add(quantityTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel6)))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(sizeTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel7))
+                .add(layout.createSequentialGroup()
+                .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel8)))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                .add(jPanel1)
+                .add(layout.createSequentialGroup()
+                .add(jButton1)
+                .add(18, 18, 18)
+                .add(jButton2)))
+                .add(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                 .addContainerGap()
-                 //      .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 275, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                 .add(18, 18, 18)
-                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                      .add(jLabel1)
-                      .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                      .add(jLabel4)
-                      .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                      .add(jLabel7)
-                      .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                 .add(18, 18, 18)
-                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                      .add(jLabel2)
-                      .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                      .add(jLabel5)
-                      .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                      .add(jLabel8)
-                      .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                 .add(12, 12, 12)
-                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                      .add(jLabel3)
-                      .add(quantityTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                      .add(jLabel6)
-                      .add(sizeTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                 .add(18, 18, 18)
-                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                      .add(jButton1)
-                      .add(jButton2))
-                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jLabel1)
+                .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel4)
+                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel7)
+                .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jLabel2)
+                .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel5)
+                .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel8)
+                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(12, 12, 12)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jLabel3)
+                .add(quantityTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabel6)
+                .add(sizeTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 440, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jButton1)
+                .add(jButton2))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         nameTextField.getAccessibleContext().setAccessibleName("");
         add(locationTextField);
         //pack();
     }// </editor-fold>
 
-    private void confirmReceive(java.awt.event.ActionEvent evt)
-    {
+    private void confirmReceive(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (nameTextField.getText().compareTo("") != 0
                 && quantityTextField.getText().compareTo("") != 0
                 && priceTextField.getText().compareTo("") != 0
                 && sizeTextField.getText().compareTo("") != 0
                 && descriptionTextField.getText().compareTo("") != 0
-                && weightTextField.getText().compareTo("") != 0)
-        {
-            if(this.function ==0){
-                 newOrder.setItemName(nameTextField.getText());
+                && weightTextField.getText().compareTo("") != 0) {
+            if (this.function == 0) {
+                newOrder.setItemName(nameTextField.getText());
                 newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
                 newOrder.setPrice(Float.valueOf(priceTextField.getText()));
                 newOrder.setSize(Float.valueOf(sizeTextField.getText()));
                 newOrder.setDescription(descriptionTextField.getText());
-                newOrder.setItemCategory(jComboBox1.getSelectedIndex()+1);
+                newOrder.setItemCategory(jComboBox1.getSelectedIndex() + 1);
                 newOrder.setWeight(Float.valueOf(weightTextField.getText()));
                 newOrder.createOrder();
 
-            // Check if order number is empty.
-            // If user input order number, add the product into exist order
-            // If order number is not empty, create a new order
+                // Check if order number is empty.
+                // If user input order number, add the product into exist order
+                // If order number is not empty, create a new order
 
 
-                 int newOrderNumber = -1;
-                if (orderNumberTextField.getText().compareTo("") != 0)
-                {
+                int newOrderNumber = -1;
+                if (orderNumberTextField.getText().compareTo("") != 0) {
                     newOrder.setOrderID(Integer.valueOf(orderNumberTextField.getText()));
                     newOrder.addItemsToOrder();
-                 }
-                 else
-                {
-                     newOrderNumber = newOrder.addProduct();
-                 }
-                
+                } else {
+                    newOrderNumber = newOrder.addProduct();
+                }
+
                 new ConfirmPopup("Item has been recorded").setVisible(true);
 
                 nameTextField.setText("");
                 quantityTextField.setText("");
                 priceTextField.setText("");
-                 sizeTextField.setText("");
+                sizeTextField.setText("");
                 descriptionTextField.setText("");
                 weightTextField.setText("");
 
-                if (newOrderNumber != -1)
-                {
+                if (newOrderNumber != -1) {
                     orderNumberTextField.setText(String.valueOf(newOrderNumber));
                 }
 
-           } // end if function =0
-            
+            } // end if function =0
+
 //            if(this.function ==1){
 //                newProduct
 //            } //end if function =1
-            
+
         }
     }
 
-    private void cancel(java.awt.event.ActionEvent evt)
-    {
+    private void cancel(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         this.setVisible(false);
     }
@@ -264,47 +253,33 @@ public class ReceiverUI extends javax.swing.JPanel
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        }
-        catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(ReceiverUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(ReceiverUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(ReceiverUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ReceiverUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new ReceiverUI().setVisible(true);
             }
         });
@@ -322,7 +297,7 @@ public class ReceiverUI extends javax.swing.JPanel
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField orderNumberTextField;

@@ -120,6 +120,8 @@ public class ShippingConfirmPopup extends javax.swing.JFrame
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)

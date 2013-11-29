@@ -92,6 +92,8 @@ public class BillPopup extends javax.swing.JFrame
         );
 
         pack();
+                //centralize the window
+        this.setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void submitBill(java.awt.event.ActionEvent evt)
