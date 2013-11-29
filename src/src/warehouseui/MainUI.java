@@ -53,6 +53,7 @@ public class MainUI extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        existHighlightBin = false;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -324,6 +325,16 @@ public class MainUI extends javax.swing.JFrame {
         if (bins[Y - 1][X - 1].isExist == true) {
             bins[Y - 1][X - 1].isHightlighted = true;
         }
+        existHighlightBin = true;
+    }
+    
+    private void unhighlightBin() {
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 30; j++) {
+                bins[i][j].isHightlighted = false;
+            }
+        }
+        existHighlightBin = false;
     }
 
     private class WarehouseMap extends JPanel {
@@ -512,6 +523,17 @@ public class MainUI extends javax.swing.JFrame {
                     popupMenu.show(e.getComponent(), e.getX(), e.getY());
                     return;
                 }
+                
+                // check if mouse event is right click for unhighlight bins
+                if ((X > 0 && Y > 0) && (X <= 30 && Y <= 20)
+                        && (MainUI.existHighlightBin)
+                        && SwingUtilities.isRightMouseButton(e)) {
+                    deletedX = X;
+                    deletedY = Y;
+                    MainUI.WarehouseMap.MyMouseAdapter.PopupMenu popupMenu = new MainUI.WarehouseMap.MyMouseAdapter.PopupMenu(true);
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                    return;
+                }
 
                 // double click for showing the product info if the cell is
                 // already existed
@@ -578,11 +600,13 @@ public class MainUI extends javax.swing.JFrame {
                 JMenuItem info;
                 JMenuItem delete;
                 JMenuItem locate;
+                JMenuItem unlocated;
 
                 PopupMenu(boolean isEmpty) {
                     info = new JMenuItem("Info");
                     delete = new JMenuItem("Delete");
                     locate = new JMenuItem("Locate Bins");
+                    unlocated = new JMenuItem("Cancel Located");
 
                     info.addActionListener(new ActionListener() {
                         @Override
@@ -604,12 +628,21 @@ public class MainUI extends javax.swing.JFrame {
                             new LocateBinPopup(jPanel3).setVisible(true);
                         }
                     });
-
+                    unlocated.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            unhighlightBin();
+                            jPanel3.repaint();
+                        }
+                    });
                     if (!isEmpty) {
                         add(info);
                         add(delete);
                     }
                     add(locate);
+                    if (existHighlightBin) {
+                        add(unlocated);
+                    }
                 }
             }
         }
@@ -629,5 +662,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JButton shippingButton;
     private CardLayout cardLayout;
+    private static boolean existHighlightBin;
     // End of variables declaration                   
 }
