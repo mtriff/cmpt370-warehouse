@@ -9,28 +9,22 @@ package manager;
 import database.manager.ManagerDB;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author ronglihan
  */
-
-//test for manageEmployee
-
-public class ManagerJUnitTest {
-    
-    public ManagerJUnitTest() {
-    }
+public class manageEmployeeTest {
     private manageEmployee mEmployee;
     private String[] newEmployee;
     private ManagerDB database;
     
-    
-    private manageProduct mProduct;
+    public manageEmployeeTest() {
+    }
     
     @BeforeClass
     public static void setUpClass() {
@@ -53,10 +47,6 @@ public class ManagerJUnitTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    
-    
-    
-     //test for manageEmployee
      @Test
      public void testGetEmployeeList() {
          System.out.println("getEmployeeList");
@@ -95,36 +85,4 @@ public class ManagerJUnitTest {
          mEmployee.deleteEmployee(this);
          assertArrayEquals(expectedArray,mEmployee.getEmployeeList());
      }
-     
-     //test for manageProduct
-     public void testGetProductList(){
-         System.out.println("getProductList");
-         Object[] expectedArray=null;
-         expectedArray=database.getEmployeesList();
-         assertArrayEquals(expectedArray,mEmployee.getEmployeeList());
-     }
-     
-     public void testAddProduct(){
-         System.out.println("Test AddProduct");
-         String name="iPad";
-         int quantities=100;
-         String catagory="3";
-         float price=100;
-         float size=10;
-         mProduct.addProduct(name, quantities, catagory, price, size, catagory);   
-         Object[] expectedArray=null;
-         expectedArray=database.getEmployeesList();
-         assertArrayEquals(expectedArray,mEmployee.getEmployeeList());
-     }
-   
-     
-     public void testDeleteProduct(){
-         System.out.println("Test deleteProduct");
-         Object[] expectedArray=null;
-         expectedArray=database.getEmployeesList();
-         mEmployee.deleteEmployee(this);
-         assertArrayEquals(expectedArray,mEmployee.getEmployeeList());
-         
-     }
-     
 }
