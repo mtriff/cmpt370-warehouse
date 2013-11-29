@@ -41,4 +41,11 @@ public interface GuiDBInterface
      * @return
      */
     public boolean login(int userId, String password, int type);
+    
+    /**
+     * Gets the Bin ID(s) for the specified item
+     * @param itemId ID of the item to find locations for
+     * @return An Integer array of the Bin ID's where this item is currently stored
+     */
+    public Integer[] getItemLocation(int itemId);
 }

@@ -112,4 +112,36 @@ public class GuiDB implements GuiDBInterface
 
     }
 
+    @Override
+    public Integer[] getItemLocation(int itemId) {
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT binID FROM prodLocation WHERE id="+itemId+";");
+
+            if(results.last())
+            {
+                int numResults=results.getRow();
+                Integer[] returnArray=new Integer[numResults];
+                if(results.first())
+                {
+                    results.previous();
+                    int rowCount=0;
+                    while(results.next())
+                    {
+                        returnArray[rowCount]=results.getInt(1);
+                        rowCount++;
+                    }
+
+                    return returnArray;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(GuiDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
 }
