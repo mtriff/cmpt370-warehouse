@@ -36,6 +36,7 @@ public class manageProductTest {
     
     @Before
     public void setUp() {
+        database = new ManagerDB();
     }
     
     @After
@@ -50,7 +51,7 @@ public class manageProductTest {
      //test for manageProduct
      public void testGetProductList(){
          System.out.println("getProductList");
-         Object[] expectedArray=null;
+         database.getEmployeesList();Object[] expectedArray=null;
          expectedArray=database.getEmployeesList();
          assertArrayEquals(expectedArray,mProduct.getProductList());
      }
