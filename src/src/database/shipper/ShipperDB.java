@@ -187,7 +187,33 @@ public class ShipperDB implements ShipperDBInterface
         return null;
     }
 
-    public void setNewShipment(shipmentTask newTask) {
-        //need be implemented
+    public boolean setNewShipment(shipmentTask newTask) {
+        String query="INSERT INTO shipments(sentDate, status, trackingNum, weight, destination) VALUES ("+newTask.getitemDate()+",pending,'"+newTask.getwayBill()+"', 30,'"+newTask.getitemDestination()+"');";
+        System.out.println(query);
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
+
+            if(results!=null)
+            {
+                query="SELECT last_insert_id() AS last_id FROM shipments;";
+                results=MysqlDB.runQuery(query);
+                
+                query="INSERT INTO shipmentManifest values ("+results.getInt("last_id")+","+newTask.getItemNumber()+","+newTask.getitemQuantity()+");";
+ 
+                results=MysqlDB.runQuery(query);
+                
+                if(results!=null)
+                {
+                    return true;
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ShipperDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
     }
 }

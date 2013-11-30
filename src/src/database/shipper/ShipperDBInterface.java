@@ -44,5 +44,5 @@ public interface ShipperDBInterface
      * Set new shipment
      * @param newTask new shipment
      */
-    public void setNewShipment(shipmentTask newTask); //Added by Xingze
+    public boolean setNewShipment(shipmentTask newTask); //Added by Xingze
 }

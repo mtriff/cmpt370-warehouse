@@ -235,8 +235,10 @@ public interface ManagerDBInterface
     public void deleteEmployee(int number);
     
     /**
-     * 
-     * @param newOrder 
+     * Set the weight of a product
+     * @param itemId ID of the product already in the database
+     * @param weight Weight of the product to be set
+     * @return True on success, False on failure
      */
-    public void addNewOrder(newOrder newOrder);
+    public boolean setProductWeight(int itemId, float weight);
 }

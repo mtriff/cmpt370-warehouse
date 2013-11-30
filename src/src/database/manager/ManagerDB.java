@@ -17,7 +17,7 @@ import manager.newOrder;
  */
 public class ManagerDB implements ManagerDBInterface
 {
-
+    
     @Override
     public Object[] getEmployeesList()
     {
@@ -101,25 +101,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-/*Candidates for removal
-    @Override
-    public void setEmployeeID(String name,int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public float getEmployeeSpeed(int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setEmployeeSpeed(float speed,int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-*/
+    
     @Override
     public String getTitle(int employeeId)
     {
@@ -152,45 +134,6 @@ public class ManagerDB implements ManagerDBInterface
             Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
         }                }
 
-/*
-    @Override
-    public String getCurrentWork(int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setCurrentWork(String currentWork, int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public String getNextWork(int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setNextWork(String nextWork, int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public int getNumofWorkDone(int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setNumofWorkDone(int num ,int employeeId)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-*/
-    //edit by Rongli Han
     @Override
     public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
     {
@@ -315,7 +258,14 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void setLocation(int location, int itemNumber)
     {
-
+        try
+        {
+            MysqlDB.runQuery("UPDATE product SET location='"+location+"' WHERE id="+itemNumber+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -421,7 +371,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE product SET category='"+categoryId+"' WHERE id="+itemId+";");
+            MysqlDB.runQuery("UPDATE product SET category="+categoryId+" WHERE id="+itemId+";");
         }
         catch (SQLException ex)
         {
@@ -452,7 +402,29 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public int addProduct(String name)
     {
-       return 2000;
+        String query="INSERT INTO product(name) VALUES ('"+name+"');";
+        System.out.println(query);
+        try
+        {
+            ResultSet results=MysqlDB.runQuery(query);
+
+            if(results!=null)
+            {
+                query="SELECT last_insert_id() AS last_id FROM shipments;";
+                results=MysqlDB.runQuery(query);
+                
+                if(results!=null)
+                {
+                    return results.getInt("last_id");
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return -1;
     }
 
     @Override
@@ -499,16 +471,40 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public void deleteProduct(int number) {
-        //need be implemented 
+    public void deleteProduct(int itemId) {
+        try
+        {
+            MysqlDB.runQuery("DELETE FROM product WHERE id="+itemId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
+
+    @Override
+    public void deleteEmployee(int employeeId) {
+        try
+        {
+            MysqlDB.runQuery("DELETE FROM employee WHERE id="+employeeId+";");
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
 
     @Override
-    public void deleteEmployee(int number) {
-        //need be implemented
-    }
-
-    public void addNewOrder(newOrder newOrder) {
-      //need be implemented
+    public boolean setProductWeight(int itemId, float weight) {
+        try
+        {
+            MysqlDB.runQuery("UPDATE product SET weight="+weight+" WHERE id="+itemId+";");
+            return true;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return false;
     }
 }

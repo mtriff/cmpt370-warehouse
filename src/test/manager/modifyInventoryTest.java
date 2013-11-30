@@ -6,6 +6,7 @@
 
 package manager;
 
+import database.manager.ManagerDB;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,6 +20,13 @@ import static org.junit.Assert.*;
  */
 public class modifyInventoryTest {
     
+    private ManagerDB database;
+    private modifyInventory mInventory;
+    private String name;
+    private int number;
+    private int quantity;
+    private int category;
+    private float price;
     public modifyInventoryTest() {
     }
     
@@ -32,6 +40,12 @@ public class modifyInventoryTest {
     
     @Before
     public void setUp() {
+        database = new ManagerDB();
+        name="iPad";
+        number=1214;
+        quantity=23;
+        category=3;
+        price=499;
     }
     
     @After
@@ -42,7 +56,39 @@ public class modifyInventoryTest {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void testAddProduct() {
-        
+    public void testSetProductName() {
+         System.out.println("Test setProductName");
+         mInventory.setProductName(name, number);
+         Object[] expectedArray=null;
+         expectedArray=database.getEmployeesList();
+         assertArrayEquals(expectedArray,mInventory.getProductList());
+         
+     }
+    
+    @Test
+    public void testSetProductQuantity(){
+         System.out.println("Test setProductQuantity");
+         mInventory.setProductQuantity(quantity, number);
+         Object[] expectedArray=null;
+         expectedArray=database.getEmployeesList();
+         assertArrayEquals(expectedArray,mInventory.getProductList());
+    }
+
+    @Test
+    public void testSetProductPrice(){
+         System.out.println("Test setProductPrice");
+         mInventory.setProductPrice(number, price);
+         Object[] expectedArray=null;
+         expectedArray=database.getEmployeesList();
+         assertArrayEquals(expectedArray,mInventory.getProductList());
+    }
+    
+    @Test
+    public void testSetCategory(){
+         System.out.println("Test SetCategory");
+         mInventory.setCategory(category, number);
+         Object[] expectedArray=null;
+         expectedArray=database.getEmployeesList();
+         assertArrayEquals(expectedArray,mInventory.getProductList());
     }
 }
