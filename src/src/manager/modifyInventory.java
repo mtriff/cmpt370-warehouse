@@ -185,6 +185,11 @@ public class modifyInventory
         return database.addProduct(name);
     }
     
+    public Object[] getProductList(){
+        Object[] tempArray;
+        tempArray = database.getProductList();
+        return tempArray;
+    }
      
     @Override
     public String toString()
