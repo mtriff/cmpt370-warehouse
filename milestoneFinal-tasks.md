@@ -39,7 +39,6 @@ Han
 - 5.1 Naming Conventions (make sure you're always using camelCase)
 - 5.2 Improve Commenting
 - 5.5 Handle Failure Cases
-  - Reporting (Han/Xingze)
   - Management (Han/Xingze)
 
 Matt
