@@ -198,10 +198,6 @@ public class ShipperDB implements ShipperDBInterface
             {
                 query="SELECT last_insert_id() AS last_id FROM shipments;";
                 results=MysqlDB.runQuery(query);
-
-                System.out.println("Returning ID: "+results.getInt("last_id"));
-                
-                results.getInt("last_id");
                 
                 query="INSERT INTO shipmentManifest values ("+results.getInt("last_id")+","+newTask.getItemNumber()+","+newTask.getitemQuantity()+");";
  
