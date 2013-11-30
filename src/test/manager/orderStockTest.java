@@ -19,6 +19,13 @@ import static org.junit.Assert.*;
  */
 public class orderStockTest {
     
+    private orderStock Stock;
+    private String productName;
+    private int productNumber;
+    private int productQuantity;
+    private float productSize;
+    private float productWeight;
+    
     public orderStockTest() {
     }
     
@@ -41,6 +48,8 @@ public class orderStockTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void testCreateOrder() {
+        Stock.createOrder(productName, productNumber, productQuantity, productSize, productWeight);
+    }
 }
