@@ -233,10 +233,4 @@ public interface ManagerDBInterface
      * @param number ID of employee
      */
     public void deleteEmployee(int number);
-    
-    /**
-     * 
-     * @param newOrder 
-     */
-    public void addNewOrder(newOrder newOrder);
 }
