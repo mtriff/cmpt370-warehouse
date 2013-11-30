@@ -41,7 +41,7 @@ public class modifyInventory
      * @param name
      * @param ProductNumber
      */
-    public void setProductName(String name, int ProductNumber)
+    public void setProductName(int ProductNumber,String name)
     {
         testString =  testString + "Name = " + name + "\r\n";// for test
         database.setProductName(name, ProductNumber);
@@ -62,7 +62,7 @@ public class modifyInventory
      * @param quantity
      * @param ProductNumber
      */
-    public void setProductQuantity(int quantity,int ProductNumber)
+    public void setProductQuantity(int ProductNumber,int quantity)
     {
 
         testString =  testString + "quantity = " + quantity + "\r\n"; // for test
@@ -105,7 +105,7 @@ public class modifyInventory
      * @param category
      * @param ProductNumber
      */
-    public void setCategory(int category,int ProductNumber)
+    public void setCategory(int ProductNumber,int category)
     {
         testString =  testString + "category = " + category + "\r\n";// for test
         database.setProductCategory(ProductNumber,category);
@@ -149,7 +149,7 @@ public class modifyInventory
      * @param description
      * @param ProductNumber
      */
-    public void setProductDescription (String description,int ProductNumber)
+    public void setProductDescription (int ProductNumber,String description)
     {
         testString =  testString + "description = " + description + "\r\n";// for test
         database.setProductDescription(ProductNumber,description );
@@ -170,7 +170,7 @@ public class modifyInventory
      * @param location
      * @param ProductNumber
      */
-    public void setLocation(int location, int ProductNumber)
+    public void setLocation(int ProductNumber,int location)
     {
         testString =  testString + "location = " + location + "\r\n";  // for test
         database.setLocation(location,ProductNumber);
@@ -183,6 +183,33 @@ public class modifyInventory
      */
     public int addProduct(String name){
         return database.addProduct(name);
+    }
+    
+//   public void setWeight(int ProductNumber, float weight){
+//   
+//       database.set(ProductNumber, size);
+//   } 
+   
+/**
+ * 
+ * @param ProductNumber
+ * @param size 
+ */
+    public void setSize(int ProductNumber, float size)
+    {
+
+         database.setProductSize(ProductNumber, size);
+    }
+    
+/**
+ * 
+ * @param ProductNumber
+ * @return 
+ */
+    public float getSize(int ProductNumber)
+    {
+
+        return database.getProductSize(ProductNumber);
     }
     
      
@@ -203,4 +230,6 @@ public class modifyInventory
         InventoryModifyPopup newInv = new InventoryModifyPopup();
         newInv.setVisible(true);
         }
+    
+    
 }

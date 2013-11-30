@@ -28,7 +28,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
      * @param valueAt6 Price
      * @param valueAt7 Description
      */
-    public InventoryModifyPopup(Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
+    public InventoryModifyPopup(int function,Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
         newModify = new modifyInventory();
         initComponents();
         nameTextfield.setText((String) valueAt0);
@@ -38,6 +38,9 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
+        sizeTextfield.setText(String.valueOf(valueAt3));
+        weightTextfield.setText(String.valueOf(valueAt4));
+        this.function = function;
     }
 
     /**
@@ -220,18 +223,20 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private void confirm(java.awt.event.ActionEvent evt) {
         if (nameTextfield.getText().compareTo("") != 0
                 && quantityTextfield.getText().compareTo("") != 0
-                &&
-                priceTextfield.getText().compareTo("") != 0
+                &&priceTextfield.getText().compareTo("") != 0
                 && categoryTextfield.getText().compareTo("") != 0
                 && descriptionTextfield.getText().compareTo("") != 0
                 && locationTextfield.getText().compareTo("") != 0) {
-            if (this.found == true) {
-                newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()), Float.parseFloat(priceTextfield.getText()));
-                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+           //found or edit
+            if (this.found == true||this.function==1) {
+                int number = Integer.parseInt(numberTextfield.getText());
+                newModify.setProductName(number,nameTextfield.getText());
+                newModify.setProductQuantity(number,Integer.parseInt(quantityTextfield.getText()));
+                newModify.setProductPrice(number,Float.parseFloat(priceTextfield.getText()));
+                newModify.setCategory(number,Integer.parseInt(categoryTextfield.getText()));
+                newModify.setProductDescription(number,descriptionTextfield.getText());
+                newModify.setLocation(number,Integer.parseInt(locationTextfield.getText()));
+                newModify.setSize(number, Float.parseFloat(sizeTextfield.getText()));
                 
                 this.found = false;
                 //test
@@ -240,14 +245,20 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 //need change type of category
                 int number;
                 number = newModify.addProduct(nameTextfield.getText());
+                System.out.println(number + "TEST"+"n");
                 numberTextfield.setText(String.valueOf(number));
-                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
+                newModify.setProductQuantity(number,Integer.parseInt(quantityTextfield.getText()));
                 newModify.setProductPrice(number, Float.parseFloat(priceTextfield.getText()));
-                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
-                newModify.setProductDescription(descriptionTextfield.getText(), number);
-                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), number);
-                
+                newModify.setCategory( number,Integer.parseInt(categoryTextfield.getText()));
+                newModify.setProductDescription( number,descriptionTextfield.getText());
+                newModify.setLocation(number,Integer.parseInt(locationTextfield.getText()));
+
             }
+            
+               ConfirmPopup popup = new ConfirmPopup("New information has been recorded");
+               popup.setVisible(true);
+               this.setVisible(false);
+            
         }
     }
 
@@ -274,5 +285,6 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JTextField sizeTextfield;
     private modifyInventory newModify;
     private boolean found = false;
+    private int function =0; //0 for add, 1 for edit
     // End of variables declaration
 }

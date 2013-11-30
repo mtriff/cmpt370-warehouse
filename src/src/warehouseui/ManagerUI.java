@@ -215,7 +215,7 @@ public class ManagerUI extends javax.swing.JPanel {
             if (jTable1.getSelectedRow() != -1) {
                 int row = jTable1.getSelectedRow();
 
-                InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup(jTable1.getValueAt(row, 0), jTable1.getValueAt(row, 1),
+                InventoryModifyPopup modifyInventoryUI = new InventoryModifyPopup(1,jTable1.getValueAt(row, 0), jTable1.getValueAt(row, 1),
                         jTable1.getValueAt(row, 2), jTable1.getValueAt(row, 3),
                         jTable1.getValueAt(row, 4), jTable1.getValueAt(row, 5),
                         jTable1.getValueAt(row, 6), jTable1.getValueAt(row, 7),
