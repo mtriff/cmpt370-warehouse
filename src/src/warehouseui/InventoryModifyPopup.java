@@ -28,7 +28,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
      * @param valueAt6 Price
      * @param valueAt7 Description
      */
-    InventoryModifyPopup(Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
+    public InventoryModifyPopup(Object valueAt, Object valueAt0, Object valueAt1, Object valueAt2, Object valueAt3, Object valueAt4, Object valueAt5, Object valueAt6, Object valueAt7) {
         newModify = new modifyInventory();
         initComponents();
         nameTextfield.setText((String) valueAt0);
@@ -38,8 +38,6 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
-        
-        
     }
 
     /**
