@@ -260,7 +260,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE product SET location='"+location+"' WHERE id="+itemNumber+";");
+            MysqlDB.runQuery("INSERT INTO prodLocation VALUES ("+itemNumber+", "+location+") ON DUPLICATE KEY UPDATE binID="+location+";");
         }
         catch (SQLException ex)
         {
@@ -458,6 +458,16 @@ public class ManagerDB implements ManagerDBInterface
                         rowCount++;
                     }
 
+                    for(int i=0; i<rowCount; i++)
+                    {
+                        for(int j=0; j<9; j++)
+                        {
+                            System.out.print(returnArray[i][j]+" ");
+                        }
+                        System.out.print("\n");
+                    }
+                    
+                    
                     return returnArray;
                 }
             }
