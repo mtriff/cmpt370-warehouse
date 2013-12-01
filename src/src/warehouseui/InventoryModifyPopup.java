@@ -32,12 +32,14 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         newModify = new modifyInventory();
         initComponents();
         nameTextfield.setText((String) valueAt0);
-        quantityTextfield.setText(String.valueOf(valueAt));
+        quantityTextfield.setText(String.valueOf(valueAt1));
         priceTextfield.setText(String.valueOf(valueAt6));
         categoryTextfield.setText(String.valueOf(valueAt2));
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
+        sizeTextfield.setText(String.valueOf(valueAt3));
+        weightTextfield.setText(String.valueOf(valueAt4));
         this.function = 1;
         
         
@@ -228,12 +230,15 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 && descriptionTextfield.getText().compareTo("") != 0
                 && locationTextfield.getText().compareTo("") != 0) {
             if (this.found == true||this.function == 1) {
-                newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()), Float.parseFloat(priceTextfield.getText()));
-                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
-                newModify.setProductDescription(descriptionTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
-                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
+                int number =  Integer.parseInt(numberTextfield.getText());
+                newModify.setProductName(nameTextfield.getText(),number);
+                newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
+                newModify.setProductPrice(Float.parseFloat(priceTextfield.getText()),number);
+                newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
+                newModify.setProductDescription(descriptionTextfield.getText(), number);
+                newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
+                newModify.setWeight(Float.parseFloat(weightTextfield.getText()), number);
+                newModify.setSize(Float.parseFloat(sizeTextfield.getText()), number);
                 
                 this.found = false;
                 //test
@@ -242,12 +247,14 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 //need change type of category
                 int number;
                 number = newModify.addProduct(nameTextfield.getText());
-                numberTextfield.setText(String.valueOf(number));
+                newModify.setProductName(nameTextfield.getText(),number);
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
-                newModify.setProductPrice(number, Float.parseFloat(priceTextfield.getText()));
+                newModify.setProductPrice(Float.parseFloat(priceTextfield.getText()),number);
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
                 newModify.setProductDescription(descriptionTextfield.getText(), number);
-                newModify.setLocation(Integer.parseInt(locationTextfield.getText()), number);
+                newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
+                newModify.setWeight(Float.parseFloat(weightTextfield.getText()), number);
+                newModify.setSize(Float.parseFloat(sizeTextfield.getText()), number);
                 
             }
             this.setVisible(false);
