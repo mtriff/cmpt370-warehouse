@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import manager.newOrder;
 
 /**
- *
+ * Implements the Manager Database Functions
+ * For details on each method, look in the relevant interface file for this class
  * @author Matt
  */
 public class ManagerDB implements ManagerDBInterface
@@ -104,12 +104,6 @@ public class ManagerDB implements ManagerDBInterface
         {
             Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
         }                }
-
-    @Override
-    public int getEmployeeID(String name)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     @Override
     public String getTitle(int employeeId)
@@ -143,11 +137,6 @@ public class ManagerDB implements ManagerDBInterface
             Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
         }                }
 
-    @Override
-    public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
     // added by Xingze
@@ -204,13 +193,6 @@ public class ManagerDB implements ManagerDBInterface
         return -1;     
     }
 
-    /* Candidate for removal
-    @Override
-    public void setProductNumber(int itemNumber, String itemName)
-    {
-
-    }
-*/
     @Override
     public float getProductPrice(int itemNumber)
     {
@@ -256,7 +238,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            ResultSet results=MysqlDB.runQuery("INSERT INTO prodStock(id, onHand) VALUES ("+itemNumber+", "+quantity+") ON DUPLICATE KEY UPDATE onHand="+quantity+";");
+            MysqlDB.runQuery("INSERT INTO prodStock(id, onHand) VALUES ("+itemNumber+", "+quantity+") ON DUPLICATE KEY UPDATE onHand="+quantity+";");
         }
         catch (SQLException ex)
         {
@@ -321,6 +303,7 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getProductDescription(int itemNumber)
     {
+        /* Legacy method support */
         return getProductName(itemNumber);
     }
 
@@ -347,7 +330,6 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public float getProductWeight(int itemNumber)
     {
-
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT weight FROM product WHERE id="+itemNumber+";");
@@ -411,13 +393,6 @@ public class ManagerDB implements ManagerDBInterface
         }          
     }
 
-/*
-    @Override
-    public Object[] getProducts()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-*/
     @Override
     public int addProduct(String name)
     {
@@ -461,7 +436,7 @@ public class ManagerDB implements ManagerDBInterface
                     int rowCount=0;
                     while(results.next())
                     {
-                        System.out.println(results.toString());
+                        //System.out.println(results.toString());
                         returnArray[rowCount][0]=results.getInt(1);
                         returnArray[rowCount][1]=results.getString(2);
                         returnArray[rowCount][2]=results.getInt(3);
@@ -474,7 +449,7 @@ public class ManagerDB implements ManagerDBInterface
 
                         rowCount++;
                     }
-
+                    /* Testing
                     for(int i=0; i<rowCount; i++)
                     {
                         for(int j=0; j<9; j++)
@@ -483,7 +458,7 @@ public class ManagerDB implements ManagerDBInterface
                         }
                         System.out.print("\n");
                     }
-                    
+                    */
                     
                     return returnArray;
                 }
