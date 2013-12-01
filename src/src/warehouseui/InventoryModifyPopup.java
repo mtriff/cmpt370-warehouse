@@ -38,6 +38,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         numberTextfield.setText(String.valueOf(valueAt));
         descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
+        this.function = 1;
         
         
     }
@@ -222,12 +223,11 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private void confirm(java.awt.event.ActionEvent evt) {
         if (nameTextfield.getText().compareTo("") != 0
                 && quantityTextfield.getText().compareTo("") != 0
-                &&
-                priceTextfield.getText().compareTo("") != 0
+                && priceTextfield.getText().compareTo("") != 0
                 && categoryTextfield.getText().compareTo("") != 0
                 && descriptionTextfield.getText().compareTo("") != 0
                 && locationTextfield.getText().compareTo("") != 0) {
-            if (this.found == true) {
+            if (this.found == true||this.function == 1) {
                 newModify.setProductName(nameTextfield.getText(), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(numberTextfield.getText()));
                 newModify.setProductPrice(Integer.parseInt(numberTextfield.getText()), Float.parseFloat(priceTextfield.getText()));
@@ -250,6 +250,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()), number);
                 
             }
+            this.setVisible(false);
         }
     }
 
@@ -276,5 +277,6 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JTextField sizeTextfield;
     private modifyInventory newModify;
     private boolean found = false;
+    private int function = 0;  // 0 for add, 1 for edit
     // End of variables declaration
 }

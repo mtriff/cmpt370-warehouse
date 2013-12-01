@@ -40,7 +40,7 @@ public class orderStock extends modifyInventory
     public void createOrder(String productName,int productNumber,int productQuantity,float productSize,float productWeight)
     {
         newOrder = new newOrder(productName,productNumber,productQuantity,productSize,productWeight);
-        database.addNewOrder(newOrder);
+    //    database.addNewOrder(newOrder);
         
         System.out.println(newOrder.toString());
     }
