@@ -61,7 +61,7 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void addEmployee(String name, int id, String title)
     {
-        String query="INSERT INTO employee(name, id, title) VALUES ('"+name+"',"+id+","+title+");";
+        String query="INSERT INTO employees(name, id, title) VALUES ('"+name+"',"+id+",'"+title+"');";
         System.out.println(query);
         try
         {
@@ -98,7 +98,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE employee SET name='"+name+"' WHERE id="+employeeId+";");
+            MysqlDB.runQuery("UPDATE employees SET name='"+name+"' WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
@@ -136,7 +136,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE employee SET title='"+title+"' WHERE id="+employeeId+";");
+            MysqlDB.runQuery("UPDATE employees SET title='"+title+"' WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
@@ -503,7 +503,7 @@ public class ManagerDB implements ManagerDBInterface
     public void deleteEmployee(int employeeId) {
         try
         {
-            MysqlDB.runQuery("DELETE FROM employee WHERE id="+employeeId+";");
+            MysqlDB.runQuery("DELETE FROM employees WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
