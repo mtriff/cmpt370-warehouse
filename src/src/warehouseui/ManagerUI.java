@@ -191,7 +191,7 @@ public class ManagerUI extends javax.swing.JPanel {
 
         //Employee Table
         if (jTabbedPane1.getSelectedIndex() == 1) {
-            employeeUI = new EmployeeInfo(1, newEmployee);
+            employeeUI = new EmployeeInfo(1,-1, newEmployee);
             employeeUI.addWindowListener(new WindowAdapter() {
                 public void windowDeactivated(WindowEvent e) {
                     addNewEmployee();
@@ -237,19 +237,16 @@ public class ManagerUI extends javax.swing.JPanel {
 
         if (jTabbedPane1.getSelectedIndex() == 1) {
             if (jTable2.getSelectedRow() != -1) {
-                EmployeeInfo newUI;
-                if (jTabbedPane1.getSelectedIndex() == 1) {
-                    newUI = new EmployeeInfo(2, newEmployee);
-                    final int selectRow = jTable2.getSelectedRow();
-                    newUI.setData(jTable2.getValueAt(selectRow, 0), jTable2.getValueAt(selectRow, 1), jTable2.getValueAt(selectRow, 2));
+                    EmployeeInfo newUI;
+                    newUI = new EmployeeInfo(2, (int) jTable2.getValueAt(jTable2.getSelectedRow(), 0),newEmployee);
+                    newUI.setData(jTable2.getValueAt(jTable2.getSelectedRow(), 0), jTable2.getValueAt(jTable2.getSelectedRow(), 1), jTable2.getValueAt(jTable2.getSelectedRow(), 2));
+                    int selectRow = jTable2.getSelectedRow();
                     newUI.addWindowListener(new WindowAdapter() {
                         public void windowDeactivated(WindowEvent e) {
-                            modityEmployee(selectRow);
+                            modityEmployee();
                         }
                     });
-
                     newUI.setVisible(true);
-                }
             } else {
                 new ConfirmPopup("Please select a employee").setVisible(true);
             }
@@ -288,11 +285,13 @@ public class ManagerUI extends javax.swing.JPanel {
      * add new Employee
      */
     private void addNewEmployee() {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
-        Object[] newE = newEmployee.getNew();
-        if (newE[0] != null) {
-            tableModel.addRow(newE);
-        }
+//        DefaultTableModel tableModel = (DefaultTableModel) jTable2.getModel();
+//        Object[] newE = newEmployee.getNew();
+//        if (newE[0] != null) {
+//            tableModel.addRow(newE);
+//        }
+        //reset table
+        jTable2.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newEmployee.getEmployeeList(), new String[]{"Employee ID", "Employee Name", "Employee Title"}));
     }
 
     /**
@@ -303,11 +302,13 @@ public class ManagerUI extends javax.swing.JPanel {
         jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price", "description"}));
     }
 
-    private void modityEmployee(int row) {
-        Object[] newE = newEmployee.getNew();
-        jTable2.setValueAt(newE[1], row, 0);
-        jTable2.setValueAt(newE[0], row, 1);
-        jTable2.setValueAt(newE[2], row, 2);
+    private void modityEmployee() {
+//        Object[] newE = newEmployee.getNew();
+//        jTable2.setValueAt(newE[1], row, 0);
+//        jTable2.setValueAt(newE[0], row, 1);
+//        jTable2.setValueAt(newE[2], row, 2);
+//        
+        jTable2.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newEmployee.getEmployeeList(), new String[]{"Employee ID", "Employee Name", "Employee Title"}));
     }
     // Variables declaration - do not modify
     private javax.swing.JButton jButton7;

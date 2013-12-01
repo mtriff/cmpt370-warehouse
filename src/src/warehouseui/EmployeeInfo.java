@@ -9,16 +9,16 @@ import manager.manageEmployee;
 public class EmployeeInfo extends javax.swing.JFrame {
 
     //the function for this UI. 1 is Add, 2 is Eidt
-    private int function;
-    private boolean finished = false;
-
+    private int function = 0;
+    private int number = -1;
     /**
      * Creates new form EmployeeInfo
      */
-    public EmployeeInfo(int function, manageEmployee newEmployee) {
+    public EmployeeInfo(int function, int number, manageEmployee newEmployee) {
 
         this.function = function;
         this.newEmployee = newEmployee;
+        this.number =number;
         initComponents();
     }
 
@@ -184,12 +184,19 @@ public class EmployeeInfo extends javax.swing.JFrame {
     }
 
     public void save(java.awt.event.ActionEvent evt) {
-        finished = true;
-        newEmployee.setNew(jTextField1.getText(), jTextField2.getText(), (String) jComboBox1.getSelectedItem());
+        if(this.function == 1){
+
+            newEmployee.setNew(jTextField1.getText(), jTextField2.getText(), (String) jComboBox1.getSelectedItem());
+        }
+        else{
+            newEmployee.setName(jTextField1.getText(), this.number);
+             newEmployee.setTitle((String) jComboBox1.getSelectedItem(), this.number);
+        }
+        
     }
 
     private void cancel(java.awt.event.ActionEvent evt) {
-        finished = true;
+
         this.setVisible(false);
     }
 
@@ -197,9 +204,7 @@ public class EmployeeInfo extends javax.swing.JFrame {
         return newEmployee.getNew();
     }
 
-    public boolean isFinish() {
-        return finished;
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

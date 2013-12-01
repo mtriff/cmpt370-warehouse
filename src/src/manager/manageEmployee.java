@@ -50,4 +50,13 @@ public class manageEmployee
     public void deleteEmployee(Object valueAt) {
        database.deleteEmployee((int) valueAt);
     }
+    
+    public void setName(String name, int employeeId){
+        database.setEmployeeName(name, employeeId);
+    }
+    
+    public void setTitle(String title, int employeeId){
+        database.setTitle(title, employeeId);
+    }
+    
 }

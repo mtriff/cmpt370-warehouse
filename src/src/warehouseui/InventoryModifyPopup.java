@@ -208,6 +208,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
             numberTextfield.setText(String.valueOf(ProductNumber));
             descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+            sizeTextfield.setText(String.valueOf(newModify.getSize(ProductNumber)));
+            weightTextfield.setText(String.valueOf(newModify.getWeight(ProductNumber)));
             this.found = true;
         } else if (numberTextfield.getText().compareTo("") != 0 && newModify.getProductName(Integer.parseInt(numberTextfield.getText())).compareTo("") != 0) {
             int ProductNumber = Integer.parseInt(numberTextfield.getText());
@@ -218,6 +220,8 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
             numberTextfield.setText(String.valueOf(ProductNumber));
             descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
+            sizeTextfield.setText(String.valueOf(newModify.getSize(ProductNumber)));
+            weightTextfield.setText(String.valueOf(newModify.getWeight(ProductNumber)));
             this.found = true;
         }
     }

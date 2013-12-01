@@ -131,7 +131,7 @@ public class modifyInventory
     {
         testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
         System.out.println("Not to be implemented, item number set by database only.");
-        database.setProductNumber(ProductNumber, ProductName);
+//        database.setProductNumber(ProductNumber, ProductName);
     }
   
     /**
@@ -203,6 +203,14 @@ public class modifyInventory
    public void setWeight(float weight, int productNumber){
     database.setProductWeight(productNumber, weight);
     }
+   
+   public float getSize(int number){
+        return database.getProductSize(number);
+   }
+   public float getWeight(int number){
+        return database.getProductWeight(number);
+   }
+   
     @Override
     public String toString()
     {
