@@ -269,6 +269,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
+            System.out.println("SETLOCATION:loc-"+location+",#"+itemNumber);
             MysqlDB.runQuery("INSERT INTO prodLocation VALUES ("+itemNumber+", "+location+") ON DUPLICATE KEY UPDATE binID="+location+";");
         }
         catch (SQLException ex)
@@ -280,13 +281,21 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public int getLocation(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return 1010;
-        else if(itemNumber == 2)
-            return  2020;
-        else
-            return -1;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT binID FROM prodLocation WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getInt(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
     @Override
@@ -393,6 +402,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
+            System.out.println("SETPRICE:"+itemId+",$"+price);
             MysqlDB.runQuery("UPDATE product SET price='"+price+"' WHERE id="+itemId+";");
         }
         catch (SQLException ex)
@@ -439,7 +449,7 @@ public class ManagerDB implements ManagerDBInterface
     {   //Number,Name,Quantity,Category,Size,Weight,Location,Price,Description
         try
         {
-            ResultSet results=MysqlDB.runQuery("SELECT product.id, product.name, prodStock.onHand, product.category, product.size, product.weight, product.price, prodLocation.binID FROM product JOIN prodLocation JOIN prodStock WHERE product.id=prodLocation.id AND product.id=prodStock.id;");
+            ResultSet results=MysqlDB.runQuery("SELECT product.id, product.name, prodStock.onHand, product.category, product.size, product.weight, prodLocation.binID, product.price FROM product JOIN prodLocation JOIN prodStock WHERE product.id=prodLocation.id AND product.id=prodStock.id;");
 
             if(results.last())
             {
