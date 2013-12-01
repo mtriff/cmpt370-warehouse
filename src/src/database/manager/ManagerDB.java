@@ -503,7 +503,7 @@ public class ManagerDB implements ManagerDBInterface
     public void deleteEmployee(int employeeId) {
         try
         {
-            MysqlDB.runQuery("DELETE FROM employee WHERE id="+employeeId+";");
+            MysqlDB.runQuery("DELETE FROM employees WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
