@@ -61,8 +61,17 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void addEmployee(String name, int id, String title)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        String query="INSERT INTO employee(name, id, title) VALUES ('"+name+"',"+id+","+title+");";
+        System.out.println(query);
+        try
+        {
+            MysqlDB.runQuery(query);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }
 
     @Override
     public String getEmployeeName(int employeeId)
