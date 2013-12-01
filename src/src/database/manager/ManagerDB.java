@@ -243,11 +243,11 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public void setProductQuantity(int quantity, int itemNumber)
+    public void setProductQuantity(int itemNumber, int quantity)
     {
         try
         {
-            ResultSet results=MysqlDB.runQuery("UPDATE prodStock SET onHand="+quantity+" WHERE id="+itemNumber+";");
+            ResultSet results=MysqlDB.runQuery("INSERT INTO prodStock(id, onHand) VALUES ("+itemNumber+", "+quantity+") ON DUPLICATE KEY UPDATE onHand="+quantity+";");
         }
         catch (SQLException ex)
         {
@@ -406,17 +406,15 @@ public class ManagerDB implements ManagerDBInterface
         System.out.println(query);
         try
         {
+            MysqlDB.runQuery(query);
+
+            query="SELECT id FROM product ORDER BY id DESC LIMIT 1;";
             ResultSet results=MysqlDB.runQuery(query);
 
-            if(results!=null)
+            if(results.next())
             {
-                query="SELECT last_insert_id() AS last_id FROM shipments;";
-                results=MysqlDB.runQuery(query);
-                
-                if(results!=null)
-                {
-                    return results.getInt("last_id");
-                }
+                int theId=results.getInt(1);
+                return theId;
             }
         }
         catch (SQLException ex)
