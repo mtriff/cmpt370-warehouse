@@ -26,7 +26,7 @@ public class modifyInventoryTest {
     private int number;
     private int quantity;
     private int category;
-    private float price;
+    private int price;
     public modifyInventoryTest() {
     }
     

@@ -4,8 +4,6 @@
  */
 package database.manager;
 
-import manager.newOrder;
-
 /**
  *
  * @author Matt
@@ -37,12 +35,8 @@ public interface ManagerDBInterface
 
     public void setEmployeeName(String name,int employeeId);
 
-    public int getEmployeeID(String name);
     /**
     public void setEmployeeID(String name,int employeeId);
-
-
-
      * Get the average speed of the employee in performing their tasks
      * @param employeeId The ID of the employee to check
      * @return The speed of the employee, or null on failure
@@ -82,13 +76,6 @@ public interface ManagerDBInterface
 
     public void setNumofWorkDone(int num ,int employeeId);
   */
-
-
-    //public int addProduct(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
-
-
-    //Product
-    public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription);
 
     /**
      *

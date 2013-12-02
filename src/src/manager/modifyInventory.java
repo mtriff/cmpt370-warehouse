@@ -84,7 +84,7 @@ public class modifyInventory
      * @param price
      * @param ProductNumber
      */
-    public void setProductPrice(int ProductNumber,float price )
+    public void setProductPrice(float price,int ProductNumber )
     {
         testString =  testString + "price = " + price + "\r\n";// for test
         database.setProductPrice(ProductNumber,price);
@@ -127,11 +127,11 @@ public class modifyInventory
      * @param ProductNumber
      * @param ProductName
      */
-    public void setProductNumber(int ProductNumber, String ProductName)
+    public void setProductNumber(String ProductName,int ProductNumber)
     {
         testString =  testString + "ProductNumber = " + ProductNumber + "\r\n";// for test
         System.out.println("Not to be implemented, item number set by database only.");
-        //database.setProductNumber(ProductNumber, ProductName);
+//        database.setProductNumber(ProductNumber, ProductName);
     }
   
     /**
@@ -190,7 +190,27 @@ public class modifyInventory
         tempArray = database.getProductList();
         return tempArray;
     }
-     
+  /**
+   * 
+   * @param size
+   * @param productNumber 
+   */   
+    public void setSize(float size, int productNumber){
+    database.setProductSize(productNumber, size);
+    }
+    
+    
+   public void setWeight(float weight, int productNumber){
+    database.setProductWeight(productNumber, weight);
+    }
+   
+   public float getSize(int number){
+        return database.getProductSize(number);
+   }
+   public float getWeight(int number){
+        return database.getProductWeight(number);
+   }
+   
     @Override
     public String toString()
     {
