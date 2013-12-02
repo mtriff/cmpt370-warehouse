@@ -186,7 +186,7 @@ public class manageProduct
      */
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description)
     {
-        database.addProductForList(name,quantities,category,price, size, description);
+ //       database.addProductForList(name,quantities,category,price, size, description);
         return true;
     }
     
