@@ -3,3 +3,4 @@ Sequence Diagram Name:
 2. enter username
 3. enter password
 4. set up permission
+5. login the system
