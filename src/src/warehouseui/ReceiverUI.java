@@ -44,7 +44,7 @@ public class ReceiverUI extends javax.swing.JPanel {
         quantityTextField = new javax.swing.JTextField();
         priceTextField = new javax.swing.JTextField();
         sizeTextField = new javax.swing.JTextField();
-        descriptionTextField = new javax.swing.JTextField();
+        //descriptionTextField = new javax.swing.JTextField();
         weightTextField = new javax.swing.JTextField();
         locationTextField = new javax.swing.JTextField();
         
@@ -54,7 +54,7 @@ public class ReceiverUI extends javax.swing.JPanel {
         categoryjLabel = new javax.swing.JLabel();
         pricejLabel = new javax.swing.JLabel();
         sizejLabel = new javax.swing.JLabel();
-        descriptionjLabel = new javax.swing.JLabel();
+        //descriptionjLabel = new javax.swing.JLabel();
         weightjLabel = new javax.swing.JLabel();
         locationjLabel = new javax.swing.JLabel();  // for location
         
@@ -81,7 +81,7 @@ public class ReceiverUI extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(newOrder.getCategoryList()));
 
-        descriptionjLabel.setText("Description");
+        //descriptionjLabel.setText("Description");
 
         weightjLabel.setText("Weight");
 
@@ -136,15 +136,15 @@ public class ReceiverUI extends javax.swing.JPanel {
                 .add(layout.createSequentialGroup()
                 .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(descriptionjLabel))
+                .add(weightjLabel))
                 .add(layout.createSequentialGroup()
                 .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(weightjLabel)))
+                .add(18, 18, 18)))
+                //.add(weightjLabel)))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                //.add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
                 .add(jPanel1)
                 .add(layout.createSequentialGroup()
                 .add(jButton1)
@@ -163,16 +163,16 @@ public class ReceiverUI extends javax.swing.JPanel {
                 .add(nameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(categoryjLabel)
                 .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(descriptionjLabel)
-                .add(descriptionTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(weightjLabel)
+                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                 .add(numberjLabel)
                 .add(orderNumberTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(pricejLabel)
-                .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(weightjLabel)
-                .add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(priceTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                //.add(weightjLabel)
+                //.add(weightTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(12, 12, 12)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                 .add(quantityjLabel3)
@@ -198,14 +198,14 @@ public class ReceiverUI extends javax.swing.JPanel {
                 && quantityTextField.getText().compareTo("") != 0
                 && priceTextField.getText().compareTo("") != 0
                 && sizeTextField.getText().compareTo("") != 0
-                && descriptionTextField.getText().compareTo("") != 0
+                //&& descriptionTextField.getText().compareTo("") != 0
                 && weightTextField.getText().compareTo("") != 0) {
             if (this.function == 0) {
                 newOrder.setItemName(nameTextField.getText());
                 newOrder.setItemQuantity(Integer.valueOf(quantityTextField.getText()));
                 newOrder.setPrice(Float.valueOf(priceTextField.getText()));
                 newOrder.setSize(Float.valueOf(sizeTextField.getText()));
-                newOrder.setDescription(descriptionTextField.getText());
+                //newOrder.setDescription(descriptionTextField.getText());
                 newOrder.setItemCategory(jComboBox1.getSelectedIndex() + 1);
                 newOrder.setWeight(Float.valueOf(weightTextField.getText()));
                 newOrder.createOrder();
@@ -229,7 +229,7 @@ public class ReceiverUI extends javax.swing.JPanel {
                 quantityTextField.setText("");
                 priceTextField.setText("");
                 sizeTextField.setText("");
-                descriptionTextField.setText("");
+                //descriptionTextField.setText("");
                 weightTextField.setText("");
 
                 if (newOrderNumber != -1) {
@@ -249,7 +249,7 @@ public class ReceiverUI extends javax.swing.JPanel {
         this.setVisible(false);
     }
     // Variables declaration - do not modify
-    private javax.swing.JTextField descriptionTextField;
+    //private javax.swing.JTextField descriptionTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
@@ -259,7 +259,7 @@ public class ReceiverUI extends javax.swing.JPanel {
     private javax.swing.JLabel categoryjLabel;
     private javax.swing.JLabel pricejLabel;
     private javax.swing.JLabel sizejLabel;
-    private javax.swing.JLabel descriptionjLabel;
+    //private javax.swing.JLabel descriptionjLabel;
     private javax.swing.JLabel weightjLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTable jTable1;

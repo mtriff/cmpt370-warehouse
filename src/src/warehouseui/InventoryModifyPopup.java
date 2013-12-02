@@ -36,7 +36,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         priceTextfield.setText(String.valueOf(valueAt6));
         categoryTextfield.setText(String.valueOf(valueAt2));
         numberTextfield.setText(String.valueOf(valueAt));
-        descriptionTextfield.setText((String) valueAt7);
+        //descriptionTextfield.setText((String) valueAt7);
         locationTextfield.setText(String.valueOf(valueAt5));
         sizeTextfield.setText(String.valueOf(valueAt3));
         weightTextfield.setText(String.valueOf(valueAt4));
@@ -60,12 +60,12 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         priceTextfield = new javax.swing.JTextField();
         categoryTextfield = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        //jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         numberTextfield = new javax.swing.JTextField();
-        descriptionTextfield = new javax.swing.JTextField();
+        //descriptionTextfield = new javax.swing.JTextField();
         locationTextfield = new javax.swing.JTextField();
         weightTextfield = new javax.swing.JTextField();
         sizeTextfield = new javax.swing.JTextField();
@@ -84,7 +84,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
         
         jLabel5.setText("Product Number");
         
-        jLabel6.setText("Description");
+        //jLabel6.setText("Description");
         
         jLabel7.setText("Location");
         
@@ -206,7 +206,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
             priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
             categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
             numberTextfield.setText(String.valueOf(ProductNumber));
-            descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
+            //descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
             sizeTextfield.setText(String.valueOf(newModify.getSize(ProductNumber)));
             weightTextfield.setText(String.valueOf(newModify.getWeight(ProductNumber)));
@@ -218,7 +218,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
             priceTextfield.setText(String.valueOf(newModify.getProductPrice(ProductNumber)));
             categoryTextfield.setText(String.valueOf(newModify.getProductCategory(ProductNumber)));
             numberTextfield.setText(String.valueOf(ProductNumber));
-            descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
+            //descriptionTextfield.setText(newModify.getProductDescription(ProductNumber));
             locationTextfield.setText(String.valueOf(newModify.getLocation(ProductNumber)));
             sizeTextfield.setText(String.valueOf(newModify.getSize(ProductNumber)));
             weightTextfield.setText(String.valueOf(newModify.getWeight(ProductNumber)));
@@ -231,7 +231,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 && quantityTextfield.getText().compareTo("") != 0
                 && priceTextfield.getText().compareTo("") != 0
                 && categoryTextfield.getText().compareTo("") != 0
-                && descriptionTextfield.getText().compareTo("") != 0
+                //&& descriptionTextfield.getText().compareTo("") != 0
                 && locationTextfield.getText().compareTo("") != 0) {
             if (this.found == true||this.function == 1) {
                 int number =  Integer.parseInt(numberTextfield.getText());
@@ -239,7 +239,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
                 newModify.setProductPrice(Float.parseFloat(priceTextfield.getText()),number);
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
-                newModify.setProductDescription(descriptionTextfield.getText(), number);
+                //newModify.setProductDescription(descriptionTextfield.getText(), number);
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
                 newModify.setWeight(Float.parseFloat(weightTextfield.getText()), number);
                 newModify.setSize(Float.parseFloat(sizeTextfield.getText()), number);
@@ -255,7 +255,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
                 newModify.setProductQuantity(Integer.parseInt(quantityTextfield.getText()), number);
                 newModify.setProductPrice(Float.parseFloat(priceTextfield.getText()),number);
                 newModify.setCategory(Integer.parseInt(categoryTextfield.getText()), number);
-                newModify.setProductDescription(descriptionTextfield.getText(), number);
+                //newModify.setProductDescription(descriptionTextfield.getText(), number);
                 newModify.setLocation(Integer.parseInt(locationTextfield.getText()),number);
                 newModify.setWeight(Float.parseFloat(weightTextfield.getText()), number);
                 newModify.setSize(Float.parseFloat(sizeTextfield.getText()), number);
@@ -273,7 +273,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    //private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -282,7 +282,7 @@ public class InventoryModifyPopup extends javax.swing.JFrame {
     private javax.swing.JTextField priceTextfield;
     private javax.swing.JTextField categoryTextfield;
     private javax.swing.JTextField numberTextfield;
-    private javax.swing.JTextField descriptionTextfield;
+    //private javax.swing.JTextField descriptionTextfield;
     private javax.swing.JTextField locationTextfield;
     private javax.swing.JTextField weightTextfield;
     private javax.swing.JTextField sizeTextfield;
