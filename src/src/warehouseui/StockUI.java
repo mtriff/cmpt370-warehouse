@@ -38,8 +38,8 @@ public class StockUI extends javax.swing.JPanel {
         jLabel1.setText("jLabel1");
         StockhandlerDB stker;
         stker = new StockhandlerDB();
-        Integer[] dog = stker.getReadyOrderNummbers();
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(stker.getReadyOrderNummbers()));
+        Integer[] dog = stker.getReadyOrderNumbers();
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(stker.getReadyOrderNumbers()));
 
 
 
