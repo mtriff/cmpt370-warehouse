@@ -186,7 +186,9 @@ public class manageProduct
      */
     public boolean addProduct(String name, int quantities, String category, float price, float size, String description)
     {
-        database.addProductForList(name,quantities,category,price, size, description);
+        //DEPRECATED METHOD, NO LONGER IN USE DUE TO REFACTOR
+        //System.out.println("Added product for list");
+        //database.addProductForList(name,quantities,category,price, size, description);
         return true;
     }
     
