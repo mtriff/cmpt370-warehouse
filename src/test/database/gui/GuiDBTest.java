@@ -4,6 +4,7 @@
  */
 package database.gui;
 
+import database.Neo4jDB;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,7 +17,19 @@ import static org.junit.Assert.*;
  * @author Matt
  */
 public class GuiDBTest {
+    /** DUE TO THE NATURE OF THIS TESTING, YOUR CURRENT MAP LAYOUT WILL BE DELETED!!**/
+    /** To save your layout, rename the folder src/graphDatabase to anything else, run the tests,
+     * and then rename the folder to the original name once the tests have completed.
+     */
     
+    /**
+     * Database set and get methods are difficult to test,
+     * If we had move time, a test database would have been 
+     * set up for the testing.
+     * 
+     * As we did not have time, the current tests are very simple
+     * black box tests.
+     */
     GuiDB database;
     
     public GuiDBTest() {
@@ -40,6 +53,8 @@ public class GuiDBTest {
     @After
     public void tearDown() {
         database.removeBin(100, 100);
+        database.removeBin(99,99);
+        database.removeBin(98,98);
     }
 
     /**
