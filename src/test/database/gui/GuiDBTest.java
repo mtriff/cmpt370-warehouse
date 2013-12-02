@@ -117,4 +117,19 @@ public class GuiDBTest {
         Integer[] result = database.getItemLocation(itemId);
         assertArrayEquals(expResult, result);
     }
+
+    /**
+     * Test of getBinIndicesFromID method, of class GuiDB.
+     */
+    @Test
+    public void testGetBinIndicesFromID() {
+        System.out.println("getBinIndicesFromID");
+        int id = 0;
+        GuiDB instance = new GuiDB();
+        String[] expResult = null;
+        String[] result = instance.getBinIndicesFromID(id);
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

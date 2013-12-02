@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import manager.newOrder;
 
 /**
- *
+ * Implements the Manager Database Functions
+ * For details on each method, look in the relevant interface file for this class
  * @author Matt
  */
 public class ManagerDB implements ManagerDBInterface
@@ -61,8 +61,17 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public void addEmployee(String name, int id, String title)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        String query="INSERT INTO employees(name, id, title) VALUES ('"+name+"',"+id+",'"+title+"');";
+        System.out.println(query);
+        try
+        {
+            MysqlDB.runQuery(query);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }
 
     @Override
     public String getEmployeeName(int employeeId)
@@ -89,18 +98,12 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE employee SET name='"+name+"' WHERE id="+employeeId+";");
+            MysqlDB.runQuery("UPDATE employees SET name='"+name+"' WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
             Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
         }                }
-
-    @Override
-    public int getEmployeeID(String name)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     @Override
     public String getTitle(int employeeId)
@@ -127,18 +130,13 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE employee SET title='"+title+"' WHERE id="+employeeId+";");
+            MysqlDB.runQuery("UPDATE employees SET title='"+title+"' WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {
             Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
         }                }
 
-    @Override
-    public int addProductForList(String pName, int pQuantities, String pCategory, float pPrice, float pSize, String pDescription)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
     // added by Xingze
@@ -195,13 +193,6 @@ public class ManagerDB implements ManagerDBInterface
         return -1;     
     }
 
-    /* Candidate for removal
-    @Override
-    public void setProductNumber(int itemNumber, String itemName)
-    {
-
-    }
-*/
     @Override
     public float getProductPrice(int itemNumber)
     {
@@ -243,11 +234,11 @@ public class ManagerDB implements ManagerDBInterface
     }
 
     @Override
-    public void setProductQuantity(int quantity, int itemNumber)
+    public void setProductQuantity(int itemNumber, int quantity)
     {
         try
         {
-            ResultSet results=MysqlDB.runQuery("UPDATE prodStock SET onHand="+quantity+" WHERE id="+itemNumber+";");
+            MysqlDB.runQuery("INSERT INTO prodStock(id, onHand) VALUES ("+itemNumber+", "+quantity+") ON DUPLICATE KEY UPDATE onHand="+quantity+";");
         }
         catch (SQLException ex)
         {
@@ -260,7 +251,8 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
-            MysqlDB.runQuery("UPDATE product SET location='"+location+"' WHERE id="+itemNumber+";");
+            System.out.println("SETLOCATION:loc-"+location+",#"+itemNumber);
+            MysqlDB.runQuery("INSERT INTO prodLocation VALUES ("+itemNumber+", "+location+") ON DUPLICATE KEY UPDATE binID="+location+";");
         }
         catch (SQLException ex)
         {
@@ -271,13 +263,21 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public int getLocation(int itemNumber)
     {
-        // for test modify inventory
-        if(itemNumber == 1)
-            return 1010;
-        else if(itemNumber == 2)
-            return  2020;
-        else
-            return -1;
+        try
+        {
+            ResultSet results=MysqlDB.runQuery("SELECT binID FROM prodLocation WHERE id="+itemNumber+";");
+
+            if(results.last())
+            {
+                return results.getInt(1);
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ManagerDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return -1;     
     }
 
     @Override
@@ -303,6 +303,7 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public String getProductDescription(int itemNumber)
     {
+        /* Legacy method support */
         return getProductName(itemNumber);
     }
 
@@ -329,7 +330,6 @@ public class ManagerDB implements ManagerDBInterface
     @Override
     public float getProductWeight(int itemNumber)
     {
-
         try
         {
             ResultSet results=MysqlDB.runQuery("SELECT weight FROM product WHERE id="+itemNumber+";");
@@ -384,6 +384,7 @@ public class ManagerDB implements ManagerDBInterface
     {
         try
         {
+            System.out.println("SETPRICE:"+itemId+",$"+price);
             MysqlDB.runQuery("UPDATE product SET price='"+price+"' WHERE id="+itemId+";");
         }
         catch (SQLException ex)
@@ -392,13 +393,6 @@ public class ManagerDB implements ManagerDBInterface
         }          
     }
 
-/*
-    @Override
-    public Object[] getProducts()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-*/
     @Override
     public int addProduct(String name)
     {
@@ -406,17 +400,15 @@ public class ManagerDB implements ManagerDBInterface
         System.out.println(query);
         try
         {
+            MysqlDB.runQuery(query);
+
+            query="SELECT id FROM product ORDER BY id DESC LIMIT 1;";
             ResultSet results=MysqlDB.runQuery(query);
 
-            if(results!=null)
+            if(results.next())
             {
-                query="SELECT last_insert_id() AS last_id FROM shipments;";
-                results=MysqlDB.runQuery(query);
-                
-                if(results!=null)
-                {
-                    return results.getInt("last_id");
-                }
+                int theId=results.getInt(1);
+                return theId;
             }
         }
         catch (SQLException ex)
@@ -432,7 +424,7 @@ public class ManagerDB implements ManagerDBInterface
     {   //Number,Name,Quantity,Category,Size,Weight,Location,Price,Description
         try
         {
-            ResultSet results=MysqlDB.runQuery("SELECT product.id, product.name, prodStock.onHand, product.category, product.size, product.weight, product.price, prodLocation.binID FROM product JOIN prodLocation JOIN prodStock WHERE product.id=prodLocation.id AND product.id=prodStock.id;");
+            ResultSet results=MysqlDB.runQuery("SELECT product.id, product.name, prodStock.onHand, product.category, product.size, product.weight, prodLocation.binID, product.price FROM product JOIN prodLocation JOIN prodStock WHERE product.id=prodLocation.id AND product.id=prodStock.id;");
 
             if(results.last())
             {
@@ -444,7 +436,7 @@ public class ManagerDB implements ManagerDBInterface
                     int rowCount=0;
                     while(results.next())
                     {
-                        System.out.println(results.toString());
+                        //System.out.println(results.toString());
                         returnArray[rowCount][0]=results.getInt(1);
                         returnArray[rowCount][1]=results.getString(2);
                         returnArray[rowCount][2]=results.getInt(3);
@@ -457,7 +449,17 @@ public class ManagerDB implements ManagerDBInterface
 
                         rowCount++;
                     }
-
+                    /* Testing
+                    for(int i=0; i<rowCount; i++)
+                    {
+                        for(int j=0; j<9; j++)
+                        {
+                            System.out.print(returnArray[i][j]+" ");
+                        }
+                        System.out.print("\n");
+                    }
+                    */
+                    
                     return returnArray;
                 }
             }
@@ -486,7 +488,7 @@ public class ManagerDB implements ManagerDBInterface
     public void deleteEmployee(int employeeId) {
         try
         {
-            MysqlDB.runQuery("DELETE FROM employee WHERE id="+employeeId+";");
+            MysqlDB.runQuery("DELETE FROM employees WHERE id="+employeeId+";");
         }
         catch (SQLException ex)
         {

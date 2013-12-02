@@ -6,13 +6,28 @@
 
 \f0\fs24 \cf0 Refactoring \
 \
-change the method in managerEmployee and let it to be more useful\
+Change method in management and let it to be more useful\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
-\cf0 Add all the actionListener in the managerUI.java and related files\
+from line 36-170 in manageEmployee\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
-\cf0 Delete the method we did not use in the management system\
-for example searchProduct() and searchEmployee()\
+the new fields are:\
+    private String[] newEmployee;\
+    private String name;\
+    private String number;\
+    private String title;\
+\
+the new methods are:\
+   public Object[] getEmployeeList()\
+   public String[] getNew()\
+   public void deleteEmployee(Object valueAt)\
+\
+\
+Remove the method we did not use in the management system\
+For example searchProduct() and searchEmployee()\
+These methods can be realized in database.manager\
+from 51-170 in manageEmployee\
+from 198-216 in manageProduct\
+\
+delete product.java and employee.java all the fields are in database\
 \
 }

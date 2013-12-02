@@ -58,7 +58,7 @@ public class manageProduct
      * @param itemNumber
      * @param itemName
      */
-    public void setItemNumber(int itemNumber, String itemName)
+    public void setItemNumber(String itemName,int itemNumber)
     {
         //Not to be implemented (Item number is SET by the database
         //database.setProductNumber(itemNumber, itemName);
@@ -80,9 +80,10 @@ public class manageProduct
      * @param price
      * @param itemNumber
      */
-    public void setItemPrice(int price, int itemNumber)
+    public void setItemPrice(float price, int itemNumber)
     {
-        database.setProductPrice(price, itemNumber);
+        database.setProductPrice(itemNumber,price);
+
     }
 
     /**
@@ -162,7 +163,7 @@ public class manageProduct
      * @param description
      * @param itemNumber
      */
-    public void setItemDescription (int itemNumber,String description)
+    public void setItemDescription (String description,int itemNumber)
     {
         database.setProductDescription(itemNumber,description);
     }

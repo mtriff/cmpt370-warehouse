@@ -58,6 +58,32 @@ public class GuiDB implements GuiDBInterface
         return false;
     }
 
+    public String[] getBinIndicesFromID(int id)
+    {
+        String query="START n=node(*) WHERE id(n)="+id+" return n";
+        ExecutionResult result=Neo4jDB.runQuery(query);
+       if(result!=null)
+        {
+            Iterator<Node> listNodes=result.columnAs("n");
+            ArrayList<String> returnArray=new ArrayList<String>();
+
+            while(listNodes.hasNext())
+            {
+                Node currNode=listNodes.next();
+                if(currNode.hasProperty("row") && currNode.hasProperty("column"))
+                {
+                    System.out.println("Row: "+currNode.getProperty("row")+"Column: "+currNode.getProperty("column"));
+                    returnArray.add(currNode.getProperty("row")+" "+currNode.getProperty("column"));
+                }
+            }
+
+            return returnArray.toArray(new String[returnArray.size()]);
+
+        }
+
+        return null;
+    }
+    
     @Override
     public String[] getBinLocations()
     {
@@ -73,7 +99,7 @@ public class GuiDB implements GuiDBInterface
                 Node currNode=listNodes.next();
                 if(currNode.hasProperty("row") && currNode.hasProperty("column"))
                 {
-                    //System.out.println("Row: "+currNode.getProperty("row")+"Column: "+currNode.getProperty("column"));
+                    //System.out.println("GETALL-Row: "+currNode.getProperty("row")+"Column: "+currNode.getProperty("column"));
                     returnArray.add(currNode.getProperty("row")+" "+currNode.getProperty("column"));
                 }
             }
