@@ -16,7 +16,14 @@ import static org.junit.Assert.*;
  * @author Matt
  */
 public class StockhandlerDBTest {
-    
+      /**
+     * Database set and get methods are difficult to test,
+     * If we had move time, a test database would have been 
+     * set up for the testing.
+     * 
+     * As we did not have time, the current tests are very simple
+     * black box tests.
+     */  
     public StockhandlerDBTest() {
     }
     
