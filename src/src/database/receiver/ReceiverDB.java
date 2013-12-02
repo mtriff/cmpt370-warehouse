@@ -5,9 +5,7 @@
 package database.receiver;
 
 import database.MysqlDB;
-import java.sql.Array;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,22 +29,25 @@ public class ReceiverDB implements ReceiverDBInterface
         System.out.println(query);
         try
         {
+            MysqlDB.runQuery(query);
+
+            query="SELECT id FROM product ORDER BY id DESC LIMIT 1;";
             ResultSet results=MysqlDB.runQuery(query);
-
-            if(results!=null)
+            if(results.next())
             {
-                query="SELECT last_insert_id() AS last_id FROM product;";
-                results=MysqlDB.runQuery(query);
+                int id=results.getInt(1);
+                System.out.println("Returning ID: "+id);
+              
+                query="INSERT INTO shipmentManifest VALUES ("+orderId+","+id+","+newItem.getItemQuantity()+");";
+                MysqlDB.runQuery(query);
 
-                System.out.println("Returning ID: "+results.getInt("last_id"));
-                int currId=results.getInt("last_id");
-                query="INSERT INTO shipmentManifest VALUES ("+orderId+","+currId+","+newItem.getItemQuantity()+");";
+                query="SELECT id FROM product ORDER BY id DESC LIMIT 1;";
                 results=MysqlDB.runQuery(query);
-
+                
                 if(results!=null)
                 {
                     return true;
-                }
+                }           
             }
         }
         catch (SQLException ex)
@@ -66,15 +67,15 @@ public class ReceiverDB implements ReceiverDBInterface
         System.out.println(query);
         try
         {
+            MysqlDB.runQuery(query);
+
+            query="SELECT id FROM product ORDER BY id DESC LIMIT 1;";
             ResultSet results=MysqlDB.runQuery(query);
-
-            if(results!=null)
+            if(results.next())
             {
-                query="SELECT last_insert_id() AS last_id FROM product;";
-                results=MysqlDB.runQuery(query);
-
-                System.out.println("Returning ID: "+results.getInt("last_id"));
-                return results.getInt("last_id");
+                int id=results.getInt(1);
+                System.out.println("Returning ID: "+id);
+                return id;
             }
         }   catch (SQLException ex) {
             Logger.getLogger(ReceiverDB.class.getName()).log(Level.SEVERE, null, ex);

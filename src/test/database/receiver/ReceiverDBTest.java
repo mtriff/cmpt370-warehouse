@@ -4,12 +4,14 @@
  */
 package database.receiver;
 
+import database.manager.ManagerDB;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import receiver.orderItem;
 
 /**
  *
@@ -43,13 +45,12 @@ public class ReceiverDBTest {
     public void testAddItemsToOrder() {
         System.out.println("addItemsToOrder");
         int orderId = 0;
-        Object[] itemsList = null;
+        Object[] itemsList = new Object[1];
+        itemsList[0]=new orderItem("TestProd", 1, 2, -99.99F, -99.99F, "TestProd", -99.99F);
         ReceiverDB instance = new ReceiverDB();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.addItemsToOrder(orderId, itemsList);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,17 +59,16 @@ public class ReceiverDBTest {
     @Test
     public void testAddProduct() {
         System.out.println("addProduct");
-        String name = "";
-        int category = 0;
+        String name = "TestProd";
+        int category = 1;
         float price = 0.0F;
         float size = 0.0F;
         float weight = 0.0F;
         ReceiverDB instance = new ReceiverDB();
-        int expResult = 0;
         int result = instance.addProduct(name, category, price, size, weight);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assert(-1!=result);
+        ManagerDB data=new ManagerDB();
+        data.deleteProduct(result);
     }
 
     /**
@@ -78,9 +78,7 @@ public class ReceiverDBTest {
     public void testGetProductCategories() {
         System.out.println("getProductCategories");
         ReceiverDB instance = new ReceiverDB();
-        Object[] expResult=new String[2];
         Object[] result = instance.getProductCategories();
-        assertArrayEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 }
