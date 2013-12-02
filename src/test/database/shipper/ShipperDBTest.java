@@ -42,13 +42,13 @@ public class ShipperDBTest {
      */
     @Test
     public void testGetShipmentList() {
+        /* Note: This method depends on your addition/deletion activities
+         * Assumption is tha there is a shipment in the list
+         */
         System.out.println("getShipmentList");
         ShipperDB instance = new ShipperDB();
-        Object[] expResult = null;
         Object[] result = instance.getShipmentList();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -56,13 +56,14 @@ public class ShipperDBTest {
      */
     @Test
     public void testGetPendingShipmentList() {
+        /* Note: This method depends on your addition/deletion activities
+         * Assumption is tha there is a shipment in the list
+         */
         System.out.println("getPendingShipmentList");
         ShipperDB instance = new ShipperDB();
         Object[] expResult = null;
         Object[] result = instance.getPendingShipmentList();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -72,11 +73,8 @@ public class ShipperDBTest {
     public void testGetStockHandlers() {
         System.out.println("getStockHandlers");
         ShipperDB instance = new ShipperDB();
-        Object[] expResult = null;
         Object[] result = instance.getStockHandlers();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -86,11 +84,8 @@ public class ShipperDBTest {
     public void testGetShippingCompanies() {
         System.out.println("getShippingCompanies");
         ShipperDB instance = new ShipperDB();
-        Object[] expResult = null;
         Object[] result = instance.getShippingCompanies();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -99,12 +94,12 @@ public class ShipperDBTest {
     @Test
     public void testSetNewShipment() {
         System.out.println("setNewShipment");
-        shipmentTask newTask = null;
+        shipmentTask newTask = new shipmentTask();
+        newTask.setItemNumber(65);
+        newTask.setitemQuantity(1);
         ShipperDB instance = new ShipperDB();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.setNewShipment(newTask);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

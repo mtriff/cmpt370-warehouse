@@ -4,7 +4,6 @@
  */
 package database.gui;
 
-import database.Neo4jDB;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
