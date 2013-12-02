@@ -21,7 +21,7 @@ public class ShippingUI extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        shipmentTitle = new String[]{"Number", "Name", "Quantity", "Destination", "Date"};
+        shipmentTitle = new String[]{"Number", "Name", "Quantity"};
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,7 +99,7 @@ public class ShippingUI extends javax.swing.JPanel {
      */
     private void setShipmentInfo(int choosen) {
         newShipment.inputItemInfor((Integer) jTable1.getValueAt(choosen, 0), (String) jTable1.getValueAt(choosen, 1), (Integer) jTable1.getValueAt(choosen, 2),
-                (String) jTable1.getValueAt(choosen, 3), (String) jTable1.getValueAt(choosen, 4));
+                null,null);
     }
     // Variables declaration - do not modify
     private javax.swing.JButton jButton1;

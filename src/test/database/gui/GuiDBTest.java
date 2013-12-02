@@ -16,7 +16,19 @@ import static org.junit.Assert.*;
  * @author Matt
  */
 public class GuiDBTest {
+    /** DUE TO THE NATURE OF THIS TESTING, YOUR CURRENT MAP LAYOUT WILL BE DELETED!!**/
+    /** To save your layout, rename the folder src/graphDatabase to anything else, run the tests,
+     * and then rename the folder to the original name once the tests have completed.
+     */
     
+    /**
+     * Database set and get methods are difficult to test,
+     * If we had move time, a test database would have been 
+     * set up for the testing.
+     * 
+     * As we did not have time, the current tests are very simple
+     * black box tests.
+     */
     GuiDB database;
     
     public GuiDBTest() {
@@ -33,11 +45,15 @@ public class GuiDBTest {
     @Before
     public void setUp() {
         database=new GuiDB();
-        
+        boolean returned=database.createBin(100, 100);
+        assert(returned);
     }
     
     @After
     public void tearDown() {
+        database.removeBin(100, 100);
+        database.removeBin(99,99);
+        database.removeBin(98,98);
     }
 
     /**
@@ -46,15 +62,10 @@ public class GuiDBTest {
     @Test
     public void testCreateBin() {
         System.out.println("createBin");
-        GuiDB instance = new GuiDB();
-        boolean expResult = false;
-        boolean result = instance.createBin(-1, -1);
+        
+        boolean expResult = true;
+        boolean result = database.createBin(99,99);
         assertEquals(expResult, result);
-        result=instance.createBin(1,1);
-        assertEquals(true, result);
-        result=instance.createBin(1, 1);
-        assertEquals(false, result);        
-        assertEquals(true, instance.createBin(2,2));
     }
 
     /**
@@ -62,15 +73,17 @@ public class GuiDBTest {
      */
     @Test
     public void testRemoveBin() {
+        /*Note, these tests may be skewed by your current map layout*/
         System.out.println("removeBin");
-        int row = 0;
-        int column = 0;
-        GuiDB instance = new GuiDB();
-        boolean expResult = false;
-        boolean result = instance.removeBin(row, column);
+        int row = 100;
+        int column = 100;
+        
+        boolean expResult = true;
+        boolean result = database.removeBin(row, column);
         assertEquals(expResult, result);
-        assertEquals(false, instance.removeBin(0,0));
-        assertEquals(true, instance.removeBin(2, 2));
+        assertEquals(false, database.removeBin(0,0));
+        assertEquals(false, database.removeBin(2, 2));
+        database.createBin(100, 100);
    }
 
     /**
@@ -79,12 +92,8 @@ public class GuiDBTest {
     @Test
     public void testGetBinLocations() {
         System.out.println("getBinLocations");
-        GuiDB instance = new GuiDB();
-        String[] expResult = null;
-        String[] result = instance.getBinLocations();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] result = database.getBinLocations();
+        assertNotNull(result);
     }
 
     /**
@@ -96,13 +105,13 @@ public class GuiDBTest {
         int userId = 0;
         String password = "";
         int type = 0;
-        GuiDB instance = new GuiDB();
+        
         boolean expResult = true;
-        boolean result = instance.login(1, "password", 1);
+        boolean result = database.login(1, "password", 1);
         assertEquals(expResult, result);
-        assertEquals(false, instance.login(2, "fake", 1));
-        assertEquals(false, instance.login(1, "badpass", 1));
-        assertEquals(false, instance.login(1, "password", 2));
+        assertEquals(false, database.login(2, "fake", 1));
+        assertEquals(false, database.login(1, "badpass", 1));
+        assertEquals(false, database.login(1, "password", 2));
     }
 
     /**
@@ -124,12 +133,8 @@ public class GuiDBTest {
     @Test
     public void testGetBinIndicesFromID() {
         System.out.println("getBinIndicesFromID");
-        int id = 0;
-        GuiDB instance = new GuiDB();
-        String[] expResult = null;
-        String[] result = instance.getBinIndicesFromID(id);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int id = 1;
+        String[] result = database.getBinIndicesFromID(id);
+        assertNotNull(result);
     }
 }
