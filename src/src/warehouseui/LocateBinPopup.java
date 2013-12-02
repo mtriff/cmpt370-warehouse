@@ -83,7 +83,9 @@ public class LocateBinPopup extends javax.swing.JFrame {
 
     private void locateBin(java.awt.event.ActionEvent evt) {
         String itemId = jTextField1.getText();
-        //GuiDB.getBinLocations(itemId);
+        int id = Integer.valueOf(itemId);
+        GuiDB temp = new GuiDB();
+        temp.getItemLocation(id);
         MainUI.highlightBin(10, 10);
         tempPanel.repaint();
         this.setVisible(false);
