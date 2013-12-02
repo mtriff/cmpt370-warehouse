@@ -74,7 +74,7 @@ public class ManagerUI extends javax.swing.JPanel {
         });
 
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price", "description"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price"}));
 
         jScrollPane1.setViewportView(jTable1);
 
@@ -315,7 +315,7 @@ public class ManagerUI extends javax.swing.JPanel {
      */
     private void addNewProduct() {
         //reset table
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price", "description"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price"}));
     }
 
     private void modityEmployee() {
