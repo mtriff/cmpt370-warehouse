@@ -49,22 +49,6 @@ public class StockPickerTable extends JComponent
     }
 
     /**
-     *
-     * @param itemNum The items inventory number
-     * @param palletTable the pallet number
-     * @return The object that was added
-     */
-    public Object[] addItem(int itemNum, javax.swing.JTable palletTable)
-    {
-        DefaultTableModel model = (DefaultTableModel) palletTable.getModel();
-        Object[] temp = database2.getShipmentList();
-        model.addRow(database.getProductDetails(itemNum));
-        return database.getProductDetails(itemNum);
-    }
-
-
-
-    /**
      *  Prints the table that is input
      * @param palletTable the table that is to be printed
      */

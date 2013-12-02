@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class StockhandlerDB implements StockhandlerDBInterface
 {
     /* Adds the orders items to the table */
+    @Override
     public Object[][] getOrder(int orderId)
     {
         try
@@ -56,7 +57,8 @@ public class StockhandlerDB implements StockhandlerDBInterface
         return null;
     }
 
-    public Integer[] getReadyOrderNummbers()
+    @Override
+    public Integer[] getReadyOrderNumbers()
     {
 
 //        Integer[] returnArr;
@@ -92,36 +94,4 @@ public class StockhandlerDB implements StockhandlerDBInterface
 
         return null;
     }
-
-
-    @Override
-    public Object[] getProductDetails(int prodId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] getProductLocation(int prodId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] getBinProducts(int binId)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] findBestPath(Object[] itemsObject[])
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] assignBins(Object[] itemsObject[])
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
