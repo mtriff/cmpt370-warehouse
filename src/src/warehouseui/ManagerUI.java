@@ -5,6 +5,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import manager.manageEmployee;
 import manager.manageProduct;
@@ -72,7 +74,7 @@ public class ManagerUI extends javax.swing.JPanel {
         });
 
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price", "description"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price"}));
 
         jScrollPane1.setViewportView(jTable1);
 
@@ -140,12 +142,26 @@ public class ManagerUI extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("OrderStock", new OrderStockUI());
 
-
         jButton7.setText("Add");
 
         jButton8.setText("Edit");
 
         jButton9.setText("Delete");
+
+        jTabbedPane1.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if (jTabbedPane1.getSelectedIndex() == 2) {
+                    jButton7.setEnabled(false);
+                    jButton8.setEnabled(false);
+                    jButton9.setEnabled(false);
+                }
+                else {
+                    jButton7.setEnabled(true);
+                    jButton8.setEnabled(true);
+                    jButton9.setEnabled(true);   
+                }
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         setLayout(layout);
@@ -299,7 +315,7 @@ public class ManagerUI extends javax.swing.JPanel {
      */
     private void addNewProduct() {
         //reset table
-        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price", "description"}));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newProduct.getProductList(), new String[]{"Number", "Name", "Quantity", "Category", "Size", "Weight", "Location", "Price"}));
     }
 
     private void modityEmployee() {
