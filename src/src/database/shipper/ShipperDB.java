@@ -187,26 +187,23 @@ public class ShipperDB implements ShipperDBInterface
         return null;
     }
 
+    @Override
     public boolean setNewShipment(shipmentTask newTask) {
-        String query="INSERT INTO shipments(sentDate, status, trackingNum, weight, destination) VALUES ("+newTask.getitemDate()+",pending,'"+newTask.getwayBill()+"', 30,'"+newTask.getitemDestination()+"');";
+        String query="INSERT INTO shipments(sentDate, status, trackingNum, weight, destination) VALUES ("+newTask.getitemDate()+",'pending','"+newTask.getwayBill()+"', 30,'"+newTask.getitemDestination()+"');";
         System.out.println(query);
         try
         {
+            MysqlDB.runQuery(query);
+
+            query="SELECT id FROM shipments ORDER BY id DESC LIMIT 1;";
             ResultSet results=MysqlDB.runQuery(query);
 
-            if(results!=null)
+            if(results.next())
             {
-                query="SELECT last_insert_id() AS last_id FROM shipments;";
-                results=MysqlDB.runQuery(query);
-                
-                query="INSERT INTO shipmentManifest values ("+results.getInt("last_id")+","+newTask.getItemNumber()+","+newTask.getitemQuantity()+");";
- 
-                results=MysqlDB.runQuery(query);
-                
-                if(results!=null)
-                {
-                    return true;
-                }
+                int theId=results.getInt(1);
+                query="INSERT INTO shipmentManifest values ("+theId+","+newTask.getItemNumber()+","+newTask.getitemQuantity()+") ON DUPLICATE KEY UPDATE quantity=quantity+"+newTask.getitemQuantity()+";";
+                MysqlDB.runQuery(query);
+                return true;
             }
         }
         catch (SQLException ex)

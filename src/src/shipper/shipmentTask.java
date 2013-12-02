@@ -35,12 +35,7 @@ public class shipmentTask
     {
         this.wayBill = wayBill;
     }
-//	public int getDeliveryTime() {
-//		return deliveryTime;
-//	}
-//	public void setDeliveryTime(int deliveryTime) {
-//		this.deliveryTime = deliveryTime;
-//	}
+
     public int getItemNumber()
     {
         return itemNumber;
@@ -110,11 +105,3 @@ public class shipmentTask
     }
 
 }
-//	private int wayBill;
-//	private int deliveryTime;
-//	private int itemNumber;
-//	private int itemQuantity;
-//	private String stockPicker;
-//	private String itemDestination;
-//	private int itemDate;
-//	private String itemName;

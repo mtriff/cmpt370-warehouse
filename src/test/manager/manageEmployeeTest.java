@@ -51,8 +51,7 @@ public class manageEmployeeTest {
      public void testGetEmployeeList() {
          System.out.println("getEmployeeList");
          Object[] expectedArray=null;
-         //manageEmployee mEmployee=new manageEmployee();
-         //ManagerDB managerDB = new ManagerDB();
+
          expectedArray=database.getEmployeesList();
          assertArrayEquals(expectedArray,mEmployee.getEmployeeList());
          

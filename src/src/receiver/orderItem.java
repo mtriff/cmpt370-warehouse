@@ -51,13 +51,6 @@ public class orderItem
     }
 
 
-//public int getOrderID() {
-//	return orderID;
-//}
-
-//public void setOrderID(int orderID) {
-//	this.orderID = orderID;
-//}
 
     public void setSize(float size)
     {

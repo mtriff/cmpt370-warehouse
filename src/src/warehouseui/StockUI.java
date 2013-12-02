@@ -38,8 +38,8 @@ public class StockUI extends javax.swing.JPanel {
         jLabel1.setText("jLabel1");
         StockhandlerDB stker;
         stker = new StockhandlerDB();
-        Integer[] dog = stker.getReadyOrderNummbers();
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(stker.getReadyOrderNummbers()));
+        Integer[] dog = stker.getReadyOrderNumbers();
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(stker.getReadyOrderNumbers()));
 
 
 
@@ -59,7 +59,7 @@ public class StockUI extends javax.swing.JPanel {
         },
                 new String[]{
             // "Label", "Start Time", "End Time"
-            "Object number", "location", "Name", "Quantity", "Description", "Completed", "Comments"
+            "Object number", "location", "Name", "Quantity", "Completed", "Comments"
         }));
         jScrollPane1.setViewportView(jTable1);
 
@@ -107,7 +107,7 @@ public class StockUI extends javax.swing.JPanel {
             Integer orderNumber;
             orderNumber = (Integer) cb.getSelectedItem();
 
-            jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) stkTable.loadTable(orderNumber), new String[]{"Object number", "location", "Name", "Quantity", "Description", "Completed", "Comments"}));
+            jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) stkTable.loadTable(orderNumber), new String[]{"Object number", "location", "Name", "Quantity", "Completed", "Comments"}));
         }
 
     }

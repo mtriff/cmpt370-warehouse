@@ -1,6 +1,7 @@
 package warehouseui;
 
 import database.gui.GuiDB;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -83,8 +84,19 @@ public class LocateBinPopup extends javax.swing.JFrame {
 
     private void locateBin(java.awt.event.ActionEvent evt) {
         String itemId = jTextField1.getText();
-        //GuiDB.getBinLocations(itemId);
-        MainUI.highlightBin(10, 10);
+        int id = 0;
+        try {
+        id = Integer.valueOf(itemId);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid Item ID Format (They are all numbers)");
+            return;
+        }
+        GuiDB temp = new GuiDB();
+        Integer[] bins = temp.getItemLocation(id);
+        for (int i = 0; i < bins.length; i++) {
+            String[] binsXY = temp.getBinIndicesFromID(bins[i]);
+            MainUI.highlightBin(Integer.valueOf(binsXY[0]), Integer.valueOf(binsXY[1]));
+        }
         tempPanel.repaint();
         this.setVisible(false);
     }

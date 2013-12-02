@@ -52,5 +52,6 @@ public class FuturePlanPopup extends javax.swing.JFrame {
     private String shipmentTitle[];
     private String dateTitle[];
     private futureShipment newfurture;
+
     // End of variables declaration
 }
