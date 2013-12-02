@@ -24,7 +24,7 @@ public class FuturePlanPopup extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        shipmentTitle = new String[]{"Number", "Name", "Quantity", "Destination", "Date"};
+        shipmentTitle = new String[]{"Number", "Name", "Quantity"};
         dateTitle = new String[]{"Date"};
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel((Object[][]) newfurture.getFurtureShip(), shipmentTitle));

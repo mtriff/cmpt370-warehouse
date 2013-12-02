@@ -21,7 +21,7 @@ public class ShippingUI extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        shipmentTitle = new String[]{"Number", "Name", "Quantity", "Destination", "Date"};
+        shipmentTitle = new String[]{"Number", "Name", "Quantity"};
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
