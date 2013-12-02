@@ -45,21 +45,7 @@ public class receiveOrder
         tempArray = database.getProductCategories();
         return tempArray;
     }
-    /**
-     * Add the order into database
-     * @return true if success, false otherwise
-     */
-//	public Boolean addToDatabse(){
-//            int tempID = -1;
-//            if(newOrder.getOrderID()==null)
-//                tempID = database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getsize()) ;
-//            else {
-//                orderItem itemsList[];
-//                itemsList[0] = newOrder;
-//                database.addItemsToOrder(orderID, itemsList);
-//            }
-//
-//	}
+
     public void addItemsToOrder()
     {
         orderItem itemsList[] = new orderItem[1];
@@ -71,13 +57,7 @@ public class receiveOrder
     {
         return database.addProduct(newOrder.getItemName(),newOrder.getItemCategory(), newOrder.getPrice(), newOrder.getSize(), newOrder.getWeight()) ;
     }
-///**
-// * set productID to orderItem
-// * @param productID
-//// */
-//	public void setProductID(int productID) {
-//
-//	}
+
     /**
      * set orderID to orderItem
      * @param orderID
